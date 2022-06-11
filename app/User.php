@@ -16,7 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        "name_restaurant",
+        "address",
+        "partita_iva", 
+        "email", 
+        "password",
     ];
 
     /**
@@ -25,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        "password", "remember_token",
     ];
 
     /**
@@ -34,6 +38,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+        "email_verified_at" => "datetime",
+    ]; 
+    public function type(){
+        return $this->belongsToMany("App\Model\Type");
+    }
+
+    public function order(){
+        return $this->hasMany("App\Model\Order");
+    }
+
+    public function review(){
+        return $this->hasMany("App\Model\Review");
+    }
 }
