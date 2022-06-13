@@ -46,13 +46,13 @@ class User extends Authenticatable
         return $this->belongsToMany("App\Model\Type");
     }
 
-    public function order()
-    {
-        return $this->hasMany("App\Model\Order");
-    }
+    // public function order()
+    // {
+    //     return $this->hasMany("App\Model\Order");
+    // }
 
-    public function review()
+    public function dishes()
     {
-        return $this->hasMany("App\Model\Review");
+        return $this->hasMany("App\Model\Dishes");
     }
 }

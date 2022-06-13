@@ -26,7 +26,7 @@ class CreateRelationDishesTableToOrdersTable extends Migration
                 ->references("id")
                 ->on("orders")->onDelete("cascade"); 
 
-            $table->tinyInteger("qunatity"); 
+            $table->tinyInteger("quantity"); 
             $table->timestamps();
         });
     }
