@@ -18,8 +18,8 @@ class User extends Authenticatable
     protected $fillable = [
         "name_restaurant",
         "address",
-        "partita_iva", 
-        "email", 
+        "vat_number",
+        "email",
         "password",
     ];
 
@@ -39,16 +39,20 @@ class User extends Authenticatable
      */
     protected $casts = [
         "email_verified_at" => "datetime",
-    ]; 
-    public function type(){
+    ];
+
+    public function type()
+    {
         return $this->belongsToMany("App\Model\Type");
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->hasMany("App\Model\Order");
     }
 
-    public function review(){
+    public function review()
+    {
         return $this->hasMany("App\Model\Review");
     }
 }

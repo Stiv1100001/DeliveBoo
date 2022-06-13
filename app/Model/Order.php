@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable=[
+    protected $fillable = [
         "name_customer",
         "address_customer",
         "phone_number_customer",
-        "prezzo_totale",
+        "total_price",
         "data"
     ];
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo("App\User");
     }
 
-    public function dish(){
+    public function dish()
+    {
         return $this->hasMany("App\Model\Dish");
     }
 }

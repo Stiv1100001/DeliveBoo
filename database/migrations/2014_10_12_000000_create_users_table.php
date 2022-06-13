@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string("name_restaurant");
             $table->string("address");
-            $table->string("partita_iva");
+            $table->string("vat_number");
             $table->string("email")->unique();
             $table->timestamp("email_verified_at")->nullable();
             $table->string("password");

@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
-    protected $fillables=[
+    protected $fillables = [
         "name",
         "description",
-        "prezzo",
+        "price",
         "availability"
     ];
 
-    public function order(){
+    public function order()
+    {
         return $this->hasMany("App\Model\Order");
     }
 }
