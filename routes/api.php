@@ -18,5 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// % Api restaurants
+Route::get('/restaurant', 'Api\RestaurantController@index')->name('api.restaurant.index');
+Route::get('/restaurant/{id}', 'Api\RestaurantController@show')->name('api.restaurant.show');
 
-Route::resource('/type', 'TypeController');
+// % Api dishes
+Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
+Route::get('/dish/{id}', 'Api\DishController@show')->name('api.dish.show');
+
+// % Api orders
+Route::post('/order', 'Api\OrderController@store')->name('api.order.store');
+Route::get('/order/{id}', 'Api\OrderController@show')->name('api.order.show');
