@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Dish;
 
 class DishesController extends Controller
 {
@@ -13,7 +14,9 @@ class DishesController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::paginate(10);
+
+        // return view('', compact("dishes));
     }
 
     /**
@@ -34,7 +37,28 @@ class DishesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required|max:250',
+            'price' => 'numeric',
+            'description' => 'string',
+            'ingredients' => 'string',
+            // TODO 'availability' => 'boolean'
+        ], [
+            'required' => 'Il campo è obbligatorio',
+            'price' => 'Il campo deve essere un numero',
+            'string' => 'Il campo deve contenere del testo'
+        ]);
+
+        $data = $request->all();
+
+        $newDish = new Dish();
+
+        $newDish->fill($data);
+        $newDish->user_id = Auth::user()->id;
+
+        $newDish->save();
+
+        // return ...
     }
 
     /**
@@ -43,9 +67,9 @@ class DishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        //
+        // retun view('', ['dish' => $dish]);
     }
 
     /**
@@ -68,7 +92,27 @@ class DishesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=> 'max:250',
+            'price' => 'numeric',
+            'description' => 'string',
+            'ingredients' => 'string',
+            // TODO 'availability' => 'boolean'
+        ], [
+            'required' => 'Il campo è obbligatorio',
+            'price' => 'Il campo deve essere un numero',
+            'string' => 'Il campo deve contenere del testo'
+        ]);
+
+        $data = $request->all();
+
+        $dish = Dish::findOrFail($id);
+
+        $dish->fill($data);
+
+        $dish->save();
+
+        // return ...
     }
 
     /**
@@ -77,8 +121,10 @@ class DishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+
+        // return ...
     }
 }
