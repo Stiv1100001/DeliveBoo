@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Order;
 
 class OrdersController extends Controller
 {
@@ -13,7 +14,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::paginate(10);
+
+        // ! return view()...
     }
 
     /**
@@ -34,7 +37,31 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate(
+            [
+                "name_customer" => 'required|string',
+                "address_customer" => 'required|string',
+                "phone_number_customer" => 'required',
+                "total_price" => 'required|numeric',
+                "data" => 'required|date'
+            ],
+            [
+                "required" => 'Il campo è obbligatorio',
+                "string" => "il campo deve contenere testo",
+                "numeric" => 'Il campo deve essere numerico',
+                "date" => 'IL campo deve essere una data'
+            ]
+        );
+
+        $newOrder = new Order();
+
+        $newOrder->fill($data);
+
+        $newOrder->save();
+
+        $newOrder->dish()->attach($data['dishes']);
     }
 
     /**
@@ -43,9 +70,9 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        //
+        // ! return view('', ['dish' => $dish]);
     }
 
     /**
@@ -77,8 +104,10 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        // ! return ...
     }
 }

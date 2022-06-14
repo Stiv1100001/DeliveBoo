@@ -14,7 +14,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return response()->json($types);
     }
 
     /**
@@ -35,7 +36,14 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newType = new Type();
+        $newType->name_type = $data['name_type'];
+
+        $newType->save();
+
+        // return redirect()->route();
     }
 
     /**
@@ -80,6 +88,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        // return redirect()
     }
 }
