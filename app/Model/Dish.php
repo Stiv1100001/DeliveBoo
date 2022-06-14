@@ -13,8 +13,13 @@ class Dish extends Model
         "availability"
     ];
 
+    public function user()
+    {
+        return $this->belongsTo("App\User");
+    } 
+
     public function order()
     {
-        return $this->hasMany("App\Model\Order");
+        return $this->belongsToMany("App\Model\Order")->withPivot("quantity");
     }
 }
