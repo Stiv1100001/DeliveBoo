@@ -15,11 +15,11 @@ class Dish extends Model
 
     public function user()
     {
-        return $this->belongsTo("App\Model\User");
+        return $this->belongsTo("App\User");
     } 
 
     public function order()
     {
-        return $this->belongsToMany("App\Model\Order");
+        return $this->belongsToMany("App\Model\Order")->withPivot("quantity");
     }
 }

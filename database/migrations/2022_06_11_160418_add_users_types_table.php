@@ -13,7 +13,7 @@ class AddUsersTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create("users_types", function (Blueprint $table){
+        Schema::create("type_user", function (Blueprint $table){
             $table->unsignedBigInteger("user_id"); 
             $table->foreign("user_id")
             ->references("id")
@@ -33,6 +33,6 @@ class AddUsersTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("users_types");
+        Schema::dropIfExists("type_user");
     }
 }

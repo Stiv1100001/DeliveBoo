@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder; 
 use App\Model\Order; 
-use App\Model\Dish;
+use App\Model\Dish; 
+use Faker\Generator as Faker;
 
 class OrderDishSeederTable extends Seeder
 {
@@ -11,8 +12,14 @@ class OrderDishSeederTable extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-       
+        $Orders= Order::all(); 
+        $Dishes = Dish::pluck("id")->toArray(); 
+
+        foreach($Orders as $order){
+            $dish= $faker->randomElements($Dishes, rand(1, 3));
+            $order->dish()->attach($dish, ["quantity"=> 1]);
+        } 
     }
 }

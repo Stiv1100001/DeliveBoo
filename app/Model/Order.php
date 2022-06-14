@@ -20,6 +20,6 @@ class Order extends Model
 
     public function dish()
     {
-        return $this->belongsToMany("App\Model\Dish");
+        return $this->belongsToMany("App\Model\Dish")->withPivot("quantity");
     }
 }
