@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Dish;
+use App\Http\Controllers\Auth;
 
 class DishesController extends Controller
 {
