@@ -68,7 +68,12 @@
                             </li>
                             <li  class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.dishes.index') }}" role=“button">
-                                    Dishes List
+                                    Lista piatti
+                                </a>
+                            </li>
+                            <li  class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.orders.index') }}" role=“button">
+                                    Lista ordini
                                 </a>
                             </li>
                         @endguest

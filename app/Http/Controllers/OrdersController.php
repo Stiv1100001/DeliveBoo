@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Dish;
 use Illuminate\Http\Request;
 use App\Model\Order;
 
@@ -16,7 +17,7 @@ class OrdersController extends Controller
     {
         $orders = Order::paginate(10);
 
-        return view('', compact('orders'));
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
