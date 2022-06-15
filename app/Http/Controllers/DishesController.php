@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Dish;
 use Illuminate\Support\Facades\Auth;
-//use App\Http\Controllers\Auth;
 
 class DishesController extends Controller
 {
@@ -16,9 +15,9 @@ class DishesController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::paginate(10);
+        $dishes = Dish::orderby('name', 'ASC')->paginate(10);
 
-        return view('', compact('dishes'));
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -28,7 +27,7 @@ class DishesController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('admin.dishes.create');
     }
 
     /**
@@ -46,9 +45,9 @@ class DishesController extends Controller
             'ingredients' => 'string',
             // TODO check 'availability' control
         ], [
-            'required' => 'Il campo è obbligatorio',
-            'price' => 'Il campo deve essere un numero',
-            'string' => 'Il campo deve contenere del testo'
+            'required' => 'Il campo :attribute è obbligatorio',
+            'price' => 'Il campo :attribute deve essere un numero',
+            'string' => 'Il campo :attribute deve contenere del testo'
         ]);
 
         $data = $request->all();
@@ -60,7 +59,7 @@ class DishesController extends Controller
 
         $newDish->save();
 
-        return view('');
+        return redirect()->route('admin.dishes.index', $newDish)->with('message', 'The new post ' . $newDish->name . ' was added successfully');;
     }
 
     /**
@@ -71,7 +70,7 @@ class DishesController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view('', ['dish' => $dish]);
+        return view('admin.dishes.show', ['dish' => $dish]);
     }
 
     /**
@@ -80,9 +79,9 @@ class DishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish)
     {
-        return view('');
+        return view('admin.dishes.edit', ['dish' => $dish]);
     }
 
     /**
@@ -92,7 +91,7 @@ class DishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
         $request->validate([
             'name'=> 'max:250',
@@ -108,13 +107,13 @@ class DishesController extends Controller
 
         $data = $request->all();
 
-        $dish = Dish::findOrFail($id);
+        
 
         $dish->fill($data);
 
         $dish->save();
 
-        return view('');
+        return redirect()->route('admin.dishes.index', $dish)->with('message', $dish->name . ' was changed successfully');
     }
 
     /**
@@ -126,7 +125,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-
-        return view('');
+        return redirect()->route("admin.dishes.index",$dish)->with('message', $dish->name .' was deleted successfully');
     }
 }
