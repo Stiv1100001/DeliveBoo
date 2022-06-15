@@ -34,6 +34,8 @@ class OrderController extends Controller
             ]
         );
 
+        // ! Payment
+
         $newOrder = new Order();
 
         $newOrder->fill($data);
@@ -41,6 +43,10 @@ class OrderController extends Controller
         $newOrder->save();
 
         $newOrder->dish()->attach($data['dishes']);
+
+        // ! Mail
+
+        return redirect()->route('api.order.show');
     }
 
     /**
