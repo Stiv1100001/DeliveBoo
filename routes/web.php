@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +28,17 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
     Route::get('/order', 'OrdersController@index')->name('order.index');
     Route::get('/order/{id}', 'OrdersController@show')->name('order.show');
-    Route::delete('/order/{id}', 'OrdersController@destroy')->name('order.destroy');
+    Route::delete('/order/{id}', 'OrdersController@destroy')->name('order.destroy'); 
+
+    // prova invio mail 
+    // Route::get("/mail", function() {
+    //     return view("mail.order");
+    // });
+
+
+});
+
+Route::get("/mail","OrderController@sendOrderMail");
+Route::namespace("Api")->group(function () {
+    Route::get("/mail","OrderController@sendOrderMail");
 });
