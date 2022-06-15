@@ -21,5 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/dish', 'DishController');
-Route::resource('/order', 'OrderController');
+Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
+    Route::resource('/dish', 'DishesController');
+
+    Route::get('/order', 'OrdersController@index')->name('order.index');
+    Route::get('/order/{id}', 'OrdersController@show')->name('order.show');
+    Route::delete('/order/{id}', 'OrdersController@destroy')->name('order.destroy');
+});
