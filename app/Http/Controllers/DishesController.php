@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Dish;
+use App\Http\Controllers\Auth;
 
 class DishesController extends Controller
 {
@@ -16,7 +17,7 @@ class DishesController extends Controller
     {
         $dishes = Dish::paginate(10);
 
-        // return view('', compact("dishes));
+        return view('', compact('dishes'));
     }
 
     /**
@@ -26,7 +27,7 @@ class DishesController extends Controller
      */
     public function create()
     {
-        //
+        return view('');
     }
 
     /**
@@ -42,7 +43,7 @@ class DishesController extends Controller
             'price' => 'numeric',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO 'availability' => 'boolean'
+            // TODO check 'availability' control
         ], [
             'required' => 'Il campo è obbligatorio',
             'price' => 'Il campo deve essere un numero',
@@ -58,7 +59,7 @@ class DishesController extends Controller
 
         $newDish->save();
 
-        // return ...
+        return view('');
     }
 
     /**
@@ -69,7 +70,7 @@ class DishesController extends Controller
      */
     public function show(Dish $dish)
     {
-        // retun view('', ['dish' => $dish]);
+        return view('', ['dish' => $dish]);
     }
 
     /**
@@ -80,7 +81,7 @@ class DishesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('');
     }
 
     /**
@@ -112,7 +113,7 @@ class DishesController extends Controller
 
         $dish->save();
 
-        // return ...
+        return view('');
     }
 
     /**
@@ -125,6 +126,6 @@ class DishesController extends Controller
     {
         $dish->delete();
 
-        // return ...
+        return view('');
     }
 }
