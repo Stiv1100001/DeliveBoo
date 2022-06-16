@@ -55,21 +55,21 @@ class OrderController extends Controller
     }
 
     public function sendOrderMail(){ 
-        $newOrder = new Order();
+        // $newOrder = new Order();
 
-        $newOrder->name_customer = "Carmie"; 
-        $newOrder->address_customer= "Via Gallo"; 
-        $newOrder->phone_number_customer= "1234457"; 
-        $newOrder->total_price= "123"; 
-        $newOrder->data= "2022-03-12";
-
-
-
-        $newOrder->save();
+        // $newOrder->name_customer = "Carmie"; 
+        // $newOrder->address_customer= "Via Gallo"; 
+        // $newOrder->phone_number_customer= "1234457"; 
+        // $newOrder->total_price= "123"; 
+        // $newOrder->data= "2022-03-12";
 
 
 
-        Mail::to("delibeboo@spssc.it")->send(new SendOrderMail($newOrder));
+        // $newOrder->save();
+
+
+
+        // Mail::to("delibeboo@spssc.it")->send(new SendOrderMail($newOrder));
     }
 
     /**

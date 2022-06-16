@@ -9,9 +9,9 @@
 <body>
     <h1> Di seguito troverai il riepilogo del tuo ordine</h1>
 
-    <p>{{$order->name_customer}}</p>
+    {{-- <p>{{$order->name_customer}}</p>
     <p>{{$order->address_customer}}</p>
-    <p>{{$order->total_price}}</p>
+    <p>{{$order->total_price}}</p> --}}
     
 </body>
 </html>
