@@ -3,16 +3,17 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12">
-                <h1 class="text-center fw-bold text-dark mb-5">Add a new dish</h1>
-            </div>
 
-            <div class="col-6">
-                <form class="border border-3 border-primary rounded p-3 bg-info" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
+            <div class="col-md-6 card create-box">
+                <form class="rounded p-3" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    
+                    <div class="col-12">
+                        <h1 class="text-center fw-bold text-dark mb-5">Aggiungi un piatto</h1>
+                    </div>
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Enter the name of the new dish</label>
+                        <label for="name" class="form-label">Inserisci nome piatto</label>
                         <input type="text" name="name" id="name" class="form-control">
                         @error('name')
                             <div class="alert alert-danger">
@@ -20,10 +21,9 @@
                             </div>
                         @enderror
                     </div>
-                
-                    
+
                     <div class="mb-3">
-                        <label for="description" class="form-label">Enter the description of the dish</label>
+                        <label for="description" class="form-label">Inserisci descrizione piatto</label>
                         <input type="text" name="description" id="description" class="form-control">
                         @error('description')
                             <div class="alert alert-danger">
@@ -31,10 +31,19 @@
                             </div>
                         @enderror
                     </div>
-                
-                    
+
                     <div class="mb-3">
-                        <label for="ingredients" class="form-label">Enter the ingredients of the dish</label>
+                        <label for="description" class="form-label">Inserisci ingredienti piatto</label>
+                        <input type="text" name="description" id="description" class="form-control">
+                        @error('description')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ingredients" class="form-label">Inserisci prezzo piatto</label>
                         <input type="text" name="ingredients" id="ingredients" class="form-control">
                         @error('ingredients')
                             <div class="alert alert-danger">
@@ -43,22 +52,15 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Enter the price of the dish</label>
-                        <input type="text" name="price" id="price" class="form-control">
-                        @error('price')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Disponibilità</label>
                     </div>
-                
 
-                    <button type="submit" class="btn btn-dark text-white">Public</button>
-                    
+                    <button type="submit" class="btn btn-dark text-white rounded-pill">Invia</button>
                 </form>
             </div>
         </div>
     </div>
 @endsection
-    
+
