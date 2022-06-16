@@ -59,7 +59,7 @@ class DishesController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('admin.dishes.index', $newDish)->with('message', 'The new post ' . $newDish->name . ' was added successfully');;
+        return redirect()->route('admin.dishes.index', $newDish)->with('message', 'The new post ' . $newDish->name . ' was added successfully');
     }
 
     /**
@@ -107,7 +107,7 @@ class DishesController extends Controller
 
         $data = $request->all();
 
-        
+
 
         $dish->fill($data);
 
@@ -125,6 +125,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        return redirect()->route("admin.dishes.index",$dish)->with('message', $dish->name .' was deleted successfully');
+        return redirect()->route("admin.dishes.index", $dish)->with('message', $dish->name .' was deleted successfully');
     }
 }

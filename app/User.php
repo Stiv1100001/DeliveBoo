@@ -41,7 +41,7 @@ class User extends Authenticatable
         "email_verified_at" => "datetime",
     ];
 
-    public function type()
+    public function types()
     {
         return $this->belongsToMany("App\Model\Type");
     }
