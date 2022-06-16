@@ -30,17 +30,4 @@ class OrdersController extends Controller
     {
         return view('', ['dish' => $dish]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        $order->delete();
-
-        return view('');
-    }
 }
