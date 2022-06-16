@@ -40,7 +40,7 @@ class DishesController extends Controller
     {
         $request->validate([
             'name'=> 'required|max:250',
-            'price' => 'numeric',
+            'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
             // TODO check 'availability' control
@@ -96,7 +96,7 @@ class DishesController extends Controller
     {
         $request->validate([
             'name'=> 'max:250',
-            'price' => 'numeric',
+            'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
             // TODO 'availability' => 'boolean'

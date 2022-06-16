@@ -97,7 +97,8 @@
                             <div class="col-md-6">
                                 <input id="vat_number" type="text"
                                     class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
-                                    value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
+                                    value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus
+                                    minlength="11" maxlength="11">
 
                                 @error('vat_number')
                                 <span class="invalid-feedback" role="alert">
