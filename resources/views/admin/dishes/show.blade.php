@@ -9,7 +9,7 @@
                 <p class="card-text">Descrizione: {{$dish->description}}</p>
                 <p class="card-text">ingredienti: {{$dish->ingredients}}</p>
                 <p class="card-text">Prezzo: {{$dish->price}} &euro;</p>
-                <p class="card-text">Aggiunto il: {{ DateTime::createFromFormat('Y-m-d H:m:s',
+                <p class="card-text">Aggiunto il: {{ DateTime::createFromFormat('Y-m-d H:i:s',
                     $dish->created_at)->format('d/m/Y H:m')}}</p>
             </div>
         </div>
