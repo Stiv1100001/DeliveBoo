@@ -51,6 +51,22 @@
                             </div>
                         @enderror
                     </div>
+<<<<<<< HEAD
+=======
+                
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" name="availability" id="availability" value="1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Visibile 
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" name="availability" id="availability" value="0">
+                        <label class="form-check-label" for="availability">
+                            Non visibile
+                        </label>
+                    </div>
+>>>>>>> b9fa587d3dc46825e863ee104e5608793f9f1696
 
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
