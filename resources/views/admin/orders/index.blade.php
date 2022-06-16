@@ -60,7 +60,6 @@
                 </div>
             </div>
 
-
                 @forelse ($orders as $order)
                     <div class="col">
                         <div class="card card-stepper">

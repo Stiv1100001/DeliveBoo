@@ -45,9 +45,9 @@ class DishesController extends Controller
             'ingredients' => 'string',
             // TODO check 'availability' control
         ], [
-            'required' => 'Il campo :attribute è obbligatorio',
-            'price' => 'Il campo :attribute deve essere un numero',
-            'string' => 'Il campo :attribute deve contenere del testo'
+            'required' => 'Il campo è obbligatorio',
+            'price' => 'Il campo deve essere un numero',
+            'string' => 'Il campo deve contenere del testo'
         ]);
 
         $data = $request->all();
@@ -58,6 +58,7 @@ class DishesController extends Controller
         $newDish->user_id = Auth::user()->id;
 
         $newDish->save();
+
 
         return redirect()->route('admin.dishes.index', $newDish)->with('message', 'The new post ' . $newDish->name . ' was added successfully');
     }
@@ -101,7 +102,7 @@ class DishesController extends Controller
             // TODO 'availability' => 'boolean'
         ], [
             'required' => 'Il campo è obbligatorio',
-            'price' => 'Il campo deve essere un numero',
+            'numeric' => 'Il campo deve essere un numero',
             'string' => 'Il campo deve contenere del testo'
         ]);
 
@@ -113,7 +114,7 @@ class DishesController extends Controller
 
         $dish->save();
 
-        return redirect()->route('admin.dishes.index', $dish)->with('message', $dish->name . ' was changed successfully');
+        return redirect()->route('admin.dishes.index', $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato modificato correttamente');
     }
 
     /**
@@ -125,6 +126,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        return redirect()->route("admin.dishes.index", $dish)->with('message', $dish->name .' was deleted successfully');
+        return redirect()->route("admin.dishes.index", $dish)->with('message', $dish->name . ' was deleted successfully');
     }
 }

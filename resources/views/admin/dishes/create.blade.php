@@ -16,48 +16,56 @@
                         <label for="name" class="form-label">Inserisci nome piatto</label>
                         <input type="text" name="name" id="name" class="form-control">
                         @error('name')
-                            <div class="alert alert-danger">
+                            <div class="alert mt-2 alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Inserisci descrizione piatto</label>
-                        <input type="text" name="description" id="description" class="form-control">
-                        @error('description')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                            <label for="description" class="form-label">Inserisci descrizione piatto</label>
+                            <textarea class="form-control" name="description" id="description" rows="5"></textarea>
+                            @error('description')
+                                <div class="alert mt-2 alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Inserisci ingredienti piatto</label>
-                        <input type="text" name="description" id="description" class="form-control">
-                        @error('description')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="ingredients" class="form-label">Inserisci prezzo piatto</label>
-                        <input type="text" name="ingredients" id="ingredients" class="form-control">
+                        <label for="ingredients" class="form-label">Inserisci ingredienti piatto</label>
+                        <textarea class="form-control" name="ingredients" id="ingredients" rows="5"></textarea>
                         @error('ingredients')
-                            <div class="alert alert-danger">
+                            <div class="alert mt-2 alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
 
-                    <div class="form-check form-switch mb-3">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Disponibilità</label>
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Inserisci prezzo piatto</label>
+                        <input type="text" name="price" id="price" class="form-control">
+                        @error('price')
+                            <div class="alert mt-2 alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
-                    <button type="submit" class="px-3 btn btn-dark text-white rounded-pill">Invia</button>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" name="availability" id="availability" value="1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Disponibile 
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" name="availability" id="availability" value="0">
+                        <label class="form-check-label" for="availability">
+                            Non disponibile
+                        </label>
+                    </div>
+
+                    <button type="submit" class="px-3 btn btn-dark text-white rounded-pill">Aggiungi</button>
                 </form>
             </div>
         </div>

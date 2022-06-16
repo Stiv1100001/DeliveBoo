@@ -13,13 +13,13 @@
             <table class="table table-dark table-hover col-12">
                 <thead>
                     <tr>
-                        <th class="fw-bold text-primary fs-2">Name</th>
-                        <th class="fw-bold text-primary fs-2">Description</th>
-                        <th class="fw-bold text-primary fs-2">Ingredients</th>
-                        <th class="fw-bold text-primary fs-2">Price</th>
+                        <th class="fw-bold text-primary fs-2">Nome</th>
+                        <th class="fw-bold text-primary fs-2">Descrizione</th>
+                        <th class="fw-bold text-primary fs-2">Ingredienti</th>
+                        <th class="fw-bold text-primary fs-2">Prezzo</th>
                         <th class="text-center">
                             <a href="{{route('admin.dishes.create')}}">
-                                <button class="btn btn-warning fw-bold">Add new dish</button>
+                                <button class="btn btn-warning fw-bold">Aggiungi piatto</button>
                             </a>
                         </th>
                     </tr>
@@ -41,18 +41,18 @@
                             </th>
                             <th class="d-flex justify-content-center">
                                 <a class="me-2" href="{{route('admin.dishes.edit', $dish)}}">
-                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-primary">Modifica</button>
                                 </a>
                                 <form action="{{route("admin.dishes.destroy", $dish)}}" method="POST" class="delete" dish-model="{{$dish->model}}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"> Delete </button>
+                                    <button type="submit" class="btn btn-danger">Elimina</button>
                                 </form> 
                             </th>
                         </tr>
                     @empty
                         <tr>
-                            <th colspan="3">There are no dishes to show</th>
+                            <th colspan="3">Non ci sono piatti da mostrare</th>
                         </tr>
                     @endforelse
                 </tbody>
