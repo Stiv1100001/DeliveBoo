@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
-    Route::resource('/dish', 'DishesController');
+    Route::resource('dishes', 'DishesController');
 
-    Route::get('/order', 'OrdersController@index')->name('order.index');
-    Route::get('/order/{id}', 'OrdersController@show')->name('order.show');
-    Route::delete('/order/{id}', 'OrdersController@destroy')->name('order.destroy');
+    Route::get('/orders', 'OrdersController@index')->name('orders.index');
+    Route::get('/orders/{id}', 'OrdersController@show')->name('orders.show');
+    Route::delete('/orders/{id}', 'OrdersController@destroy')->name('orders.destroy');
 });
