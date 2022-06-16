@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                             <label for="description" class="form-label">Inserisci descrizione piatto</label>
-                            <textarea class="form-control" id="description" rows="5"></textarea>
+                            <textarea class="form-control" name="description" id="description" rows="5"></textarea>
                             @error('description')
                                 <div class="alert mt-2 alert-danger">
                                     {{ $message }}
@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Inserisci ingredienti piatto</label>
-                        <textarea class="form-control" id="ingredients" rows="5"></textarea>
+                        <textarea class="form-control" name="ingredients" id="ingredients" rows="5"></textarea>
                         @error('ingredients')
                             <div class="alert mt-2 alert-danger">
                                 {{ $message }}
@@ -57,7 +57,7 @@
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                     </div>
 
-                    <button type="submit" class="px-3 btn btn-dark text-white rounded-pill">Invia</button>
+                    <button type="submit" class="px-3 btn btn-dark text-white rounded-pill">Aggiungi</button>
                 </form>
             </div>
         </div>
