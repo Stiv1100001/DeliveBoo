@@ -23,18 +23,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Inserisci descrizione piatto</label>
-                        <input type="text" name="description" id="description" class="form-control">
-                        @error('description')
-                            <div class="alert mt-2 alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                            <label for="description" class="form-label">Inserisci descrizione piatto</label>
+                            <textarea class="form-control" id="description" rows="5"></textarea>
+                            @error('description')
+                                <div class="alert mt-2 alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Inserisci ingredienti piatto</label>
-                        <input type="text" name="ingredients" id="ingredients" class="form-control">
+                        <textarea class="form-control" id="ingredients" rows="5"></textarea>
                         @error('ingredients')
                             <div class="alert mt-2 alert-danger">
                                 {{ $message }}
