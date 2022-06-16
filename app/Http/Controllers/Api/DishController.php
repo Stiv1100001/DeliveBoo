@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Model\Dish;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\DishResource;
+
 
 class DishController extends Controller
 {
@@ -17,10 +20,7 @@ class DishController extends Controller
     {
         $dishes = Dish::all();
 
-        return response()->json([
-            'success' => true,
-            'dishes' => $dishes
-        ]);
+        return DishResource::collection($dishes);
     }
 
     /**

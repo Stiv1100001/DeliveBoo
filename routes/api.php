@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Orders\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // % Api restaurants
 Route::get('/restaurant', 'Api\RestaurantController@index')->name('api.restaurant.index');
 Route::get('/restaurant/{id}', 'Api\RestaurantController@show')->name('api.restaurant.show');
+//% Api orders
+Route::get('/orders/generate', 'Api\Orders\OrderController@generate');
+Route::post('/orders/payments', 'Api\Orders\OrderController@payments');
 
 // % Api dishes
 Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
