@@ -16,7 +16,7 @@
                         <label for="name" class="form-label">Inserisci nome piatto</label>
                         <input type="text" name="name" id="name" class="form-control">
                         @error('name')
-                            <div class="alert alert-danger">
+                            <div class="alert mt-2 alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -26,27 +26,27 @@
                         <label for="description" class="form-label">Inserisci descrizione piatto</label>
                         <input type="text" name="description" id="description" class="form-control">
                         @error('description')
-                            <div class="alert alert-danger">
+                            <div class="alert mt-2 alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Inserisci ingredienti piatto</label>
-                        <input type="text" name="description" id="description" class="form-control">
-                        @error('description')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="ingredients" class="form-label">Inserisci prezzo piatto</label>
+                        <label for="ingredients" class="form-label">Inserisci ingredienti piatto</label>
                         <input type="text" name="ingredients" id="ingredients" class="form-control">
                         @error('ingredients')
-                            <div class="alert alert-danger">
+                            <div class="alert mt-2 alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Inserisci prezzo piatto</label>
+                        <input type="text" name="price" id="price" class="form-control">
+                        @error('price')
+                            <div class="alert mt-2 alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
