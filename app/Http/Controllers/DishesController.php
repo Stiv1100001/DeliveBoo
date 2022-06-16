@@ -11,11 +11,12 @@ class DishesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $dishes = Dish::orderby('name', 'ASC')->paginate(10);
+        $dishes = Dish::where('user_id', '=', Auth::user()->id)->orderby('name', 'ASC')->paginate(10);
+        // $dishes = Dish::orderby('name', 'ASC')->paginate(10);
 
         return view('admin.dishes.index', compact('dishes'));
     }
