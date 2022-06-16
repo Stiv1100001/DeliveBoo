@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Dish;
 use Illuminate\Http\Request;
 use App\Model\Order;
 

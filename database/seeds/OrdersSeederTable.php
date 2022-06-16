@@ -13,7 +13,7 @@ class OrdersSeederTable extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i <50 ; $i++) { 
+        for ($i=0; $i < 3 ; $i++) { 
             $newOrder = new Order(); 
             $newOrder->name_customer = $faker->name();
             $newOrder->address_customer= $faker->address(); 
