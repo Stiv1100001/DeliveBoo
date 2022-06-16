@@ -11,11 +11,11 @@ class DishesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $dishes = Dish::orderby('name', 'ASC')->paginate(10);
+        $dishes = Dish::where('user_id', '=', Auth::user()->id)->orderby('name', 'ASC')->paginate(10);
 
         return view('admin.dishes.index', compact('dishes'));
     }
@@ -23,7 +23,7 @@ class DishesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -67,7 +67,7 @@ class DishesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function show(Dish $dish)
     {
@@ -78,7 +78,7 @@ class DishesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function edit(Dish $dish)
     {
