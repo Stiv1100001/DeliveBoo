@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Dish;
 use Illuminate\Http\Request;
 use App\Model\Order;
 
@@ -28,18 +29,5 @@ class OrdersController extends Controller
     public function show(Dish $dish)
     {
         return view('', ['dish' => $dish]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        $order->delete();
-
-        return view('');
     }
 }
