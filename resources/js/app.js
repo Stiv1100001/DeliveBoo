@@ -21,9 +21,9 @@ window.Vue = require("vue");
 
 /* Vue.component('example-component', require('./components/ExampleComponent.vue').default); */
 import App from './views/App.vue';
-import { createPinia, PiniaVuePlugin } from "pinia";
+/* import { createPinia, PiniaVuePlugin } from "pinia";
 Vue.use(PiniaVuePlugin);
-const pinia = createPinia();
+const pinia = createPinia(); */
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
