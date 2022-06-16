@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
-    protected $fillables = [
+    protected $fillable = [
         "name",
         "description",
+        "ingredients",
         "price",
         "availability"
     ];

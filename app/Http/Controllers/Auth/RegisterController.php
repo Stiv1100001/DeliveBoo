@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Model\Type;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -41,6 +43,14 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    public function showRegistrationForm()
+    {
+        $types = Type::all();
+
+        return view('auth.register', compact('types'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,9 +60,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name_restaurant' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required', 'string'],
+            'vat_number' => ['required', 'string', 'min:11', 'max:11', 'unique:users,vat_number'],
+            'image_url' => ['required', 'file'],
+            'types' => [ 'required', 'array']
         ]);
     }
 
@@ -64,10 +78,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user =  User::create([
+            'name_restaurant' => $data['name_restaurant'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'vat_number' => $data['vat_number'],
+            // 'image_url' => Storage::put('uploads', $data['image_url'])
         ]);
+
+        $user->types()->attach($data['types']);
+        $user->image_url = Storage::put('uploads', $data['image_url']);
+        $user->save();
+
+        return $user;
     }
 }
