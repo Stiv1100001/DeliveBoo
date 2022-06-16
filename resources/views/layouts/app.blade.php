@@ -71,8 +71,13 @@
                                 </div>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}" role=“button">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.dishes.index') }}" role=“button">
-                                    Lista piatti
+                                    Menu
                                 </a>
                             </li>
                             {{-- <li class="nav-item">
