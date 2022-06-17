@@ -38,7 +38,7 @@ const app = new Vue({
     pinia,
 });
 
-//** delete single item car in db*/
+//** delete single item dish in db*/
 const deleteForms = document.querySelectorAll('.delete');
 deleteForms.forEach(singleForm => {
     singleForm.addEventListener('submit', function (event) {
