@@ -6,8 +6,12 @@
 
         <div class="col-md-6 card create-box">
             <form class="rounded p-3" action="{{route('admin.dishes.store')}}" method="POST"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" id="form">
                 @csrf
+
+                <div class="alert alert-danger d-none" id="error">
+                    <p id="error-message"></p>
+                </div>
 
                 <div class="col-12">
                     <h1 class="text-center fw-bold text-dark mb-5">Aggiungi un piatto</h1>
@@ -67,9 +71,14 @@
                     </label>
                 </div>
 
-                <button type="submit" class="px-3 btn btn-dark text-white rounded-pill">Aggiungi</button>
             </form>
+            <button type="" id="btn-submit-dish-create"
+                class="px-3 btn btn-dark text-white rounded-pill">Aggiungi</button>
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('js/validation.js')}}" defer></script>
 @endsection

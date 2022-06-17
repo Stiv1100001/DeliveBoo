@@ -11,6 +11,10 @@
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="form">
                         @csrf
 
+                        <div class="alert alert-danger d-none" id="error">
+                            <p id="error-message"></p>
+                        </div>
+
                         <div class="form-group row mb-2">
                             <label for="name_restaurant" class="col-md-4 col-form-label text-md-right">{{ __('Nome
                                 Ristorante*')
@@ -156,7 +160,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button {{-- type="submit" --}} class="btn btn-primary" id="btn-submit">
+                                <button class="btn btn-primary" id="btn-submit-register">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -170,47 +174,5 @@
 @endsection
 
 @section('script')
-<script>
-    function checkLength(param, length = 1, max = false) {
-
-        if (max) {
-            return param.length == length
-        } else {
-            return param.length >= length
-        }
-    }
-
-    document.getElementById('btn-submit').addEventListener('click', (event) => {
-        const form = document.getElementById('form')
-
-        const inputs = form.elements;
-        const errors = [];
-
-        if (!checkLength(inputs.name_restaurant.value.trim())) {
-            errors.push('Il nome del ristorante è obbligatorio')
-        }
-
-        if (!checkLength(inputs.address.value.trim())) {
-            errors.push('L\'indirizzo è obbligatorio')
-        }
-
-        if (!checkLength(inputs.password.value.trim(), 8)) {
-            errors.push('La password è obbligatorio e deve essere almeno 8 caratteri')
-        }
-
-        if (!checkLength(inputs.password_confimration.value.trim(), 8)) {
-            errors.push('La password va confermata')
-        }
-
-        if (!checkLength(inputs.vat_number.value.trim(), 11, true)) {
-            errors.push('La Partita Iva è obbligatoria e di 11 caratteri')
-        }
-
-        // if(!elements.email.match(/^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/)) {
-        //     errors.push('La mail è obbligatoria e deve essere una mail fatta bene dio santo')
-        // }
-
-        console.error(errors)
-    })
-</script>
+<script src="{{ asset('js/validation.js')}}"></script>
 @endsection
