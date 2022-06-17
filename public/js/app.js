@@ -53462,7 +53462,7 @@ var app = new Vue({
   el: "#app",
   // render: h => h(App),
   pinia: pinia
-}); //** delete single item dish in db*/
+}); //** delete single item car in db*/
 
 var deleteForms = document.querySelectorAll('.delete');
 deleteForms.forEach(function (singleForm) {
