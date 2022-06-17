@@ -8,11 +8,12 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="form">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name_restaurant" class="col-md-4 col-form-label text-md-right">{{ __('Name')
+                        <div class="form-group row mb-2">
+                            <label for="name_restaurant" class="col-md-4 col-form-label text-md-right">{{ __('Nome
+                                Ristorante*')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -29,8 +30,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address')
+                        <div class="form-group row mb-2">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail*')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -45,8 +46,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password')
+                        <div class="form-group row mb-2">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -62,9 +63,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row mb-2">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm
-                                Password') }}</label>
+                                Password*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -74,8 +75,9 @@
 
 
                         {{-- Custom field --}}
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo*')
+                                }}</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text"
@@ -90,8 +92,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva')
+                        <div class="form-group row mb-2">
+                            <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva*')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -108,8 +110,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="image_url" class="col-md-4 col-form-label text-md-right">{{ __('Immagine')
+                        <div class="form-group row mb-2">
+                            <label for="image_url" class="col-md-4 col-form-label text-md-right">{{ __('Immagine
+                                profilo*')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -125,8 +128,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <span class="col-md-5 col-form-label text-md-right">Categorie</span>
+                        <div class="form-group row mb-2">
+                            <span class="col-md-5 col-form-label text-md-right">Categorie*</span>
                             @error('categories')
                             <span class="invalid-feedback" role="alert">
                                 <strong>At least one category has to be checked</strong>
@@ -153,7 +156,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button {{-- type="submit" --}} class="btn btn-primary" id="btn-submit">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -164,4 +167,50 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    function checkLength(param, length = 1, max = false) {
+
+        if (max) {
+            return param.length == length
+        } else {
+            return param.length >= length
+        }
+    }
+
+    document.getElementById('btn-submit').addEventListener('click', (event) => {
+        const form = document.getElementById('form')
+
+        const inputs = form.elements;
+        const errors = [];
+
+        if (!checkLength(inputs.name_restaurant.value.trim())) {
+            errors.push('Il nome del ristorante è obbligatorio')
+        }
+
+        if (!checkLength(inputs.address.value.trim())) {
+            errors.push('L\'indirizzo è obbligatorio')
+        }
+
+        if (!checkLength(inputs.password.value.trim(), 8)) {
+            errors.push('La password è obbligatorio e deve essere almeno 8 caratteri')
+        }
+
+        if (!checkLength(inputs.password_confimration.value.trim(), 8)) {
+            errors.push('La password va confermata')
+        }
+
+        if (!checkLength(inputs.vat_number.value.trim(), 11, true)) {
+            errors.push('La Partita Iva è obbligatoria e di 11 caratteri')
+        }
+
+        // if(!elements.email.match(/^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/)) {
+        //     errors.push('La mail è obbligatoria e deve essere una mail fatta bene dio santo')
+        // }
+
+        console.error(errors)
+    })
+</script>
 @endsection
