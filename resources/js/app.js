@@ -19,12 +19,10 @@ window.Vue = require("vue");
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-/* Vue.component('example-component', require('./components/ExampleComponent.vue').default); */
-import App from './views/App.vue';
 /* import { createPinia, PiniaVuePlugin } from "pinia";
 Vue.use(PiniaVuePlugin);
-const pinia = createPinia(); */
-
+const pinia = createPinia();
+ */
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,13 +30,12 @@ const pinia = createPinia(); */
  */
 
 const app = new Vue({
-    el: '#app',
-    render: h => h(App),
+    el: "#app",
     // render: h => h(App),
     pinia,
 });
 
-//** delete single item dish in db*/
+//** delete single item car in db*/
 const deleteForms = document.querySelectorAll('.delete');
 deleteForms.forEach(singleForm => {
     singleForm.addEventListener('submit', function (event) {
