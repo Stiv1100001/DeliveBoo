@@ -19,9 +19,9 @@ window.Vue = require("vue");
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-import { createPinia, PiniaVuePlugin } from "pinia";
-Vue.use(PiniaVuePlugin);
-const pinia = createPinia();
+// import { createPinia, PiniaVuePlugin } from "pinia";
+// Vue.use(PiniaVuePlugin);
+// const pinia = createPinia();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,17 +32,19 @@ const pinia = createPinia();
 const app = new Vue({
     el: "#app",
     // render: h => h(App),
-    pinia,
+    // pinia,
 });
 
 //** delete single item dish in db*/
-const deleteForms = document.querySelectorAll('.delete');
-deleteForms.forEach(singleForm => {
-    singleForm.addEventListener('submit', function (event) {
+const deleteForms = document.querySelectorAll(".delete");
+deleteForms.forEach((singleForm) => {
+    singleForm.addEventListener("submit", function (event) {
         event.preventDefault(); // § blocchiamo l'invio del form
-        userConfirmation = window.confirm(`Sei sicuro di voler eliminare ${this.getAttribute('dish-model')}?`);
+        let userConfirmation = window.confirm(
+            `Sei sicuro di voler eliminare ${this.getAttribute("dish-model")}?`
+        );
         if (userConfirmation) {
             this.submit();
         }
-    })
+    });
 });

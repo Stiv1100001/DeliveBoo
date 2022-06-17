@@ -55810,8 +55810,8 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -55833,6 +55833,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// import { createPinia, PiniaVuePlugin } from "pinia";
+// Vue.use(PiniaVuePlugin);
+// const pinia = createPinia();
 
 
 Vue.use(pinia__WEBPACK_IMPORTED_MODULE_0__["PiniaVuePlugin"]);
@@ -55849,12 +55852,14 @@ var app = new Vue({
   pinia: pinia
 }); //** delete single item dish in db*/
 
-var deleteForms = document.querySelectorAll('.delete');
+}); //** delete single item dish in db*/
+
+var deleteForms = document.querySelectorAll(".delete");
 deleteForms.forEach(function (singleForm) {
-  singleForm.addEventListener('submit', function (event) {
+  singleForm.addEventListener("submit", function (event) {
     event.preventDefault(); // § blocchiamo l'invio del form
 
-    userConfirmation = window.confirm("Sei sicuro di voler eliminare ".concat(this.getAttribute('dish-model'), "?"));
+    var userConfirmation = window.confirm("Sei sicuro di voler eliminare ".concat(this.getAttribute("dish-model"), "?"));
 
     if (userConfirmation) {
       this.submit();
