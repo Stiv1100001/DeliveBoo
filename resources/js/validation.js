@@ -6,9 +6,12 @@ function checkLength(string, length = 1, max = false) {
   }
 }
 
-document
-  .getElementById("btn-submit-register")
-  .addEventListener("click", (event) => {
+const btnSubmitRegister = document.getElementById("btn-submit-register");
+const btnSubmitDishCreate = document.getElementById("btn-submit-dish-create");
+const btnSubmitDishEdit = document.getElementById("btn-submit-dish-edit");
+
+if (btnSubmitRegister) {
+  btnSubmitRegister.addEventListener("click", (event) => {
     event.preventDefault();
 
     const form = document.getElementById("form");
@@ -64,10 +67,10 @@ document
       form.submit();
     }
   });
+}
 
-document
-  .getElementById("btn-submit-dish-create")
-  .addEventListener("click", (event) => {
+if (btnSubmitDishCreate) {
+  btnSubmitDishCreate.addEventListener("click", (event) => {
     event.preventDefault();
 
     const form = document.getElementById("form");
@@ -85,7 +88,7 @@ document
       errors.push("Il nome è obbligatorio");
     }
 
-    if (!isNaN(inputs.price.value)) {
+    if (isNaN(inputs.price.value)) {
       errors.push("Il prezzo è obbligatorio");
     }
 
@@ -101,10 +104,10 @@ document
       form.submit();
     }
   });
+}
 
-document
-  .getElementById("btn-submit-dish-edit")
-  .addEventListener("click", (event) => {
+if (btnSubmitDishEdit) {
+  btnSubmitDishEdit.addEventListener("click", (event) => {
     event.preventDefault();
 
     const form = document.getElementById("form");
@@ -122,7 +125,7 @@ document
       errors.push("Il nome è obbligatorio");
     }
 
-    if (!isNaN(inputs.price.value)) {
+    if (isNaN(inputs.price.value)) {
       errors.push("Il prezzo è obbligatorio");
     }
 
@@ -138,3 +141,4 @@ document
       form.submit();
     }
   });
+}

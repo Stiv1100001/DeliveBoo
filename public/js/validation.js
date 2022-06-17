@@ -104,109 +104,121 @@ function checkLength(string) {
   }
 }
 
-document.getElementById("btn-submit-register").addEventListener("click", function (event) {
-  event.preventDefault();
-  var form = document.getElementById("form");
-  var errorDiv = document.getElementById("error");
-  var errorMessage = document.getElementById("error-message");
-  errorDiv.classList.add("d-none");
-  errorMessage.innerHTML = "";
-  var inputs = form.elements;
-  var errors = [];
+var btnSubmitRegister = document.getElementById("btn-submit-register");
+var btnSubmitDishCreate = document.getElementById("btn-submit-dish-create");
+var btnSubmitDishEdit = document.getElementById("btn-submit-dish-edit");
 
-  if (!checkLength(inputs.name_restaurant.value.trim())) {
-    errors.push("Il nome del ristorante è obbligatorio");
-  }
+if (btnSubmitRegister) {
+  btnSubmitRegister.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
 
-  if (!checkLength(inputs.address.value.trim())) {
-    errors.push("L'indirizzo è obbligatorio");
-  }
+    if (!checkLength(inputs.name_restaurant.value.trim())) {
+      errors.push("Il nome del ristorante è obbligatorio");
+    }
 
-  if (!checkLength(inputs.password.value.trim(), 8)) {
-    errors.push("La password è obbligatorio e deve essere almeno 8 caratteri");
-  }
+    if (!checkLength(inputs.address.value.trim())) {
+      errors.push("L'indirizzo è obbligatorio");
+    }
 
-  if (!checkLength(inputs.password_confirmation.value.trim(), 8)) {
-    errors.push("La password va confermata");
-  }
+    if (!checkLength(inputs.password.value.trim(), 8)) {
+      errors.push("La password è obbligatorio e deve essere almeno 8 caratteri");
+    }
 
-  if (!checkLength(inputs.vat_number.value.trim(), 11, true)) {
-    errors.push("La Partita Iva è obbligatoria e di 11 caratteri");
-  }
+    if (!checkLength(inputs.password_confirmation.value.trim(), 8)) {
+      errors.push("La password va confermata");
+    }
 
-  if (!inputs.email.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-    errors.push("La mail è obbligatoria e deve essere una mail corretta");
-  }
+    if (!checkLength(inputs.vat_number.value.trim(), 11, true)) {
+      errors.push("La Partita Iva è obbligatoria e di 11 caratteri");
+    }
 
-  if (errors.length) {
-    errorMessage.innerHTML += "<ul>";
-    errors.forEach(function (e) {
-      errorMessage.innerHTML += "<li>".concat(e, "</li>");
-    });
-    errorMessage.innerHTML += "</ul>";
-    errorDiv.classList.remove("d-none");
-  } else {
-    form.submit();
-  }
-});
-document.getElementById("btn-submit-dish-create").addEventListener("click", function (event) {
-  event.preventDefault();
-  var form = document.getElementById("form");
-  var errorDiv = document.getElementById("error");
-  var errorMessage = document.getElementById("error-message");
-  errorDiv.classList.add("d-none");
-  errorMessage.innerHTML = "";
-  var inputs = form.elements;
-  var errors = [];
+    if (!inputs.email.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+      errors.push("La mail è obbligatoria e deve essere una mail corretta");
+    }
 
-  if (!checkLength(inputs.name.value.trim())) {
-    errors.push("Il nome è obbligatorio");
-  }
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
 
-  if (!isNaN(inputs.price.value)) {
-    errors.push("Il prezzo è obbligatorio");
-  }
+if (btnSubmitDishCreate) {
+  btnSubmitDishCreate.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
 
-  if (errors.length) {
-    errorMessage.innerHTML += "<ul>";
-    errors.forEach(function (e) {
-      errorMessage.innerHTML += "<li>".concat(e, "</li>");
-    });
-    errorMessage.innerHTML += "</ul>";
-    errorDiv.classList.remove("d-none");
-  } else {
-    form.submit();
-  }
-});
-document.getElementById("btn-submit-dish-edit").addEventListener("click", function (event) {
-  event.preventDefault();
-  var form = document.getElementById("form");
-  var errorDiv = document.getElementById("error");
-  var errorMessage = document.getElementById("error-message");
-  errorDiv.classList.add("d-none");
-  errorMessage.innerHTML = "";
-  var inputs = form.elements;
-  var errors = [];
+    if (!checkLength(inputs.name.value.trim())) {
+      errors.push("Il nome è obbligatorio");
+    }
 
-  if (!checkLength(inputs.name.value.trim())) {
-    errors.push("Il nome è obbligatorio");
-  }
+    if (isNaN(inputs.price.value)) {
+      errors.push("Il prezzo è obbligatorio");
+    }
 
-  if (!isNaN(inputs.price.value)) {
-    errors.push("Il prezzo è obbligatorio");
-  }
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
 
-  if (errors.length) {
-    errorMessage.innerHTML += "<ul>";
-    errors.forEach(function (e) {
-      errorMessage.innerHTML += "<li>".concat(e, "</li>");
-    });
-    errorMessage.innerHTML += "</ul>";
-    errorDiv.classList.remove("d-none");
-  } else {
-    form.submit();
-  }
-});
+if (btnSubmitDishEdit) {
+  btnSubmitDishEdit.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
+
+    if (!checkLength(inputs.name.value.trim())) {
+      errors.push("Il nome è obbligatorio");
+    }
+
+    if (isNaN(inputs.price.value)) {
+      errors.push("Il prezzo è obbligatorio");
+    }
+
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
 
 /***/ }),
 
