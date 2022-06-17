@@ -53425,12 +53425,9 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'pinia'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -53448,10 +53445,10 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// import { createPinia, PiniaVuePlugin } from "pinia";
+// Vue.use(PiniaVuePlugin);
+// const pinia = createPinia();
 
-
-Vue.use(!(function webpackMissingModule() { var e = new Error("Cannot find module 'pinia'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-var pinia = !(function webpackMissingModule() { var e = new Error("Cannot find module 'pinia'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -53459,17 +53456,17 @@ var pinia = !(function webpackMissingModule() { var e = new Error("Cannot find m
  */
 
 var app = new Vue({
-  el: "#app",
-  // render: h => h(App),
-  pinia: pinia
-}); //** delete single item car in db*/
+  el: "#app" // render: h => h(App),
+  // pinia,
 
-var deleteForms = document.querySelectorAll('.delete');
+}); //** delete single item dish in db*/
+
+var deleteForms = document.querySelectorAll(".delete");
 deleteForms.forEach(function (singleForm) {
-  singleForm.addEventListener('submit', function (event) {
+  singleForm.addEventListener("submit", function (event) {
     event.preventDefault(); // § blocchiamo l'invio del form
 
-    userConfirmation = window.confirm("Sei sicuro di voler eliminare ".concat(this.getAttribute('dish-model'), "?"));
+    var userConfirmation = window.confirm("Sei sicuro di voler eliminare ".concat(this.getAttribute("dish-model"), "?"));
 
     if (userConfirmation) {
       this.submit();
@@ -53542,8 +53539,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi boolean\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi boolean\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
