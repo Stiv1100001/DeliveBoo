@@ -6,6 +6,7 @@
             </div>
 
                 <Product v-for="(product,index) in prodotti" :key="index" :product="product"  />
+                ciao
 
         </div>
         <!--  -->
