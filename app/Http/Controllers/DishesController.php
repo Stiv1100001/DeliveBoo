@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Model\Dish;
 use Illuminate\Support\Facades\Auth;
 
-
 class DishesController extends Controller
 {
     /**
@@ -44,7 +43,6 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO check 'availability' control
         ], [
             'required' => 'Il campo è obbligatorio',
             'price' => 'Il campo deve essere un numero',
@@ -54,6 +52,10 @@ class DishesController extends Controller
         $data = $request->all();
 
         $newDish = new Dish();
+
+        if (!isset($data['availabity'])) {
+            $data['availability'] = false;
+        }
 
         $newDish->fill($data);
         $newDish->user_id = Auth::user()->id;
@@ -113,7 +115,6 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO 'availability' => 'boolean'
         ], [
             'required' => 'Il campo è obbligatorio',
             'numeric' => 'Il campo deve essere un numero',
@@ -122,6 +123,9 @@ class DishesController extends Controller
 
         $data = $request->all();
 
+        if (!isset($data['availabity'])) {
+            $data['availability'] = false;
+        }
 
 
         $dish->fill($data);

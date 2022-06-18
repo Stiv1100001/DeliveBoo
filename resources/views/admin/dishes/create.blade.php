@@ -58,18 +58,18 @@
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="radio" name="availability" id="availability" value="1"
+                    <input class="form-check-input" type="checkbox" name="availability" id="availability" value="1"
                         checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Disponibile
                     </label>
                 </div>
-                <div class="form-check form-switch">
+                {{-- <div class="form-check form-switch">
                     <input class="form-check-input" type="radio" name="availability" id="availability" value="0">
                     <label class="form-check-label" for="availability">
                         Non disponibile
                     </label>
-                </div>
+                </div> --}}
 
             </form>
             <button type="" id="btn-submit-dish-create"
