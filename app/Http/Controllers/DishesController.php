@@ -43,7 +43,6 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO check 'availability' control
         ], [
             'required' => 'Il campo è obbligatorio',
             'price' => 'Il campo deve essere un numero',
@@ -53,6 +52,10 @@ class DishesController extends Controller
         $data = $request->all();
 
         $newDish = new Dish();
+
+        if (!isset($data['availabity'])) {
+            $data['availability'] = false;
+        }
 
         $newDish->fill($data);
         $newDish->user_id = Auth::user()->id;
@@ -71,6 +74,10 @@ class DishesController extends Controller
      */
     public function show(Dish $dish)
     {
+        if ($dish->user_id != Auth::user()->id) {
+            abort(401, 'Unauthorized action.');
+        }
+
         return view('admin.dishes.show', ['dish' => $dish]);
     }
 
@@ -82,6 +89,10 @@ class DishesController extends Controller
      */
     public function edit(Dish $dish)
     {
+        if ($dish->user_id != Auth::user()->id) {
+            abort(401, 'Unauthorized action.');
+        }
+
         return view('admin.dishes.edit', ['dish' => $dish]);
     }
 
@@ -94,12 +105,16 @@ class DishesController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
+        if ($dish->user_id != Auth::user()->id) {
+            abort(401, 'Unauthorized action.');
+        }
+
+
         $request->validate([
             'name'=> 'max:250',
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO 'availability' => 'boolean'
         ], [
             'required' => 'Il campo è obbligatorio',
             'numeric' => 'Il campo deve essere un numero',
@@ -108,6 +123,9 @@ class DishesController extends Controller
 
         $data = $request->all();
 
+        if (!isset($data['availabity'])) {
+            $data['availability'] = false;
+        }
 
 
         $dish->fill($data);
@@ -126,6 +144,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        return redirect()->route("admin.dishes.index", $dish)->with('message','Il piatto ' . $dish->name . ' è stato modificato correttamente');
+        return redirect()->route("admin.dishes.index", $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato modificato correttamente');
     }
 }
