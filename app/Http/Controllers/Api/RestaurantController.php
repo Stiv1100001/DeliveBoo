@@ -32,4 +32,18 @@ class RestaurantController extends Controller
 
         return response()->json($user);
     }
+
+
+    public function search(Request $request)
+    {
+        $data = $request->all();
+
+        $typeIds = $data['types'];
+
+        $users = User::whereHas('types', function ($q) use ($typeIds) {
+            $q->whereIn('id', $typeIds);
+        })->with('types')->get();
+
+        return response()->json($users);
+    }
 }

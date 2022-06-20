@@ -22,8 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // % Api restaurants
 Route::get('/restaurant', 'Api\RestaurantController@index')->name('api.restaurant.index');
 Route::get('/restaurant/{id}', 'Api\RestaurantController@show')->name('api.restaurant.show');
-//% Api orders
-
+Route::post('/restaurant/search', 'Api\RestaurantController@search')->name('api.restaurant.search');
 
 // % Api dishes
 Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
