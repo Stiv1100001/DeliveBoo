@@ -69,6 +69,7 @@
                         Piatto disponibile
                     </label>
                 </div>
+
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="radio" name="availability" id="availability" value="0"
                         {{$dish->availability == 0 ? 'checked' : '' }}>
@@ -76,6 +77,7 @@
                         Piatto non disponibile
                     </label>
                 </div>
+
 
                 <button id="btn-submit-dish-edit" class="btn btn-dark text-white">Invia</button>
 
