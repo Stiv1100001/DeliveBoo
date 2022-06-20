@@ -63,12 +63,21 @@
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="availability" id="availability" value="1"
+                    <input class="form-check-input" type="radio" name="availability" id="availability" value="1"
                         {{$dish->availability == 1 ? 'checked' : '' }}>
                     <label class="form-check-label" for="exampleRadios1">
                         Piatto disponibile
                     </label>
                 </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="radio" name="availability" id="availability" value="0"
+                        {{$dish->availability == 0 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="availability">
+                        Piatto non disponibile
+                    </label>
+                </div>
+
 
                 <button id="btn-submit-dish-edit" class="btn btn-dark text-white">Invia</button>
 

@@ -106,7 +106,7 @@ if (btnSubmitDishCreate) {
       errors.push("Il nome è obbligatorio");
     }
 
-    console.log(parseFloat(inputs.price.value));
+
 
     if (
       !inputs.price.value ||
@@ -151,11 +151,13 @@ if (btnSubmitDishEdit) {
       errors.push("Il nome è obbligatorio");
     }
 
+
     if (
       !inputs.price.value ||
       isNaN(inputs.price.value) ||
       parseFloat(inputs.price.value) < 0
     ) {
+
       errors.push("Il prezzo è obbligatorio");
     }
 
