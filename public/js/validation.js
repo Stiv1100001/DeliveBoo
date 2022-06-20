@@ -229,7 +229,7 @@ if (btnSubmitDishEdit) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\si_mo\Desktop\boolean\DeliveBoo\resources\js\validation.js */"./resources/js/validation.js");
+module.exports = __webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\js\validation.js */"./resources/js/validation.js");
 
 
 /***/ })

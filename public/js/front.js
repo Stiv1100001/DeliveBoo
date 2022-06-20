@@ -2605,7 +2605,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "text" }, [
-    _vm._v("\n    " + _vm._s(_vm.$route.params.id) + "\n"),
+    _vm._v("\r\n    " + _vm._s(_vm.$route.params.id) + "\r\n"),
   ])
 }
 var staticRenderFns = []
@@ -19685,8 +19685,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\si_mo\Desktop\boolean\DeliveBoo\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\si_mo\Desktop\boolean\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
