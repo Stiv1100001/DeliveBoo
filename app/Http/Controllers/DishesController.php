@@ -144,6 +144,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        return redirect()->route("admin.dishes.index", $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato modificato correttamente');
+        return redirect()->route("admin.dishes.index", $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato eliminato correttamente');
     }
 }
