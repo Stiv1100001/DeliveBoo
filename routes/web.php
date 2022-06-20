@@ -23,9 +23,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
-    Route::resource('dishes', 'DishesController');
+    Route::resource('dishes', 'Api\DishController');
 
     Route::get('/orders', 'OrdersController@index')->name('orders.index');
     Route::get('/orders/{id}', 'OrdersController@show')->name('orders.show');
     Route::delete('/orders/{id}', 'OrdersController@destroy')->name('orders.destroy');
 });
+Route::get('/{any}', function () {
+    return view('welcome');})->where('any', '.*');

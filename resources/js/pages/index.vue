@@ -4,12 +4,9 @@
             <div class="col-12" v-if="loading">
                 {{ loading }}
             </div>
-
                 <Product v-for="(product,index) in prodotti" :key="index" :product="product"  />
-                ciao
-
         </div>
-        <!--  -->
+
     </div>
 </template>
 
@@ -32,7 +29,7 @@ export default {
         methods: {
             getProduct(){
                 this.loading = true;
-                axios.get('./api/dishes')
+                axios.get('/api/dishes')
                 .then(response => {
                     this.prodotti = response.data.data;
                     this.loading = false;

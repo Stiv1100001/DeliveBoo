@@ -13,12 +13,18 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+
     <!-- Animation CSS -->
     <link href="./assets/css/vendor/aos.css" rel="stylesheet" />
 </head>
 
 <body>
-    <header class="p-3">
+    <div id="root">
+
+    </div>
+
+
+    {{-- <header class="p-3">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -63,8 +69,8 @@
                 </div>
             </div>
         </nav>
-    </header>
-
+    </header> --}}
+    <script src=" {{ asset('js/front.js') }} "></script>
 </body>
 
 </html>

@@ -6,9 +6,9 @@
                     <p class="card-text">{{product.description}}</p>
                     <p class="card-text">{{product.ingredients}}</p>
                     <p class="card-text"> &euro;{{product.price}}</p>
-
-
-                        <button class="btn btn-primary">Aggiungi al carrello</button>
+                    <router-link :to="{name:'single-product', params:{id: product.id}}">
+                        <button class="btn btn-primary">ACQUISTA</button>
+                    </router-link>
 
                 </div>
         </div>

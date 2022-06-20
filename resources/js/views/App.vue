@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ExampleComponent />
+        <router-view></router-view>
+
     </div>
 
 
@@ -8,12 +9,14 @@
 
 <script>
 
+import index from '../pages/index.vue';
 
-import ExampleComponent from '../pages/ExampleComponent.vue';
 export default{
     name: "App",
     components:{
-        ExampleComponent
+        index,
+
+
     },
 
 }
