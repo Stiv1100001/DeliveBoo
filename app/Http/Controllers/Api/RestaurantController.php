@@ -15,9 +15,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('types')->get();
 
-        return view('', compact('users'));
+        return response()->json($users);
     }
 
     /**
@@ -26,8 +26,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(int $id)
     {
-        return view('', ['user' => $user]);
+        $user = User::with('types')->findOrFail($id);
+
+        return response()->json($user);
     }
 }
