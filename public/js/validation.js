@@ -93,7 +93,132 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\VisualStudio\\boolean\\DeliveBoo\\package.json: Error while parsing JSON - Unexpected token < in JSON at position 1323\n    at JSON.parse (<anonymous>)\n    at D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:55:20\n    at D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\@babel\\core\\lib\\config\\files\\utils.js:30:12\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:25:3)\n    at Generator.next (<anonymous>)\n    at step (D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\gensync\\index.js:261:32)\n    at D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\gensync\\index.js:223:11)\n    at D:\\VisualStudio\\boolean\\DeliveBoo\\node_modules\\gensync\\index.js:189:28\n    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read_file_context:68:3)");
+function checkLength(string) {
+  var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  if (max) {
+    return string.length === length;
+  } else {
+    return string.length >= length;
+  }
+}
+
+var btnSubmitRegister = document.getElementById("btn-submit-register");
+var btnSubmitDishCreate = document.getElementById("btn-submit-dish-create");
+var btnSubmitDishEdit = document.getElementById("btn-submit-dish-edit");
+
+if (btnSubmitRegister) {
+  btnSubmitRegister.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
+
+    if (!checkLength(inputs.name_restaurant.value.trim())) {
+      errors.push("Il nome del ristorante è obbligatorio");
+    }
+
+    if (!checkLength(inputs.address.value.trim())) {
+      errors.push("L'indirizzo è obbligatorio");
+    }
+
+    if (!checkLength(inputs.password.value.trim(), 8)) {
+      errors.push("La password è obbligatorio e deve essere almeno 8 caratteri");
+    }
+
+    if (!checkLength(inputs.password_confirmation.value.trim(), 8)) {
+      errors.push("La password va confermata");
+    }
+
+    if (!checkLength(inputs.vat_number.value.trim(), 11, true)) {
+      errors.push("La Partita Iva è obbligatoria e di 11 caratteri");
+    }
+
+    if (!inputs.email.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+      errors.push("La mail è obbligatoria e deve essere una mail corretta");
+    }
+
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
+
+if (btnSubmitDishCreate) {
+  btnSubmitDishCreate.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
+
+    if (!checkLength(inputs.name.value.trim())) {
+      errors.push("Il nome è obbligatorio");
+    }
+
+    if (isNaN(inputs.price.value)) {
+      errors.push("Il prezzo è obbligatorio");
+    }
+
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
+
+if (btnSubmitDishEdit) {
+  btnSubmitDishEdit.addEventListener("click", function (event) {
+    event.preventDefault();
+    var form = document.getElementById("form");
+    var errorDiv = document.getElementById("error");
+    var errorMessage = document.getElementById("error-message");
+    errorDiv.classList.add("d-none");
+    errorMessage.innerHTML = "";
+    var inputs = form.elements;
+    var errors = [];
+
+    if (!checkLength(inputs.name.value.trim())) {
+      errors.push("Il nome è obbligatorio");
+    }
+
+    if (isNaN(inputs.price.value)) {
+      errors.push("Il prezzo è obbligatorio");
+    }
+
+    if (errors.length) {
+      errorMessage.innerHTML += "<ul>";
+      errors.forEach(function (e) {
+        errorMessage.innerHTML += "<li>".concat(e, "</li>");
+      });
+      errorMessage.innerHTML += "</ul>";
+      errorDiv.classList.remove("d-none");
+    } else {
+      form.submit();
+    }
+  });
+}
 
 /***/ }),
 
@@ -104,7 +229,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\VisualStudio\boolean\DeliveBoo\resources\js\validation.js */"./resources/js/validation.js");
+module.exports = __webpack_require__(/*! C:\Users\si_mo\Desktop\boolean\DeliveBoo\resources\js\validation.js */"./resources/js/validation.js");
 
 
 /***/ })

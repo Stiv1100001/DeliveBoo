@@ -14,14 +14,10 @@ class Dish extends Model
         "availability"
     ];
 
-    protected $cast = [
-        'availability' => 'boolean'
-    ];
-
     public function user()
     {
         return $this->belongsTo("App\User");
-    }
+    } 
 
     public function order()
     {
