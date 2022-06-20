@@ -32,7 +32,7 @@ export default {
       axios.get("/api/dishes").then((response) => {
         this.prodotti = response.data.data;
         this.loading = false;
-        console.log(this.prodotti);
+        // console.log(this.prodotti);
       });
       /* .finally(() => {
                     setTimeout(() => {
