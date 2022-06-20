@@ -44,33 +44,28 @@
                         @forelse ($dishes as $dish)
                         <div class="col">
                             <div class="card">
-                                <div class="row g-0">
-                                    {{-- <div class="col-md-4">
-                                        <img src="..." class="img-fluid rounded-start" alt="...">
-                                    </div> --}}
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <a href="{{route('admin.dishes.show', $dish)}}"
-                                                class="card-title">{{$dish->name}}</a>
-                                            <p class="card-text">{{$dish->description}}</p>
-                                            <p class="card-text">{{$dish->price}} €</p>
-                                            <p class="card-text"><small class="text-muted">{{$dish->created_at}}</small>
-                                            </p>
-                                            <div class="buttons d-flex justify-content-center">
-                                                <a class="me-3" href="{{route('admin.dishes.edit', $dish)}}">
-                                                    <button class="btn btn-primary">Modifica</button>
-                                                </a>
-                                                <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST"
-                                                    class="delete" dish-model="{{$dish->id}}"
-                                                    dish-name="{{ $dish->name}}">
-                                                    @csrf
-                                                    @method('DELETE')
+                                <div class="card-body text-start">
+                                    <a href="{{route('admin.dishes.show', $dish)}}"
+                                        class="card-title">{{$dish->name}}</a>
+                                    <p class="card-text">{{Str::limit($dish->description, 20, '...')}}</p>
+                                    <p class="card-text">{{$dish->price}} €</p>
+                                    <p class="card-text">Disponibile: {{$dish->availability ? 'Sì' : 'No'}}</p>
+                                    <p class="card-text"><small class="text-muted">{{$dish->created_at}}</small>
+                                    </p>
+                                    <div class="buttons d-flex justify-content-center">
+                                        <a class="me-3" href="{{route('admin.dishes.edit', $dish)}}">
+                                            <button class="btn btn-primary">Modifica</button>
+                                        </a>
+                                        <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST"
+                                            class="delete" dish-model="{{$dish->id}}" dish-name="{{ $dish->name}}">
+                                            @csrf
+                                            @method('DELETE')
 
-                                                    <button type="submit" class="btn btn-danger">Elimina</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                                            <button type="submit" class="btn btn-danger">Elimina</button>
+                                        </form>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>

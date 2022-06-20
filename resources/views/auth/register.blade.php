@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-group row mb-2">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma
                                 Password*') }}</label>
 
                             <div class="col-md-6">
@@ -122,10 +122,10 @@
                             <div class="col-md-6">
                                 <input id="image_url" type="file"
                                     class="form-control @error('image_url') is-invalid @enderror" name="image_url"
-                                    required autofocus>
+                                    value="{{ old('image_url') }}" required autofocus>
 
                                 @error('image_url')
-                                <span class="invalid-feedback" role="alert">
+                                <span class=" invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
@@ -134,9 +134,9 @@
 
                         <div class="form-group row mb-2">
                             <span class="col-md-5 col-form-label text-md-right">Categorie*</span>
-                            @error('categories')
+                            @error('types')
                             <span class="invalid-feedback" role="alert">
-                                <strong>At least one category has to be checked</strong>
+                                <strong>ALemno una categoria deve essere selezionata</strong>
                             </span>
                             @enderror
                             <div class="categorie col-md-6 ml-2 d-flex flex-wrap ">
@@ -144,7 +144,7 @@
                                 @foreach ($types as $type)
                                 <div class="col-6">
                                     <input class="custom-control-input @error('types') is-invalid @enderror"
-                                        name="types[]" type="checkbox" value="{{$type->id}}" id="type-{{$type->id}}">
+                                        name="types[]" type="checkbox" value="{{$type}}" id="type-{{$type->id}}">
                                     <label class="custom-control-label" for="type-{{$type->id}}">
                                         {{$type->name_type}}
                                     </label>
@@ -161,7 +161,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button class="btn btn-primary" id="btn-submit-register">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>
