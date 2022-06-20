@@ -88,7 +88,7 @@ if (btnSubmitDishCreate) {
       errors.push("Il nome è obbligatorio");
     }
 
-    if (isNaN(inputs.price.value)) {
+    if (!inputs.price.value || isNaN(inputs.price.value)) {
       errors.push("Il prezzo è obbligatorio");
     }
 
@@ -125,7 +125,7 @@ if (btnSubmitDishEdit) {
       errors.push("Il nome è obbligatorio");
     }
 
-    if (isNaN(inputs.price.value)) {
+    if (!inputs.price.value || isNaN(inputs.price.value)) {
       errors.push("Il prezzo è obbligatorio");
     }
 
