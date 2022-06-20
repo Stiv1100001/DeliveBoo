@@ -53,6 +53,10 @@
                             </li>
                             @endif
                             @else
+                            <li class="nav-item d-flex align-items-center">
+                                <img src="{{asset('storage/' . Auth::user()->image_url) }}"
+                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle  border border-2 border-dark" id="user-img-nav">
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -91,7 +95,7 @@
                 </div>
             </nav>
 
-            <main class="py-4">
+            <main class="py-4 bg-white">
                 @yield('content')
             </main>
 
