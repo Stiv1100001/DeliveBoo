@@ -37,6 +37,7 @@
                         @enderror
                     </div>
 
+<<<<<<< HEAD
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Inserisci ingredienti piatto</label>
                         <textarea class="form-control" name="ingredients" id="ingredients" rows="5"></textarea>
@@ -46,6 +47,21 @@
                             </div>
                         @enderror
                     </div>
+=======
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="availability" id="availability" value="1"
+                        checked>
+                    <label class="form-check-label" for="availability">
+                        Disponibile
+                    </label>
+                </div>
+                {{-- <div class="form-check form-switch">
+                    <input class="form-check-input" type="radio" name="availability" id="availability" value="0">
+                    <label class="form-check-label" for="availability">
+                        Non disponibile
+                    </label>
+                </div> --}}
+>>>>>>> main
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Inserisci prezzo piatto</label>

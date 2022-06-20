@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Model\Dish;
 use Illuminate\Support\Facades\Auth;
 
-
 class DishesController extends Controller
 {
     /**
@@ -44,7 +43,6 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO check 'availability' control
         ], [
             'required' => 'Il campo è obbligatorio',
             'price' => 'Il campo deve essere un numero',
@@ -53,10 +51,23 @@ class DishesController extends Controller
 
         $data = $request->all();
 
+
         $newDish = new Dish();
 
+        if (isset($data['availability']) && $data['availability'] == '1') {
+            $data['availability'] = true;
+        } else {
+            $data['availability'] = false;
+        }
+
+
         $newDish->fill($data);
+        $newDish->availability = $data['availability'];
+
+
+
         $newDish->user_id = Auth::user()->id;
+
 
         $newDish->save();
 
@@ -113,7 +124,6 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO 'availability' => 'boolean'
         ], [
             'required' => 'Il campo è obbligatorio',
             'numeric' => 'Il campo deve essere un numero',
@@ -123,8 +133,16 @@ class DishesController extends Controller
         $data = $request->all();
 
 
+        if (isset($data['availability']) && $data['availability'] == '1') {
+            $data['availability'] = true;
+        } else {
+            $data['availability'] = false;
+        }
+
+
 
         $dish->fill($data);
+        $dish->availability = $data['availability'];
 
         $dish->save();
 
@@ -140,6 +158,6 @@ class DishesController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        return redirect()->route("admin.dishes.index", $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato modificato correttamente');
+        return redirect()->route("admin.dishes.index", $dish)->with('message', 'Il piatto ' . $dish->name . ' è stato eliminato correttamente');
     }
 }
