@@ -51,14 +51,23 @@ class DishesController extends Controller
 
         $data = $request->all();
 
+
         $newDish = new Dish();
 
-        if (!isset($data['availabity'])) {
+        if (isset($data['availability']) && $data['availability'] == '1') {
+            $data['availability'] = true;
+        } else {
             $data['availability'] = false;
         }
 
+
         $newDish->fill($data);
+        $newDish->availability = $data['availability'];
+
+
+
         $newDish->user_id = Auth::user()->id;
+
 
         $newDish->save();
 
@@ -123,12 +132,17 @@ class DishesController extends Controller
 
         $data = $request->all();
 
-        if (!isset($data['availabity'])) {
+
+        if (isset($data['availability']) && $data['availability'] == '1') {
+            $data['availability'] = true;
+        } else {
             $data['availability'] = false;
         }
 
 
+
         $dish->fill($data);
+        $dish->availability = $data['availability'];
 
         $dish->save();
 
