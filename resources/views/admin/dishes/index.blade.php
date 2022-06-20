@@ -11,6 +11,26 @@
             @endif
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <p>ciao</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="closeConfirm" type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Chiudi</button>
+                        <button id="deleteConfirm" type="button" class="btn btn-danger">Elimina</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12 card text-center p-0 mb-5">
             <div class="card-header text-uppercase align-items-center d-flex justify-content-between">
                 <h6 class="m-0">Menu</h6>
@@ -41,7 +61,8 @@
                                                     <button class="btn btn-primary">Modifica</button>
                                                 </a>
                                                 <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST"
-                                                    class="delete" dish-model="{{$dish->model}}">
+                                                    class="delete" dish-model="{{$dish->id}}"
+                                                    dish-name="{{ $dish->name}}">
                                                     @csrf
                                                     @method('DELETE')
 
@@ -65,55 +86,50 @@
             </div>
         </div>
     </div>
+</div>
+@endsection
 
-    {{-- <table class="table table-dark table-hover col-12">
-        <thead>
-            <tr>
-                <th class="fw-bold text-primary fs-2">Nome</th>
-                <th class="fw-bold text-primary fs-2">Descrizione</th>
-                <th class="fw-bold text-primary fs-2">Ingredienti</th>
-                <th class="fw-bold text-primary fs-2">Prezzo</th>
-                <th class="text-center">
-                    <a href="{{route('admin.dishes.create')}}">
-                        <button class="btn btn-warning fw-bold">Aggiungi piatto</button>
-                    </a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($dishes as $dish)
-            <tr>
-                <th>
-                    <a href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
-                </th>
-                <th>
-                    {{$dish->description}}
-                </th>
-                <th>
-                    {{$dish->ingredients}}
-                </th>
-                <th>
-                    {{$dish->price}} €
-                </th>
-                <th class="d-flex justify-content-center">
-                    <a class="me-2" href="{{route('admin.dishes.edit', $dish)}}">
-                        <button class="btn btn-primary">Modifica</button>
-                    </a>
-                    <form action="{{route(" admin.dishes.destroy", $dish)}}" method="POST" class="delete"
-                        dish-model="{{$dish->model}}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Elimina</button>
-                    </form>
-                </th>
-            </tr>
-            @empty
-            <tr>
-                <th colspan="3">Non ci sono piatti da mostrare</th>
-            </tr>
-            @endforelse
-        </tbody>
-    </table> --}}
-</div>
-</div>
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<script defer>
+    const modal = document.getElementById('deleteModal');   // HTML Modal
+
+    let deleteModal = new bootstrap.Modal(modal)            // Bootstrap Modal via JS
+    let currentForm = null;                                 // Current selected delete form
+
+    /* Empty currentForm on close button and outside click */
+    modal.addEventListener('hide.bs.modal', () => {
+        currentForm = null;
+    })
+
+    document.getElementById('closeConfirm').addEventListener('click', () =>{
+        currentForm = null;
+    })
+
+    /*  Submit */
+    document.getElementById('deleteConfirm').addEventListener('click', () => {
+        currentForm.submit();
+    })
+
+    /* Show modal on submit */
+    const forms = document.getElementsByClassName('delete');
+
+    if (forms.length) {
+        for (form of forms) {
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+
+                document.getElementById('modalTitle').innerText = `Eliminare ${form.getAttribute("dish-name")}?`;
+                document.getElementById('modalBody').innerText = `Sei sicuro di voler eliminare ${form.getAttribute("dish-name")}?`;
+
+                currentForm = form;
+
+                deleteModal.show();
+            })
+        }
+    }
+
+</script>
 @endsection
