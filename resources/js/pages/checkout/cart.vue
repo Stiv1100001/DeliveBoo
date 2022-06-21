@@ -1,7 +1,7 @@
 <template>
   <div class="container">
    <ul class="checkout-list">
-      <li v-for="(product, index) in products" :key"index">
+      <li v-for="product in products" :key="product.dish.id">
         <h3 >{{ product.dish.name }}</h3>
         <span>{{ product.dish.price }} </span>
         <span>{{ product.dish.description }} </span> 

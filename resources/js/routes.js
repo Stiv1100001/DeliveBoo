@@ -1,6 +1,7 @@
 import index from "./pages/index.vue";
 import Menu from "./pages/Menu.vue";
-import id from "./pages/checkout/id.vue";
+import id from "./pages/checkout/id.vue"; 
+import cart from "./pages/checkout/cart.vue"
 
 export default [
   {
