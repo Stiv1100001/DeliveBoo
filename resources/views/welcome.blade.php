@@ -15,7 +15,6 @@
 
 
     <!-- Animation CSS -->
-    <link href="./assets/css/vendor/aos.css" rel="stylesheet" />
 </head>
 
 <body>
