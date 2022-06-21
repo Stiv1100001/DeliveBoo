@@ -10,9 +10,15 @@
     </div>
 
     <div class="container">
-      <h1 class="mt-3" v-if="restaurant">
-        {{ restaurant.name_restaurant }}
-      </h1>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <h1 class="" v-if="restaurant">
+          {{ restaurant.name_restaurant }}
+        </h1>
+        <h3 class="m-0">
+          Nel carrello: {{ getTotalNumberOfItemInCart }} |
+          {{ getTotalCartPrice }} &euro;
+        </h3>
+      </div>
       <h6 v-if="restaurant" class="mb-5">
         <span
           class="badge bg-primary"
@@ -35,6 +41,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import MenuItem from "../components/MenuItem.vue";
 export default {
   components: { MenuItem },
@@ -50,6 +57,8 @@ export default {
     availableDishes() {
       return this.dishes.filter((dish) => dish.availability);
     },
+
+    ...mapGetters(["getTotalNumberOfItemInCart", "getTotalCartPrice"]),
   },
 
   async created() {
