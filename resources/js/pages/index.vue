@@ -21,39 +21,41 @@
 <script>
 import Header from "../components/Header";
 import Restaurant from "../components/Restaurant";
-export default {
-  name: "Restaurant",
-  components: {
-    Header,
-    Restaurant,
-  },
-  data() {
-    return {
-      loading: true,
-      ristoranti: [],
-    };
-  },
-  methods: {
-    getProduct() {
-      this.loading = true;
-      axios.get("/api/restaurant").then((response) => {
-        this.ristoranti = response.data;
-        this.loading = false;
-        console.log(this.ristoranti);
-      });
-      /* .finally(() => {
-                    setTimeout(() => {
-                    this.loading = false;
-                    }, 5000);
-                }) */
-    },
-  },
 
-  created() {
-    this.getProduct();
-  },
+export default {
+    name: "Restaurant",
+    components: {
+        Header,
+        Restaurant,
+    },
+    data() {
+        return {
+            loading: true,
+            ristoranti: [],
+        };
+    },
+    methods: {
+        getRestaurant() {
+            this.loading = true;
+            axios.get('/api/restaurant').then((response) => {
+                this.ristoranti = response.data;
+                this.loading = false;
+                console.log(this.ristoranti);
+            });
+            /* .finally(() => {
+                        setTimeout(() => {
+                        this.loading = false;
+                        }, 5000);
+                    }) */
+        },
+    },
+
+    created() {
+        this.getRestaurant();
+    },
 };
 </script>
+
 <style lang="scss" scoped>
 @import "../../sass/app.scss";
 
