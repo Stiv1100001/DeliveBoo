@@ -1,7 +1,17 @@
 <template>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    <!-- <form action="/action_page.php">
+        <label for="cars">Choose a car:</label>
+        <select name="cars" id="cars" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form> -->
+    <div>
+        
     </div>
 </template>
 

@@ -1946,6 +1946,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SearchBar'
 });
@@ -1980,6 +1990,26 @@ __webpack_require__.r(__webpack_exports__);
   name: 'HomePage',
   components: {
     SearchBar: _components_SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      typesList: []
+    };
+  },
+  methods: {
+    getTypes: function getTypes() {
+      var _this = this;
+
+      axios.get("/api/types").then(function (response) {
+        console.log(response.data);
+        _this.typesList = response.data;
+      })["catch"](function (error) {
+        console.warn(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getTypes();
   }
 });
 
@@ -2672,35 +2702,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          placeholder: "Recipient's username",
-          "aria-label": "Recipient's username",
-          "aria-describedby": "button-addon2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-secondary",
-          attrs: { type: "button", id: "button-addon2" },
-        },
-        [_vm._v("Button")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

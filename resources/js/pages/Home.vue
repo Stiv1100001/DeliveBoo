@@ -17,7 +17,27 @@ export default {
     name: 'HomePage',
     components: {
         SearchBar,
+    },
+    data: function(){
+    return{
+        typesList: [],
     }
+    },
+    methods:{
+        getTypes(){
+            axios.get("/api/types")
+                .then((response)=>{
+                    console.log(response.data);
+                    this.typesList = response.data;
+                })
+                .catch( (error) => {
+                    console.warn(error);
+                });
+        }
+    },
+    created() {
+        this.getTypes();
+    },
 }
 </script>
 
