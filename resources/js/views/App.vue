@@ -18,9 +18,8 @@ export default {
     ...mapGetters(["getRestaurants"]),
   },
   created() {
-    this.$store.dispatch("getRestaurants");
+    this.$store.dispatch("syncRestaurants");
     this.$store.dispatch("initCart");
-    // console.log(localStorage.getItem("cart"));
   },
 };
 </script>

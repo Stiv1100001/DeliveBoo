@@ -14,6 +14,28 @@ export const store = new vuex.Store({
     getRestaurants(state) {
       return state.restaurants;
     },
+
+    getTotalCartPrice(state) {
+      let total = 0;
+
+      function reduceFn(accumulator, next) {
+        return accumulator + next.product.price * next.quantity;
+      }
+
+      total = state.cart.reduce(reduceFn, 0);
+
+      return total;
+    },
+
+    getTotalNumberOfItemInCart(state) {
+      let number = 0;
+
+      state.cart.forEach((p) => {
+        number += p.quantity;
+      });
+
+      return number;
+    },
   },
 
   mutations: {
@@ -21,38 +43,58 @@ export const store = new vuex.Store({
       state.restaurants = restaurants;
     },
 
-    addToCart(state, { product, quantity = 1 }) {
-      let productInCart = state.cart.find((item) => item.id === product.id);
-
-      if (productInCart) {
-        state.cart[productInCart].quantity += quantity; // TODO controllare
-        return;
+    addProductToCart(state, { product, quantity = 1 }) {
+      if (!state.cart.length) {
+        if (product.user_id != state.cart[0]) {
+          return false;
+        }
       }
 
-      product.quantity = quantity;
+      let toPush = true;
 
-      state.cart.push(product);
+      state.cart.forEach((p) => {
+        if (p.product.id == product.id) {
+          p.quantity += quantity;
+          toPush = false;
+        }
+      });
+
+      if (toPush) state.cart.push({ product, quantity });
+
+      // Salvo nel local storage
+      localStorage.setItem("cart", store.cart);
+      return true;
+    },
+
+    removeProductFromCart(state, { product, quantity = 1 }) {
+      const newCart = [];
+
+      state.cart.forEach((p) => {
+        if (p.product.id == product.id) {
+          p.quantity -= quantity;
+          if (p.quantity > 0) newCart.push(p);
+        } else {
+          newCart.push(p);
+        }
+      });
+
+      state.cart = newCart;
+
       localStorage.setItem("cart", store.cart);
     },
 
-    removeFromCart(state, index) {
-      /* let productInCart = state.cart.find(item => item.id === product.id);
-            if (productInCart.quantity > 1) {
-                state.cart[productInCart].quantity--;
-                return;
-            } */
-      state.cart.splice(index, 1);
-    },
-    updateOrder(state, order) {
-      state.order = order;
-    },
-    updateCart(state, cart) {
+    fillCart(state, cart) {
       state.cart = cart;
       localStorage.setItem("cart", store.cart);
     },
+
+    updateOrder(state, order) {
+      state.order = order;
+    },
   },
+
   actions: {
-    async getRestaurants({ commit }) {
+    async syncRestaurants({ commit }) {
       try {
         let restaurants = (await axios.get("/api/restaurant")).data;
         commit("updateRestaurant", restaurants);
@@ -65,73 +107,12 @@ export const store = new vuex.Store({
       if (localStorage.getItem("cart") === null) {
         localStorage.setItem("cart", []);
       } else {
-        commit("updateCart", localStorage.getItem("cart"));
+        commit("fillCart", localStorage.getItem("cart"));
       }
     },
 
     clearCart({ commit }) {
-      commit("updateCart", []);
+      commit("fillCart", []);
     },
   },
 });
-
-// import { defineStore } from "pinia";
-// import { useStorage } from "@vueuse/core";
-
-// export const useStore = defineStore("cart", {
-//     state: () => {
-//         return {
-//             products: useStorage("cart", []),
-//         };
-//     },
-
-//     getters: {
-//         totalPrice(state) {
-//             let total = 0;
-//             state.products.forEach((p) => {
-//                 total += p.product.price * p.quantity;
-//             });
-
-//             return total;
-//         },
-
-//         nProducts(state) {
-//             return state.products.length;
-//         },
-//     },
-
-//     actions: {
-//         addProductsToCart(product, quantity = 1) {
-//             let toPush = true;
-
-//             this.products.forEach((p) => {
-//                 if (p.product.id == product.id) {
-//                     p.quantity += quantity;
-//                     toPush = false;
-//                 }
-//             });
-
-//             if (toPush) this.products.push({ product, quantity });
-
-//             // Salvo nel local storage
-//             localStorage.setItem("cart", this.products);
-//         },
-
-//         removeProductsToCart(product, quantity = 1) {
-//             const new_products = [];
-
-//             this.products.forEach((p) => {
-//                 if (p.product.id == product.id) {
-//                     p.quantity -= quantity;
-//                     if (p.quantity > 0) new_products.push(p);
-//                 } else {
-//                     new_products.push(p);
-//                 }
-//             });
-
-//             this.products = new_products;
-
-//             localStorage.setItem("cart", this.products);
-//         },
-//     },
-// });

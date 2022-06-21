@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DishResource;
 use App\Http\Requests\Orders\OrderRequest;
 
-
 class DishController extends Controller
 {
     /**
@@ -20,6 +19,8 @@ class DishController extends Controller
     public function index()
     {
         $dishes = Dish::all();
+
+        // return response()->json($dishes);
 
         return DishResource::collection($dishes);
     }
@@ -40,7 +41,7 @@ class DishController extends Controller
         ]);
     }
 
-    public function generate(Request $request, Gateway $gateway )
+    public function generate(Request $request, Gateway $gateway)
     {
         $token = $gateway->clientToken()->generate();  //genera un token di autenticazione per il client
         $data =[
@@ -50,7 +51,7 @@ class DishController extends Controller
         return response()->json($data, 200);
     }
 
-    public function payments( OrderRequest $request, Gateway $gateway )
+    public function payments(OrderRequest $request, Gateway $gateway)
     {
         $dish = Dish::findOrFail($request->dish);       //recupero il singolo id del prodotto
         $result = $gateway->transaction()->sale([
@@ -63,14 +64,14 @@ class DishController extends Controller
                 'firstName' => $dish->name,
             ],
         ]);
-        if($result->success){
+        if ($result->success) {
             $data =[
                 'success' => true,
                 'message' => 'Transazione eseguita',
                 /* 'transaction' => $result->transaction, */
             ];
             return response()->json($data, 200);
-        }else{
+        } else {
             $data =[
                 'success' => false,
                 'message' => 'Transazione fallita',
