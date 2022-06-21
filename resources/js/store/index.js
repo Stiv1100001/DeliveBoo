@@ -6,6 +6,7 @@ Vue.use(vuex);
 export const store = new vuex.Store({
   state: {
     cart: [],
+    restaurantOrderId: null,
     restaurants: [],
     order: {},
   },
@@ -19,7 +20,7 @@ export const store = new vuex.Store({
       let total = 0;
 
       function reduceFn(accumulator, next) {
-        return accumulator + next.product.price * next.quantity;
+        return accumulator + next.dish.price * next.quantity;
       }
 
       total = state.cart.reduce(reduceFn, 0);
@@ -36,6 +37,10 @@ export const store = new vuex.Store({
 
       return number;
     },
+
+    getCart(state) {
+      return state.cart;
+    },
   },
 
   mutations: {
@@ -43,34 +48,37 @@ export const store = new vuex.Store({
       state.restaurants = restaurants;
     },
 
-    addProductToCart(state, { product, quantity = 1 }) {
-      if (!state.cart.length) {
-        if (product.user_id != state.cart[0]) {
-          return false;
+    addProductToCart(state, { dish, quantity = 1 }) {
+      if (state.cart.length) {
+        if (dish.user_id != state.restaurantOrderId) {
+          return;
         }
+
+        let toPush = true;
+
+        state.cart.forEach((p) => {
+          if (p.dish.id == dish.id) {
+            p.quantity += parseFloat(quantity);
+            toPush = false;
+          }
+        });
+
+        if (toPush) state.cart.push({ dish, quantity });
+      } else {
+        state.restaurantOrderId = dish.user_id;
+        state.cart.push({ dish, quantity });
       }
 
-      let toPush = true;
-
-      state.cart.forEach((p) => {
-        if (p.product.id == product.id) {
-          p.quantity += quantity;
-          toPush = false;
-        }
-      });
-
-      if (toPush) state.cart.push({ product, quantity });
-
       // Salvo nel local storage
-      localStorage.setItem("cart", store.cart);
+      localStorage.setItem("cart", JSON.stringify(state.cart));
       return true;
     },
 
-    removeProductFromCart(state, { product, quantity = 1 }) {
+    removeProductFromCart(state, { dish, quantity = 1 }) {
       const newCart = [];
 
       state.cart.forEach((p) => {
-        if (p.product.id == product.id) {
+        if (p.dish.id == dish.id) {
           p.quantity -= quantity;
           if (p.quantity > 0) newCart.push(p);
         } else {
@@ -78,14 +86,18 @@ export const store = new vuex.Store({
         }
       });
 
+      if (!newCart.length) {
+        state.restaurantOrderId = null;
+      }
+
       state.cart = newCart;
 
-      localStorage.setItem("cart", store.cart);
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
 
     fillCart(state, cart) {
       state.cart = cart;
-      localStorage.setItem("cart", store.cart);
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
 
     updateOrder(state, order) {
@@ -104,10 +116,11 @@ export const store = new vuex.Store({
     },
 
     initCart({ commit }) {
-      if (localStorage.getItem("cart") === null) {
-        localStorage.setItem("cart", []);
+      let cart = JSON.parse(localStorage.getItem("cart"));
+      if (cart) {
+        commit("fillCart", cart);
       } else {
-        commit("fillCart", localStorage.getItem("cart"));
+        localStorage.setItem("cart", JSON.stringify([]));
       }
     },
 

@@ -13,9 +13,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-
-    <!-- Animation CSS -->
-    {{-- <link href="./assets/css/vendor/aos.css" rel="stylesheet" /> --}}
 </head>
 
 <body>
@@ -54,17 +51,17 @@
 
                     <!-- Login-->
                     @if (Route::has('login'))
-                        <div class="login-control me-3">
-                            @auth
-                                <a href="{{ url('/home') }}" class="text-decoration-none">Home</a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-light rounded-pill">Login</a>
+                    <div class="login-control me-3">
+                        @auth
+                        <a href="{{ url('/home') }}" class="text-decoration-none">Home</a>
+                        @else
+                        <a href="{{ route('login') }}" class="btn btn-light rounded-pill">Login</a>
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn btn-info rounded-pill">Register</a>
-                                @endif
-                            @endauth
-                        </div>
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-info rounded-pill">Register</a>
+                        @endif
+                        @endauth
+                    </div>
                     @endif
                 </div>
             </div>

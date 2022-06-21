@@ -25,8 +25,10 @@ Route::get('/restaurant', 'Api\RestaurantController@index')->name('api.restauran
 Route::get('/restaurant/{id}', 'Api\RestaurantController@show')->name('api.restaurant.show');
 Route::post('/restaurant/search', 'Api\RestaurantController@search')->name('api.restaurant.search');
 
+// % Api types
+Route::get('/types', 'Api\TypeController@index')->name('api.types');
+
 // % Api dishes
-// Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
 Route::get('/dishes/{user_id}', 'Api\DishController@index')->name('api.dish');
 
 // % Api orders
