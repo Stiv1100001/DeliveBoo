@@ -22,7 +22,7 @@
 import Header from "../components/Header";
 import Restaurant from "../components/Restaurant";
 export default {
-  name: "ExampleComponent",
+  name: "Restaurant",
   components: {
     Header,
     Restaurant,

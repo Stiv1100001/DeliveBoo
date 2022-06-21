@@ -2054,7 +2054,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ExampleComponent",
+  name: "Restaurant",
   components: {
     Header: _components_Header__WEBPACK_IMPORTED_MODULE_0__["default"],
     Restaurant: _components_Restaurant__WEBPACK_IMPORTED_MODULE_1__["default"]
