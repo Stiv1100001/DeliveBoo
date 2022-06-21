@@ -5,11 +5,7 @@
                 <h1 class="text-center">Home</h1>
             </div>
             <div class="col-8">
-                <SearchBar
-                v-for="(types, index) in typesList"
-                :key="index"
-                :types="types"
-                />
+                <SearchBar/>
             </div>
         </div>
     </div>
@@ -22,26 +18,26 @@ export default {
     components: {
         SearchBar,
     },
-    data: function(){
-    return{
-        typesList: [],
-    }
-    },
-    methods:{
-        getTypes(){
-            axios.get("/api/types")
-                .then((response)=>{
-                    console.log(response.data);
-                    this.typesList = response.data;
-                })
-                .catch( (error) => {
-                    console.warn(error);
-                });
-        }
-    },
-    created() {
-        this.getTypes();
-    },
+    // data: function(){
+    //     return{
+    //         typesList: [],
+    //     }
+    // },
+    // methods:{
+    //     getTypes(){
+    //         axios.get("/api/types")
+    //             .then((response)=>{
+    //                 console.log(response.data);
+    //                 this.typesList = response.data;
+    //             })
+    //             .catch( (error) => {
+    //                 console.warn(error);
+    //             });
+    //     }
+    // },
+    // created() {
+    //     this.getTypes();
+    // },
 }
 </script>
 
