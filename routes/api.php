@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Orders\OrderController;
 use App\Http\Controllers\Api\DishController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,8 +26,8 @@ Route::get('/restaurant/{id}', 'Api\RestaurantController@show')->name('api.resta
 Route::post('/restaurant/search', 'Api\RestaurantController@search')->name('api.restaurant.search');
 
 // % Api dishes
-Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
-Route::get('/dishes/{id}', 'Api\DishController@show')->name('api.dish.show');
+// Route::get('/dishes', 'Api\DishController@index')->name('api.dish.index');
+Route::get('/dishes/{user_id}', 'Api\DishController@index')->name('api.dish');
 
 // % Api orders
 Route::post('/order', 'Api\OrderController@store')->name('api.order.store');

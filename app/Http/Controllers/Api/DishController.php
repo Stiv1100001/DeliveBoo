@@ -9,17 +9,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DishResource;
 use App\Http\Requests\Orders\OrderRequest;
 
-
 class DishController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-      * @return \Illuminate\Http\Response
+    //   * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $user_id)
     {
-        $dishes = Dish::all();
+        $dishes = Dish::where('user_id', '=', $user_id)->get();
 
         return DishResource::collection($dishes);
     }
@@ -28,19 +27,19 @@ class DishController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $dish = Dish::findOrFail($id);
+    // public function show($id)
+    // {
+    //     $dish = Dish::findOrFail($id);
 
-        return response()->json([
-            'success' => true,
-            'dish' => $dish
-        ]);
-    }
+    //     return response()->json([
+    //         'success' => true,
+    //         'dish' => $dish
+    //     ]);
+    // }
 
-    public function generate(Request $request, Gateway $gateway )
+    public function generate(Request $request, Gateway $gateway)
     {
         $token = $gateway->clientToken()->generate();  //genera un token di autenticazione per il client
         $data =[
@@ -50,7 +49,7 @@ class DishController extends Controller
         return response()->json($data, 200);
     }
 
-    public function payments( OrderRequest $request, Gateway $gateway )
+    public function payments(OrderRequest $request, Gateway $gateway)
     {
         $dish = Dish::findOrFail($request->dish);       //recupero il singolo id del prodotto
         $result = $gateway->transaction()->sale([
@@ -63,14 +62,14 @@ class DishController extends Controller
                 'firstName' => $dish->name,
             ],
         ]);
-        if($result->success){
+        if ($result->success) {
             $data =[
                 'success' => true,
                 'message' => 'Transazione eseguita',
                 /* 'transaction' => $result->transaction, */
             ];
             return response()->json($data, 200);
-        }else{
+        } else {
             $data =[
                 'success' => false,
                 'message' => 'Transazione fallita',
