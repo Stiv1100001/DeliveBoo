@@ -5,7 +5,11 @@
                 <h1 class="text-center">Home</h1>
             </div>
             <div class="col-8">
-                <SearchBar/>
+                <SearchBar
+                v-for="(types, index) in typesList"
+                :key="index"
+                :types="types"
+                />
             </div>
         </div>
     </div>

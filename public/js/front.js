@@ -1957,7 +1957,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'SearchBar'
+  name: 'SearchBar',
+  props: ['types']
 });
 
 /***/ }),
@@ -1972,6 +1973,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/SearchBar */ "./resources/js/components/SearchBar.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2702,7 +2707,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("h5", { staticClass: "card-title" }, [
+      _vm._v(_vm._s(_vm.types.name_type)),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2730,7 +2739,14 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "col-8" }, [_c("SearchBar")], 1),
+      _c(
+        "div",
+        { staticClass: "col-8" },
+        _vm._l(_vm.typesList, function (types, index) {
+          return _c("SearchBar", { key: index, attrs: { types: types } })
+        }),
+        1
+      ),
     ]),
   ])
 }

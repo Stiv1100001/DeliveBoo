@@ -11,13 +11,14 @@
         <input type="submit" value="Submit">
     </form> -->
     <div>
-        
+        <h5 class="card-title">{{ types.name_type }}</h5>
     </div>
 </template>
 
 <script>
 export default {
     name: 'SearchBar',
+    props: ['types']
 }
 </script>
 
