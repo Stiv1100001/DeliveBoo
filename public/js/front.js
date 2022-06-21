@@ -3488,9 +3488,12 @@ var render = function () {
       "div",
       { staticClass: "card p-3" },
       [
-        _c("h5", { staticClass: "card-title" }, [
-          _vm._v(_vm._s(_vm.restaurant.image_url)),
-        ]),
+        _c("img", {
+          attrs: {
+            src: _vm.restaurant.image_url,
+            alt: "image of " + _vm.restaurant.name_restaurant,
+          },
+        }),
         _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [
           _vm._v(_vm._s(_vm.restaurant.name_restaurant)),
