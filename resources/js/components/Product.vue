@@ -13,12 +13,26 @@
 </template>
 
 <script>
+// import Cart from "./Cart.vue";
 export default {
   name: "Product",
-
+  // components:{
+  //   Cart,
+  // },
+  // data(){
+  //   return{
+  //     cart:[],
+  //   }
+  // },
   props: ["product"],
-
-  methods: {},
+  methods: { 
+    // addCart:function(){
+    //   this.$store.commit("addProductToCart", {
+    //     product: this.product, 
+    //     quantity: 1
+    //   })
+    // },
+  },
 };
 </script>
 

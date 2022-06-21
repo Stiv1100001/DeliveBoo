@@ -16,7 +16,7 @@
 <script>
 import Product from "../components/Product";
 export default {
-  name: "ExampleComponent",
+  name: "index",
   components: {
     Product,
   },
@@ -30,9 +30,10 @@ export default {
     getProduct() {
       this.loading = true;
       axios.get("/api/dishes").then((response) => {
-        this.prodotti = response.data.data;
+        this.prodotti = response.data.data; 
+
         this.loading = false;
-        // console.log(this.prodotti);
+        console.log(this.prodotti);
       });
       /* .finally(() => {
                     setTimeout(() => {

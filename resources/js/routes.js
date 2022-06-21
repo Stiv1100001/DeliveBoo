@@ -12,4 +12,9 @@ export default [
     name: "single-product",
     component: id,
   },
+  {
+    path:"/cart", 
+    name:"carrello", 
+    component: cart,
+  },
 ];
