@@ -1,21 +1,37 @@
 <template>
-    <div id="wrapper" class="container">
-        <Header />
-        <div class="row justify-content-center">
-            <div class="col-12" v-if="loading">
-            {{ loading }}
-            </div>
-            <h1 class="mt-5">Ristoranti</h1>
+  <div id="wrapper" class="container">
+    <Header />
+    <div class="row justify-content-center">
+      <div class="col-12" v-if="loading">
+        {{ loading }}
+      </div>
+      <h1 class="mt-5">Ristoranti</h1>
 
-            <!-- searchbar -->
+      <!-- searchbar -->
 
-            <Restaurant
-            v-for="(restaurant, index) in randomRestaurants"
-            :key="index"
-            :restaurant="restaurant"
-            />
+      <div
+        class="col-4 mt-3"
+        v-for="restaurant in randomRestaurants"
+        :key="restaurant.id"
+      >
+        <div class="card p-3">
+          <img
+            :src="restaurant.image_url"
+            :alt="'image of ' + restaurant.name_restaurant"
+          />
+          <p class="card-text">{{ restaurant.name_restaurant }}</p>
+          <p class="card-text">{{ restaurant.address }}</p>
+          <router-link
+            :to="{ name: 'single-restaurant', params: { id: restaurant.id } }"
+          >
+            <button class="btn btn-primary rounded-pill text-uppercase">
+              menu
+            </button>
+          </router-link>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -23,36 +39,31 @@ import Header from "../components/Header";
 import Restaurant from "../components/Restaurant";
 
 export default {
-    name: "Restaurant",
-    components: {
-        Header,
-        Restaurant,
+  name: "Restaurant",
+  components: {
+    Header,
+    Restaurant,
+  },
+  data() {
+    return {
+      loading: true,
+      restaurants: [],
+    };
+  },
+  created() {
+    this.loading = true;
+    axios.get("/api/restaurant").then((response) => {
+      this.restaurants = response.data;
+      this.loading = false;
+    });
+  },
+  computed: {
+    randomRestaurants() {
+      return this.restaurants
+        .sort(() => Math.random() - Math.random())
+        .slice(0, 10);
     },
-    data() {
-        return {
-            loading: true,
-            ristoranti: [],
-        };
-    },
-    mmounted() {
-            this.loading = true;
-            axios.get('/api/restaurant').then((response) => {
-                this.ristoranti = response.data;
-                this.loading = false;
-                console.log(this.ristoranti);
-            });
-            /* .finally(() => {
-                        setTimeout(() => {
-                        this.loading = false;
-                        }, 5000);
-                    }) */
-    },
-    computed: {
-        // this.getRestaurant();
-        randomRestaurants() {
-            return this.ristoranti.sort(() => Math.random() - Math.random()).slice(0, 10);
-        }
-    },
+  },
 };
 </script>
 
@@ -60,9 +71,9 @@ export default {
 @import "../../sass/app.scss";
 
 div#wrapper {
-    h1 {
-        color: $rich-black-fogra-29;
-        font-family: $font-family-headings;
-    }
+  h1 {
+    color: $rich-black-fogra-29;
+    font-family: $font-family-headings;
+  }
 }
 </style>
