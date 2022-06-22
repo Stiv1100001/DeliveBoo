@@ -1,24 +1,9 @@
 <template>
-    <!-- <form action="/action_page.php">
-        <label for="cars">Choose a car:</label>
-        <select name="cars" id="cars" multiple>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form> -->
-    <!-- <div>
-        <h5 class="card-title">{{ types.name_type }}</h5>
-    </div> -->
-<div>
-    <multiselect class="form-select" v-model="value" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" placeholder="Scegli la tipologia" label="name_type" track-by="name_type" :searchable="false" :taggable="true" @tag="addTag">
-        <!-- <template slot="selection" slot-scope="{ values, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template> -->
-    </multiselect>
-    <pre class="language-json"><code>{{ value  }}</code></pre>
-</div>
+    <div>
+        <multiselect v-model="value" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" placeholder="Scegli la tipologia" label="name_type" track-by="name_type" :searchable="false" :taggable="true" @tag="addTag">
+        </multiselect>
+        <pre class="language-json"><code>{{ value  }}</code></pre>
+    </div>
 </template>
 
 <script>
@@ -64,15 +49,8 @@ export default {
     created() {
         this.getTypes();
     },
-    //     getLista(){
-    //         this.options.push(this.types);
-    //         console.log(this.options);
-    //     }
-    // },
-    // created() {
-    //     this.getLista();
-    // },
 }
+
 </script>
 
 <style>

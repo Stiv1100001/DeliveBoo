@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
+      <div class="col-8">
+        <SearchBar>
+      </div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
@@ -15,9 +18,12 @@
 
 <script>
 import Product from "../components/Product";
+import SearchBar from "../components/SearchBar"
+
 export default {
   name: "ExampleComponent",
   components: {
+    SearchBar,
     Product,
   },
   data() {
