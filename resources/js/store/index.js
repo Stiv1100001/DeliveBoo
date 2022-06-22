@@ -127,5 +127,10 @@ export const store = new vuex.Store({
     clearCart({ commit }) {
       commit("fillCart", []);
     },
+
+    removeItem({ commit }, dish) 
+    {
+      commit("removeProductFromCart", { dish });
+    }
   },
 });

@@ -1931,6 +1931,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuItem",
   data: function data() {
@@ -2087,6 +2091,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2151,6 +2158,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2163,6 +2177,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "cart",
   data: function data() {
@@ -2170,6 +2217,8 @@ __webpack_require__.r(__webpack_exports__);
       products: []
     };
   },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["clearCart", 'removeItem'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['getTotalCartPrice', 'getTotalNumberOfItemInCart'])),
   created: function created() {
     this.products = this.$store.getters.getCart;
   }
@@ -2197,14 +2246,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 // import cart from "./cart.vue";
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "id",
-  // components:{
-  //       cart,
-  //     },
   data: function data() {
     return {
       prodotti: []
@@ -2216,18 +2260,8 @@ __webpack_require__.r(__webpack_exports__);
         product: this.product,
         quantity: 1
       });
-    } // getProduct() {
-    //   axios.get("/api/dishes/" + this.$route.params.id).then((response) => {
-    //     this.prodotti = response.data.data;
-    //     console.log(this.prodotti);
-    //   });
-    // },
-
-  } // created() {
-  //   this.getProduct(this.$route.params.id);
-  //   console.log(this.$route.params.id);
-  // },
-
+    }
+  }
 });
 
 /***/ }),
@@ -3446,75 +3480,79 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.item.name))]),
-      _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
-        _vm._v(_vm._s(_vm.item.description)),
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
-        _vm._v("Ingredienti: " + _vm._s(_vm.item.ingredients)),
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
-        _vm._v("prezzo: " + _vm._s(_vm.item.price) + " €"),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "q-holder w-100 d-flex justify-content-center" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-info w-25",
-              on: {
-                click: function ($event) {
-                  return _vm.plus()
-                },
-              },
-            },
-            [_vm._v("+")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v(_vm._s(_vm.item.name)),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(_vm._s(_vm.item.description)),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v("Ingredienti: " + _vm._s(_vm.item.ingredients)),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v("prezzo: " + _vm._s(_vm.item.price) + " €"),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "q-holder w-100 d-flex justify-content-center" },
+          [
+            _c(
+              "button",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.quantity,
-                expression: "quantity",
-              },
-            ],
-            staticClass: "quantity form-control d-inline-block w-50",
-            attrs: { type: "number", min: "0", step: "1" },
-            domProps: { value: _vm.quantity },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.quantity = $event.target.value
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-info w-25",
-              on: {
-                click: function ($event) {
-                  return _vm.minus()
+                staticClass: "btn btn-info w-25",
+                on: {
+                  click: function ($event) {
+                    return _vm.plus()
+                  },
                 },
               },
-            },
-            [_vm._v("-")]
-          ),
-        ]
-      ),
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.quantity,
+                  expression: "quantity",
+                },
+              ],
+              staticClass: "quantity form-control d-inline-block w-50",
+              attrs: { type: "number", min: "0", step: "1" },
+              domProps: { value: _vm.quantity },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.quantity = $event.target.value
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-info w-25",
+                on: {
+                  click: function ($event) {
+                    return _vm.minus()
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]
+        ),
+      ]),
     ]),
   ])
 }
@@ -3637,6 +3675,8 @@ var render = function () {
       _vm._v(" "),
       _c("h5", [_vm._v("Menu")]),
       _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -3667,6 +3707,16 @@ var staticRenderFns = [
       [_c("span", { staticClass: "visually-hidden" }, [_vm._v("Loading...")])]
     )
   },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { staticClass: "btn btn-warning", attrs: { href: "/cart" } }, [
+        _vm._v(" Carello"),
+      ]),
+    ])
+  },
 ]
 render._withStripped = true
 
@@ -3690,6 +3740,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("p", [
+      _vm._v(
+        "Quantity  Totale: " + _vm._s(_vm.getTotalNumberOfItemInCart) + " "
+      ),
+    ]),
+    _vm._v(" "),
     _c(
       "ul",
       { staticClass: "checkout-list" },
@@ -3700,13 +3756,126 @@ var render = function () {
           _c("span", [_vm._v(_vm._s(product.dish.price) + " ")]),
           _vm._v(" "),
           _c("span", [_vm._v(_vm._s(product.dish.description) + " ")]),
+          _vm._v(" "),
+          _c("h1", [_vm._v(_vm._s(product.quantity))]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-info w-25",
+              on: {
+                click: function ($event) {
+                  return _vm.removeItem(product.dish)
+                },
+              },
+            },
+            [_vm._v("-")]
+          ),
         ])
       }),
       0
     ),
+    _vm._v(" "),
+    _c("div", [
+      _c("p", [
+        _vm._v(
+          "\n          Il tot del carrello è: " +
+            _vm._s(_vm.getTotalCartPrice) +
+            " €\n          "
+        ),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.clearCart()
+              },
+            },
+          },
+          [_vm._v("Svuota carrello")]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", [
+      _c("div", { staticClass: "mb-3" }, [
+        _c(
+          "label",
+          { staticClass: "form-label", attrs: { for: "exampleInputEmail1" } },
+          [_vm._v("Email address")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "email",
+            id: "exampleInputEmail1",
+            "aria-describedby": "emailHelp",
+          },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-text", attrs: { id: "emailHelp" } }, [
+          _vm._v("We'll never share your email with anyone else."),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mb-3" }, [
+        _c("label", { staticClass: "form-label", attrs: { for: "name" } }, [
+          _vm._v("Nome"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "name", id: "name" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mb-3" }, [
+        _c("label", { staticClass: "form-label", attrs: { for: "cognome" } }, [
+          _vm._v("Cognome"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "cognome", id: "cognome" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mb-3" }, [
+        _c(
+          "label",
+          { staticClass: "form-label", attrs: { for: "indirizzo" } },
+          [_vm._v("Indirizzo")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "name", id: "indirizzo" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { href: "/checkout", type: "submit" },
+        },
+        [_vm._v("Checkout")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -21093,6 +21262,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     clearCart: function clearCart(_ref5) {
       var commit = _ref5.commit;
       commit("fillCart", []);
+    },
+    removeItem: function removeItem(_ref6, dish) {
+      var commit = _ref6.commit;
+      commit("removeProductFromCart", {
+        dish: dish
+      });
     }
   }
 });

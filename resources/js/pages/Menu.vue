@@ -23,10 +23,13 @@
       </h6>
 
       <h5>Menu</h5>
+        <div>
+            <a href="/cart" class="btn btn-warning"> Carello</a>
+          </div>
       <div
         class="menu-container row row-cols-2 row-cols-lg-3 align-items-stretch g-3"
       >
-        <div class="col" v-for="dish in availableDishes" :key="dish.id">
+        <div class="col" v-for="dish in availableDishes" :key="dish.id">  
           <MenuItem :item="dish" />
         </div>
       </div>
