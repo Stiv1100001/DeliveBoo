@@ -13,11 +13,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-<<<<<<< HEAD
-=======
-
-    <!-- Animation CSS -->
->>>>>>> origin/searchbar
 </head>
 
 <body>
