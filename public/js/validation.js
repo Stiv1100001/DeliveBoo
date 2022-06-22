@@ -257,7 +257,11 @@ if (btnSubmitDishEdit) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/patriciabrsk/Desktop/DeliveBoo/resources/js/validation.js */"./resources/js/validation.js");
+=======
+module.exports = __webpack_require__(/*! C:\esercizi boolean\DeliveBoo\resources\js\validation.js */"./resources/js/validation.js");
+>>>>>>> origin/searchbar
 
 
 /***/ })

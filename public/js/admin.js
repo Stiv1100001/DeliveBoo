@@ -30296,7 +30296,11 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/patriciabrsk/Desktop/DeliveBoo/resources/js/admin.js */"./resources/js/admin.js");
+=======
+module.exports = __webpack_require__(/*! C:\esercizi boolean\DeliveBoo\resources\js\admin.js */"./resources/js/admin.js");
+>>>>>>> origin/searchbar
 
 
 /***/ })

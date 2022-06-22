@@ -2,6 +2,9 @@
   <div id="wrapper" class="container">
     <Header />
     <div class="row justify-content-center">
+      <div class="col-8">
+        <SearchBar>
+      </div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
@@ -35,12 +38,13 @@
 
 <script>
 import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
 
 export default {
   name: "Restaurant",
   components: {
     Header,
-    Restaurant,
+    SearchBar,
   },
   data() {
     return {
