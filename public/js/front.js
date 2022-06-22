@@ -2065,25 +2065,28 @@ __webpack_require__.r(__webpack_exports__);
       ristoranti: []
     };
   },
-  methods: {
-    getRestaurant: function getRestaurant() {
-      var _this = this;
+  mmounted: function mmounted() {
+    var _this = this;
 
-      this.loading = true;
-      axios.get('/api/restaurant').then(function (response) {
-        _this.ristoranti = response.data;
-        _this.loading = false;
-        console.log(_this.ristoranti);
-      });
-      /* .finally(() => {
-                  setTimeout(() => {
-                  this.loading = false;
-                  }, 5000);
-              }) */
-    }
+    this.loading = true;
+    axios.get('/api/restaurant').then(function (response) {
+      _this.ristoranti = response.data;
+      _this.loading = false;
+      console.log(_this.ristoranti);
+    });
+    /* .finally(() => {
+                setTimeout(() => {
+                this.loading = false;
+                }, 5000);
+            }) */
   },
-  created: function created() {
-    this.getRestaurant();
+  computed: {
+    // this.getRestaurant();
+    randomRestaurants: function randomRestaurants() {
+      return this.ristoranti.sort(function () {
+        return Math.random() - Math.random();
+      }).slice(0, 10);
+    }
   }
 });
 
@@ -3596,7 +3599,7 @@ var render = function () {
           _vm._v(" "),
           _c("h1", { staticClass: "mt-5" }, [_vm._v("Ristoranti")]),
           _vm._v(" "),
-          _vm._l(_vm.ristoranti, function (restaurant, index) {
+          _vm._l(_vm.randomRestaurants, function (restaurant, index) {
             return _c("Restaurant", {
               key: index,
               attrs: { restaurant: restaurant },

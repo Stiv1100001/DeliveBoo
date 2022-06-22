@@ -10,7 +10,7 @@
             <!-- searchbar -->
 
             <Restaurant
-            v-for="(restaurant, index) in ristoranti"
+            v-for="(restaurant, index) in randomRestaurants"
             :key="index"
             :restaurant="restaurant"
             />
@@ -34,8 +34,7 @@ export default {
             ristoranti: [],
         };
     },
-    methods: {
-        getRestaurant() {
+    mmounted() {
             this.loading = true;
             axios.get('/api/restaurant').then((response) => {
                 this.ristoranti = response.data;
@@ -47,11 +46,12 @@ export default {
                         this.loading = false;
                         }, 5000);
                     }) */
-        },
     },
-
-    created() {
-        this.getRestaurant();
+    computed: {
+        // this.getRestaurant();
+        randomRestaurants() {
+            return this.ristoranti.sort(() => Math.random() - Math.random()).slice(0, 10);
+        }
     },
 };
 </script>
