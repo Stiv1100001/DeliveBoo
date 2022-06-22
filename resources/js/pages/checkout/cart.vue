@@ -51,12 +51,14 @@ export default {
         products:[],
       }
     },
-    methods:{
+    methods:{ 
+      //FIRMA DELLA FUNZIONE---KISS KISS
       ...mapActions(["clearCart", 'removeItem' ]),
       
     },
       
     computed: { 
+      //FIRMA DELLA FUNZIONE
       ...mapGetters(['getTotalCartPrice', 'getTotalNumberOfItemInCart']), 
       }, 
 

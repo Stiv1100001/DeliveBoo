@@ -21263,6 +21263,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       var commit = _ref5.commit;
       commit("fillCart", []);
     },
+    // QUESTA FUNZIONE DOV'ERA? FLEX FLEX-------FIRMA DELLA FUNZIONE-----SALUTI DA SIMONE E CARMINE---KISS KISS 
     removeItem: function removeItem(_ref6, dish) {
       var commit = _ref6.commit;
       commit("removeProductFromCart", {

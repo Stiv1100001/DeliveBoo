@@ -127,7 +127,7 @@ export const store = new vuex.Store({
     clearCart({ commit }) {
       commit("fillCart", []);
     },
-
+    // QUESTA FUNZIONE DOV'ERA? FLEX FLEX-------FIRMA DELLA FUNZIONE-----SALUTI DA SIMONE E CARMINE---KISS KISS 
     removeItem({ commit }, dish) 
     {
       commit("removeProductFromCart", { dish });
