@@ -6,7 +6,6 @@
         {{ loading }}
       </div>
       <h1 class="mt-5">Ristoranti</h1>
-
       <!-- searchbar -->
 
       <div
@@ -36,7 +35,6 @@
 
 <script>
 import Header from "../components/Header";
-import Restaurant from "../components/Restaurant";
 
 export default {
   name: "Restaurant",
