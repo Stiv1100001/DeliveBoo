@@ -8,38 +8,40 @@
             <h1 class="mt-5">Ristoranti</h1>
 
             <!-- searchbar -->
-
-            <Restaurant
-            v-for="(restaurant, index) in randomRestaurants"
-            :key="index"
-            :restaurant="restaurant"
-            />
+            <!-- <p v-for="(restaurant, index) in randomRestaurants" :key="index">{{ restaurant.name_restaurant }}</p> -->
+            <div v-if="ristoranti.length">
+                <Rest v-for="restaurant in randomRestaurants" :key="restaurant.id"></Rest>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import Header from "../components/Header";
-import Restaurant from "../components/Restaurant";
+import Rest from '../components/Rest.vue';
+
 
 export default {
     name: "Restaurant",
     components: {
         Header,
-        Restaurant,
+        Rest
     },
-    data() {
+
+        Restdata() {
         return {
             loading: true,
             ristoranti: [],
         };
     },
-    mmounted() {
+    created() {
             this.loading = true;
             axios.get('/api/restaurant').then((response) => {
                 this.ristoranti = response.data;
                 this.loading = false;
                 console.log(this.ristoranti);
+            }).catch(error => {
+                console.error(error);
             });
             /* .finally(() => {
                         setTimeout(() => {
