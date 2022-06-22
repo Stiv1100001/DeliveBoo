@@ -9,7 +9,13 @@
       <div
         class="q-holder w-100 d-flex justify-content-between align-items-center"
       >
-        <button class="btn btn-info w-25" @click="minus()">-</button>
+        <button
+          class="btn btn-info w-25"
+          @click="minus()"
+          :disabled="quantity.length == 0"
+        >
+          -
+        </button>
         <span class="">{{ quantity }}</span>
         <button class="btn btn-info w-25" @click="plus()">+</button>
       </div>
@@ -48,7 +54,7 @@ export default {
     },
 
     minus() {
-      if (this.quantity == 0) return;
+      if (this.quantity === 0) return;
       this.quantity--;
       this.removeFromCart();
     },
