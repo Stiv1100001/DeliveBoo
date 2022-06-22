@@ -3,13 +3,12 @@
     <Header />
     <div class="row justify-content-center">
       <div class="col-8">
-        <SearchBar>
       </div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
       <h1 class="mt-5">Ristoranti</h1>
-      <!-- searchbar -->
+      <SearchBar />
 
       <div
         class="col-4 mt-3"
