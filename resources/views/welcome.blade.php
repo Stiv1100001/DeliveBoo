@@ -13,9 +13,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-
-    <!-- Animation CSS -->
-    <link href="./assets/css/vendor/aos.css" rel="stylesheet" />
 </head>
 
 <body>

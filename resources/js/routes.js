@@ -8,8 +8,8 @@ export default [
     component: index,
   },
   {
-    path: "/product/:id",
-    name: "single-product",
+    path: "/restaurant/:id",
+    name: "single-restaurant",
     component: id,
   },
 ];

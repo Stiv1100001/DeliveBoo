@@ -41,10 +41,33 @@ class RestaurantController extends Controller
 
         $typeIds = $data['types'];
 
+
         $users = User::whereHas('types', function ($q) use ($typeIds) {
             $q->whereIn('id', $typeIds);
         })->with('types')->get();
 
-        return response()->json($users);
+        $selectedUser = [];
+
+        foreach ($users as $user) {
+            $types = $user->types()->get()->toArray();
+
+            $userTypeId = array_map(function($value) {
+                return $value['id'];
+            }, $types);
+
+            $flag = true;
+
+            foreach($typeIds as $typeId) {
+                if (!in_array($typeId, $userTypeId)) {
+                    $flag = false;
+                }
+            }
+
+            if ($flag) {
+                array_push($selectedUser, $user);
+            }
+        }
+
+        return response()->json($selectedUser);
     }
 }
