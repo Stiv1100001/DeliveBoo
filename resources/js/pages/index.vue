@@ -21,9 +21,7 @@
           />
           <p class="card-text">{{ restaurant.name_restaurant }}</p>
           <p class="card-text">{{ restaurant.address }}</p>
-          <router-link
-            :to="{ name: 'single-restaurant', params: { id: restaurant.id } }"
-          >
+          <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
             <button class="btn btn-primary rounded-pill text-uppercase">
               menu
             </button>
