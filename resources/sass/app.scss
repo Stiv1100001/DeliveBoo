@@ -50,8 +50,8 @@ body {
     }
 
     img#user-img-nav {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     img#user-img-home {
@@ -65,4 +65,27 @@ body {
     //     background-position:bottom;
     //     background-image: url('https://static.vecteezy.com/ti/foto-gratuito/p2/2076692-tavolo-con-sfocato-ristorante-sfondo-gratuito-foto.jpg');
     // }
+}
+
+
+div#header-guest {
+    nav {
+        border-bottom: 1px solid black;
+    }
+    a.logo {
+        span {
+            font-size: 2rem;
+            color: $rich-black-fogra-29;
+            font-family: $font-family-headings;
+
+            &:hover {
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 1px;
+            }
+        }
+    }
+}
+
+.abril-fatface-font{
+    font-family: $font-family-headings;
 }

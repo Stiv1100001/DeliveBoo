@@ -41,24 +41,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "../../sass/app.scss";
 
-div#header-guest {
-    nav {
-        border-bottom: 1px solid black;
-    }
-    a.logo {
-        span {
-            font-size: 2rem;
-            color: $rich-black-fogra-29;
-            font-family: $font-family-headings;
-
-            &:hover {
-                -webkit-text-fill-color: transparent;
-                -webkit-text-stroke-width: 1px;
-            }
-        }
-    }
-}
 </style>
