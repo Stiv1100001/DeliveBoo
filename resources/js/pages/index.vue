@@ -1,50 +1,93 @@
 <template>
-  <div class="container">
+  <div id="wrapper" class="container">
+    <Header />
     <div class="row justify-content-center">
+      <div class="col-8"></div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
-      <Product
-        v-for="(product, index) in prodotti"
-        :key="index"
-        :product="product"
-      />
+      <h1 class="mt-5">Ristoranti</h1>
+      <SearchBar @restaurant="setSearchedData" />
+
+      <div
+        class="col-4 mt-3"
+        v-for="restaurant in restaurantToShow"
+        :key="restaurant.id"
+      >
+        <div class="card p-3">
+          <img
+            :src="restaurant.image_url"
+            :alt="'image of ' + restaurant.name_restaurant"
+          />
+          <p class="card-text">{{ restaurant.name_restaurant }}</p>
+          <p class="card-text">{{ restaurant.address }}</p>
+          <router-link
+            :to="{ name: 'single-restaurant', params: { id: restaurant.id } }"
+          >
+            <button class="btn btn-primary rounded-pill text-uppercase">
+              menu
+            </button>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Product from "../components/Product";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+
 export default {
-  name: "ExampleComponent",
+  name: "Restaurant",
   components: {
-    Product,
+    Header,
+    SearchBar,
   },
   data() {
     return {
       loading: true,
-      prodotti: [],
+      restaurants: [],
+      searchedRestaurant: [],
     };
   },
   methods: {
-    getProduct() {
-      this.loading = true;
-      axios.get("/api/dishes").then((response) => {
-        this.prodotti = response.data.data;
-        this.loading = false;
-        // console.log(this.prodotti);
-      });
-      /* .finally(() => {
-                    setTimeout(() => {
-                    this.loading = false;
-                    }, 5000);
-                }) */
+    setSearchedData(restaurant) {
+      this.searchedRestaurant = restaurant;
     },
   },
-
   created() {
-    this.getProduct();
+    this.loading = true;
+    axios.get("/api/restaurant").then((response) => {
+      this.restaurants = response.data;
+      this.loading = false;
+    });
+  },
+  computed: {
+    randomRestaurants() {
+      return this.restaurants
+        .sort(() => Math.random() - Math.random())
+        .slice(0, 10);
+    },
+
+    restaurantToShow() {
+      if (this.searchedRestaurant.length == 0) {
+        return this.randomRestaurants;
+      } else {
+        return this.searchedRestaurant;
+      }
+    },
   },
 };
 </script>
-<style lang="scss" scoped></style>
+
+<style lang="scss" scoped>
+@import "../../sass/app.scss";
+
+div#wrapper {
+  h1 {
+    color: $rich-black-fogra-29;
+    font-family: $font-family-headings;
+  }
+}
+</style>
