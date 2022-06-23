@@ -1,6 +1,5 @@
 import index from "./pages/index.vue";
 import Menu from "./pages/Menu.vue";
-import id from "./pages/checkout/id.vue"; 
 import cart from "./pages/checkout/cart.vue";
 
 export default [
@@ -10,18 +9,13 @@ export default [
     component: index,
   },
   {
-    path: "/:id/menu",
+    path: "/restaurant/:id/menu",
     name: "menu",
     component: Menu,
   },
   {
-    path: "/product/:id",
-    name: "single-product",
-    component: id,
-  },
-  {
-    path:"/cart", 
-    name:"carrello", 
+    path: "/cart",
+    name: "carrello",
     component: cart,
   },
 ];

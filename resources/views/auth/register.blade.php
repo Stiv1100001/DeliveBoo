@@ -144,7 +144,7 @@
                                 @foreach ($types as $type)
                                 <div class="col-6">
                                     <input class="custom-control-input @error('types') is-invalid @enderror"
-                                        name="types[]" type="checkbox" value="{{$type}}" id="type-{{$type->id}}">
+                                        name="types[]" type="checkbox" value="{{$type->id}}" id="type-{{$type->id}}">
                                     <label class="custom-control-label" for="type-{{$type->id}}">
                                         {{$type->name_type}}
                                     </label>

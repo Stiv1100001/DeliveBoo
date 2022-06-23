@@ -1,28 +1,26 @@
-<template> 
-  <div class="container">
-          <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ item.name }}</h5>
-            <p class="card-text">{{ item.description }}</p>
-            <p class="card-text">Ingredienti: {{ item.ingredients }}</p>
-            <p class="card-text">prezzo: {{ item.price }} &euro;</p> 
-            <div class="q-holder w-100 d-flex justify-content-center">
-              <button class="btn btn-info w-25" @click="plus()">+</button>
-              <input
-                type="number"
-                class="quantity form-control d-inline-block w-50"
-                min="0"
-                step="1"
-                v-model="quantity"
-              />
-              <button class="btn btn-info w-25" @click="minus()">-</button>
-            </div>
-          </div> 
-        </div>
-    
+<template>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">{{ item.description }}</p>
+      <p class="card-text">Ingredienti: {{ item.ingredients }}</p>
+      <p class="card-text">prezzo: {{ item.price }} &euro;</p>
+
+      <div
+        class="q-holder w-100 d-flex justify-content-between align-items-center"
+      >
+        <button
+          class="btn btn-info w-25"
+          @click="minus()"
+          :disabled="quantity.length == 0"
+        >
+          -
+        </button>
+        <span class="">{{ quantity }}</span>
+        <button class="btn btn-info w-25" @click="plus()">+</button>
+      </div>
+    </div>
   </div>
-  
-  
 </template>
 
 <script>
@@ -56,6 +54,7 @@ export default {
     },
 
     minus() {
+      if (this.quantity === 0) return;
       this.quantity--;
       this.removeFromCart();
     },
