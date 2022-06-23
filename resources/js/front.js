@@ -8,6 +8,7 @@ Vue.use(VueRouter);
 
 import App from "./views/App";
 import { store } from "./store";
+import Vue from "vue";
 
 const router = new VueRouter({
   mode: "history",
