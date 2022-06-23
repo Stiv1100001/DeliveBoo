@@ -2,17 +2,16 @@
   <div id="wrapper" class="container">
     <Header />
     <div class="row justify-content-center">
-      <div class="col-8">
-      </div>
+      <div class="col-8"></div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
       <h1 class="mt-5">Ristoranti</h1>
-      <SearchBar />
+      <SearchBar @restaurant="setSearchedData" />
 
       <div
         class="col-4 mt-3"
-        v-for="restaurant in randomRestaurants"
+        v-for="restaurant in restaurantToShow"
         :key="restaurant.id"
       >
         <div class="card p-3">
@@ -49,7 +48,13 @@ export default {
     return {
       loading: true,
       restaurants: [],
+      searchedRestaurant: [],
     };
+  },
+  methods: {
+    setSearchedData(restaurant) {
+      this.searchedRestaurant = restaurant;
+    },
   },
   created() {
     this.loading = true;
@@ -63,6 +68,14 @@ export default {
       return this.restaurants
         .sort(() => Math.random() - Math.random())
         .slice(0, 10);
+    },
+
+    restaurantToShow() {
+      if (this.searchedRestaurant.length == 0) {
+        return this.randomRestaurants;
+      } else {
+        return this.searchedRestaurant;
+      }
     },
   },
 };
