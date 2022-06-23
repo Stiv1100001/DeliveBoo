@@ -98,6 +98,9 @@ export const store = new vuex.Store({
     fillCart(state, cart) {
       state.cart = cart;
       localStorage.setItem("cart", JSON.stringify(state.cart));
+      if (cart.length) {
+        state.restaurantOrderId = cart[0].dish.user_id;
+      }
     },
 
     updateOrder(state, order) {
@@ -127,10 +130,9 @@ export const store = new vuex.Store({
     clearCart({ commit }) {
       commit("fillCart", []);
     },
-    // QUESTA FUNZIONE DOV'ERA? FLEX FLEX-------FIRMA DELLA FUNZIONE-----SALUTI DA SIMONE E CARMINE---KISS KISS 
-    removeItem({ commit }, dish) 
-    {
+    // QUESTA FUNZIONE DOV'ERA? FLEX FLEX-------FIRMA DELLA FUNZIONE-----SALUTI DA SIMONE E CARMINE---KISS KISS
+    removeItem({ commit }, dish) {
       commit("removeProductFromCart", { dish });
-    }
+    },
   },
 });
