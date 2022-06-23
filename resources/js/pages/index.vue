@@ -1,13 +1,13 @@
 <template>
   <div id="wrapper" class="container">
     <Header />
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-3">
       <div class="col-8"></div>
       <div class="col-12" v-if="loading">
         {{ loading }}
       </div>
-      <h1 class="mt-5">Ristoranti</h1>
       <SearchBar @restaurant="setSearchedData" />
+      <h1 class="mt-3">Ristoranti</h1>
 
       <div
         class="col-4 mt-3"
