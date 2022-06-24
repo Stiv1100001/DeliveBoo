@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
                 DishUserTable::class,
                 OrdersSeederTable::class,
                 OrderDishSeederTable::class,
+                UserTypeTable::class
             ]
         );
     }
