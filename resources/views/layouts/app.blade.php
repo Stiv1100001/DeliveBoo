@@ -38,19 +38,19 @@
                         <i class="fas fa-bars p-1"></i>
                     </button>
     
-                    <div class="collapse navbar-collapse pt-1" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->
                             @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
                             @else
