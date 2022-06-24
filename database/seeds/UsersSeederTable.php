@@ -14,15 +14,25 @@ class UsersSeederTable extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0 ; $i < 10 ; $i++) {
+
             $newUser = new User();
-            $newUser -> image_url =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnwfhQ8v3-pNPzCKAASEWGb4NOmBtjs4wTYQ&usqp=CAU";
-            $newUser-> name_restaurant = $faker->randomElement(["Shinto", "Puerto Messico", "Ristopizza Pizzorante", "Tonnarello", "Nunù","Ghandi", "Hang Zhou", "L'orto di Brera", "Hops!"]);
-            $newUser->address=$faker->address();
+            $newUser->image_url =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnwfhQ8v3-pNPzCKAASEWGb4NOmBtjs4wTYQ&usqp=CAU";
+            $newUser-> name_restaurant = "Gigi il troione"/* $faker->randomElement(["Shinto", "Puerto Messico", "Ristopizza Pizzorante", "Tonnarello", "Nunù","Ghandi", "Hang Zhou", "L'orto di Brera", "Hops!"]) */;
+            $newUser->address='Via delle stelle, 1';
             $newUser->vat_number=$faker->vat();
             $newUser->email=$faker->email();
-            $newUser->password = Hash::make("deliveboo". $i);
+            $newUser->password = Hash::make("deliveboo");
             $newUser->save();
-        }
+
+            $newUser = new User();
+            $newUser -> image_url =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnwfhQ8v3-pNPzCKAASEWGb4NOmBtjs4wTYQ&usqp=CAU";
+            $newUser-> name_restaurant = "Da paolo"/* $faker->randomElement(["Shinto", "Puerto Messico", "Ristopizza Pizzorante", "Tonnarello", "Nunù","Ghandi", "Hang Zhou", "L'orto di Brera", "Hops!"]) */;
+            $newUser->address='Via delle stelle, 12';
+            $newUser->vat_number=$faker->vat();
+            $newUser->email=$faker->email();
+            $newUser->password = Hash::make("deliveboo");
+            $newUser->save();
+
+
     }
 }

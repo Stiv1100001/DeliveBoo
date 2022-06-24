@@ -4,7 +4,7 @@
     <div class="row justify-content-center mt-3">
       <div class="col-8"></div>
       <div class="col-12" v-if="loading">
-        {{ loading }}
+        <img class="loading" src="https://www.fulcrongrv.it/api/foto/metamorfosi/photos/2019-10-27%2014.03.55%20096.jpg" alt="">
       </div>
       <SearchBar @restaurant="setSearchedData" />
       <h1 class="mt-3">Ristoranti</h1>
@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: '',
       restaurants: [],
       searchedRestaurant: [],
     };
@@ -59,7 +59,9 @@ export default {
     this.loading = true;
     axios.get("/api/restaurant").then((response) => {
       this.restaurants = response.data;
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
     });
   },
   computed: {
@@ -82,11 +84,20 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/app.scss";
-
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
 div#wrapper {
   h1 {
     color: $rich-black-fogra-29;
     font-family: $font-family-headings;
   }
+
 }
 </style>
