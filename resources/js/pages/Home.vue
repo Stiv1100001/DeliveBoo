@@ -37,7 +37,7 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 
 export default {
-  name: "index",
+  name: "Home",
 
   components: {
     Header,

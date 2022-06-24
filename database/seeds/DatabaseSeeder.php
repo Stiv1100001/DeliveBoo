@@ -16,12 +16,11 @@ class DatabaseSeeder extends Seeder
             [
                 UsersSeederTable::class,
                 TypesSeederTable::class,
-                UsersSeederTable::class,
+                UserTypeTable::class,
                 DishesSeederTable::class,
                 DishUserTable::class,
-                OrdersSeederTable::class,
-                OrderDishSeederTable::class,
-                UserTypeTable::class
+                // OrdersSeederTable::class,
+                // OrderDishSeederTable::class,
             ]
         );
     }

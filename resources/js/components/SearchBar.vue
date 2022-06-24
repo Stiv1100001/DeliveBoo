@@ -13,10 +13,8 @@
       :taggable="true"
       @tag="addTag"
       @select="search"
-      @remove="remove"
-    >
+      @remove="remove">
     </multiselect>
-    <!-- <pre class="language-json"><code>{{ value  }}</code></pre> -->
   </div>
 </template>
 

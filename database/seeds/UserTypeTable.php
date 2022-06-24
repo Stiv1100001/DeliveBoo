@@ -14,12 +14,12 @@ class UserTypeTable extends Seeder
      */
     public function run(Faker $faker)
     {
-        $User= User::all();
-        $Type = Type::pluck("id")->toArray();
+        $users = User::all();
+        $types = Type::pluck("id")->toArray();
 
-        foreach ($User as $user) {
-            $type= $faker->randomElements($Type, rand(1, 3));
-            $user->types()->sync($type);
+        foreach ($users as $user) {
+            $types = $faker->randomElements($types, 1);
+            $user->types()->sync($types);
         }
     }
 }

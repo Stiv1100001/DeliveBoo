@@ -1,12 +1,12 @@
-import index from "./pages/index.vue";
+import Home from "./pages/Home.vue";
 import Menu from "./pages/Menu.vue";
-import cart from "./pages/checkout/cart.vue";
+import Checkout from "./pages/checkout.vue";
 
 export default [
   {
     path: "/",
     name: "home",
-    component: index,
+    component: Home,
   },
   {
     path: "/restaurant/:id/menu",
@@ -14,8 +14,8 @@ export default [
     component: Menu,
   },
   {
-    path: "/cart",
-    name: "carrello",
-    component: cart,
+    path: "/checkout",
+    name: "checkout",
+    component: Checkout,
   },
 ];

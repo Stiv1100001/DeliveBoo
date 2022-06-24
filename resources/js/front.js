@@ -8,7 +8,9 @@ Vue.use(VueRouter);
 
 import App from "./views/App";
 import { store } from "./store";
-import Vue from "vue";
+
+import vueBraintree from "vue-braintree";
+Vue.use(vueBraintree);
 
 const router = new VueRouter({
   mode: "history",
