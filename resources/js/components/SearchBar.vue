@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center">
     <img
       src="/img/friends_delivery.jpeg"
-      class="position-relative"
+      class="position-relative img-fluid"
       alt="Image of friends eating"
     />
 
@@ -112,14 +112,12 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css">
 img {
   border-radius: 20px;
-  width: 400px;
+  width: 200px;
 }
 div#searchbar {
-  /* top: 50px; */
+  top: 50px;
   left: 200px;
-  /* transform: translateX(-50%) translateY(-50%); */
   width: 100%;
-  z-index: 1;
   box-shadow: 0 5px 15px rgba(226, 226, 226, 0.685);
 }
 </style>

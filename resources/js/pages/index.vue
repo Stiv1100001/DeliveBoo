@@ -10,7 +10,7 @@
         <div id="full-width-div" class="mb-5 p-5 d-flex">
           <SearchBar @restaurant="setSearchedData" />
         </div>
-        <div class="row">
+        <div id="main" class="row">
           <h1>Ristoranti</h1>
           <div
             id="restaurants"
@@ -121,43 +121,45 @@ div#full-width-div {
     z-index: 1;
   }
 }
-h1 {
-  color: $rich-black-fogra-29;
-  font-family: $font-family-headings;
-  margin-top: 500px;
-}
-div#restaurants {
-  //   background-color: $cambridge-blue;
-  h4 {
-    font-family: $font-family-headings;
-    font-size: 1.5rem;
+div#main {
+  margin-top: 800px;
+  h1 {
     color: $rich-black-fogra-29;
+    font-family: $font-family-headings;
   }
-  div.txt {
-    width: 100%;
-    border-bottom: 1px solid $rich-black-fogra-29;
-    div#address {
-      width: 60%;
-      p {
-        font-family: $font-family-txt;
-        font-size: 0.9rem;
-        color: $rich-black-fogra-29;
-        border-right: 1px solid $rich-black-fogra-29;
-      }
+  div#restaurants {
+    //   background-color: $cambridge-blue;
+    h4 {
+      font-family: $font-family-headings;
+      font-size: 1.5rem;
+      color: $rich-black-fogra-29;
     }
-    div.menu-btn {
-      width: 40%;
-      button {
-        font-family: $font-family-txt;
-        font-size: 0.8rem;
-        color: $rich-black-fogra-29;
-        background-color: $bright-yellow-crayola;
-        cursor: pointer;
+    div.txt {
+      width: 100%;
+      border-bottom: 1px solid $rich-black-fogra-29;
+      div#address {
+        width: 60%;
+        p {
+          font-family: $font-family-txt;
+          font-size: 0.9rem;
+          color: $rich-black-fogra-29;
+          border-right: 1px solid $rich-black-fogra-29;
+        }
+      }
+      div.menu-btn {
+        width: 40%;
+        button {
+          font-family: $font-family-txt;
+          font-size: 0.8rem;
+          color: $rich-black-fogra-29;
+          background-color: $bright-yellow-crayola;
+          cursor: pointer;
 
-        &:hover {
-          background-color: $rich-black-fogra-29;
-          color: white;
-          border: 1px solid $rich-black-fogra-29;
+          &:hover {
+            background-color: $rich-black-fogra-29;
+            color: white;
+            border: 1px solid $rich-black-fogra-29;
+          }
         }
       }
     }
