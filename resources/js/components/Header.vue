@@ -36,10 +36,16 @@
 
         <!-- Login/Register -->
         <div class="login-control">
-          <a href="/login" class="btn btn-outline-dark rounded-pill me-2">
+          <a
+            href="/login"
+            class="btn btn-outline-dark text-uppercase rounded-pill me-2"
+          >
             Login
           </a>
-          <a href="/register" class="btn btn-outline-dark rounded-pill">
+          <a
+            href="/register"
+            class="btn btn-outline-dark text-uppercase rounded-pill"
+          >
             Register
           </a>
         </div>
