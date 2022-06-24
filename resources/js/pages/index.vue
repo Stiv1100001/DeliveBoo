@@ -1,47 +1,51 @@
 <template>
-  <div id="wrapper" class="container mb-5">
+  <div id="wrapper" class="mb-5">
     <Header />
-    <div class="row my-3">
-      <!-- <div class="col-8"></div> -->
-      <div class="col-12" v-if="loading">
-        {{ loading }}
-      </div>
-      <SearchBar @restaurant="setSearchedData" />
-      <h1 class="my-3">Ristoranti</h1>
-      <div class="row">
-        <div
-          id="restaurants"
-          v-for="restaurant in randomRestaurants"
-          :key="restaurant.id"
-          class="col-md-4 mb-5"
-        >
-          <!-- <div class="restaurant-wrapper"> -->
-          <img
-            :src="restaurant.image_url"
-            class="mb-2"
-            :alt="'image of ' + restaurant.name_restaurant"
-          />
-          <h4>{{ restaurant.name_restaurant }}</h4>
-          <div class="txt mt-3 d-flex">
-            <!-- <div class="wrapper d-flex"> -->
-            <div id="address">
-              <p class="card-text pb-2 pe-2">{{ restaurant.address }}</p>
-            </div>
-            <div
-              class="menu-btn d-flex px-2 justify-content-center align-items-center"
-            >
-              <router-link
-                :to="{
-                  name: 'menu',
-                  params: { id: restaurant.id },
-                }"
+    <div class="container">
+      <div class="row my-3">
+        <!-- <div class="col-8"></div> -->
+        <div class="col-12" v-if="loading">
+          {{ loading }}
+        </div>
+        <div id="full-width-div" class="mb-5 p-5 d-flex">
+          <SearchBar @restaurant="setSearchedData" />
+        </div>
+        <div class="row">
+          <h1>Ristoranti</h1>
+          <div
+            id="restaurants"
+            v-for="restaurant in randomRestaurants"
+            :key="restaurant.id"
+            class="col-md-4 mb-5"
+          >
+            <!-- <div class="restaurant-wrapper"> -->
+            <img
+              :src="restaurant.image_url"
+              class="mb-2"
+              :alt="'image of ' + restaurant.name_restaurant"
+            />
+            <h4>{{ restaurant.name_restaurant }}</h4>
+            <div class="txt mt-3 d-flex">
+              <!-- <div class="wrapper d-flex"> -->
+              <div id="address">
+                <p class="card-text pb-2 pe-2">{{ restaurant.address }}</p>
+              </div>
+              <div
+                class="menu-btn d-flex px-2 justify-content-center align-items-center"
               >
-                <button class="btn rounded-pill text-uppercase">menu</button>
-              </router-link>
+                <router-link
+                  :to="{
+                    name: 'menu',
+                    params: { id: restaurant.id },
+                  }"
+                >
+                  <button class="btn rounded-pill text-uppercase">menu</button>
+                </router-link>
+              </div>
+              <!-- </div> -->
             </div>
             <!-- </div> -->
           </div>
-          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -101,14 +105,29 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/app.scss";
-h1 {
-  color: $rich-black-fogra-29;
-  font-family: $font-family-headings;
-}
-div#restaurants {
+div#full-width-div {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 3rem 0;
+  border-radius: 60px;
+  background-color: $cambridge-blue;
+
   img {
     border-radius: 20px;
   }
+
+  div.searchbar {
+    z-index: 1;
+  }
+}
+h1 {
+  color: $rich-black-fogra-29;
+  font-family: $font-family-headings;
+  margin-top: 500px;
+}
+div#restaurants {
+  //   background-color: $cambridge-blue;
   h4 {
     font-family: $font-family-headings;
     font-size: 1.5rem;

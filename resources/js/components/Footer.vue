@@ -1,11 +1,12 @@
 <template>
-  <div id="footer" class="d-flex py-4 my-5">
+  <div id="footer" class="container d-flex py-4 my-5 justify-content-between">
     <div id="logo-app" class="col-4 d-flex flex-column">
       <a href="/" class="logo text-decoration-none">
-        <span>DeliveBoo</span>
+        <!-- <span>DeliveBoo</span> -->
+        <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />
       </a>
 
-      <div class="social w-25 d-flex justify-content-evenly mb-5">
+      <div class="social w-25 d-flex justify-content-between my-5">
         <a href="#" class="fb">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +91,7 @@
             />
           </svg>
         </a>
-        <a href="#" class="align-self-end">
+        <a href="#" class="align-self-end text-decoration-none">
           <img src="/img/Google_play.png" alt="Image Google Play" />
         </a>
       </div>
@@ -130,11 +131,24 @@ export default {};
   border-top: 1px solid $rich-black-fogra-29;
   div#logo-app {
     a {
-      font-size: 2rem;
-      color: $rich-black-fogra-29;
-      font-family: $font-family-headings;
+      img {
+        width: 160px;
+      }
     }
+    // a {
+    //   font-size: 2rem;
+    //   color: $rich-black-fogra-29;
+    //   font-family: $font-family-headings;
+    // }
 
+    .social {
+      svg {
+        stroke: $rich-black-fogra-29;
+        &:hover {
+          stroke: $indian-red;
+        }
+      }
+    }
     .downloads {
       img {
         width: 134px;

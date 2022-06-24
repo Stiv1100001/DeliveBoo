@@ -1,21 +1,31 @@
 <template>
-  <div>
-    <multiselect
-      v-model="value"
-      :options="options"
-      :multiple="true"
-      :close-on-select="false"
-      :clear-on-select="false"
-      placeholder="Scegli la tipologia"
-      label="name_type"
-      track-by="name_type"
-      :searchable="false"
-      :taggable="true"
-      @tag="addTag"
-      @select="search"
-      @remove="remove"
-    >
-    </multiselect>
+  <div class="d-flex align-items-center">
+    <img
+      src="/img/friends_delivery.jpeg"
+      class="position-relative"
+      alt="Image of friends eating"
+    />
+
+    <div>
+      <h2>Ordina online dai tuoi ristoranti preferiti</h2>
+      <multiselect
+        v-model="value"
+        id="searchbar"
+        :options="options"
+        :multiple="true"
+        :close-on-select="false"
+        :clear-on-select="false"
+        placeholder="Scegli la tipologia"
+        label="name_type"
+        track-by="name_type"
+        :searchable="false"
+        :taggable="true"
+        @tag="addTag"
+        @select="search"
+        @remove="remove"
+      >
+      </multiselect>
+    </div>
     <!-- <pre class="language-json"><code>{{ value  }}</code></pre> -->
   </div>
 </template>
@@ -99,6 +109,17 @@ export default {
 };
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-
-<style></style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+img {
+  border-radius: 20px;
+  width: 400px;
+}
+div#searchbar {
+  /* top: 50px; */
+  left: 200px;
+  /* transform: translateX(-50%) translateY(-50%); */
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(226, 226, 226, 0.685);
+}
+</style>
