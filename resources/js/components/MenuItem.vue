@@ -52,7 +52,10 @@ export default {
 
   methods: {
     plus() {
-      if (this.getRestaurantOrderId !== this.item.id) {
+      if (
+        this.getRestaurantOrderId &&
+        this.getRestaurantOrderId !== this.item.user_id
+      ) {
         this.$emit("insertError");
         return;
       }
