@@ -47,17 +47,17 @@
                 </li>
                 </ul>
             </div>
-            <div
-                class="card-footer d-flex justify-content-between align-items-center">
-                <h5 class="m-0">
-                Totale: &euro; {{ getTotalCartPrice.toFixed(2) }}
-                </h5>
-                <router-link :to="{ name: 'checkout' }">
-                <button class="btn btn-info">Checkout</button>
-                </router-link>
+                    <div
+                        class="card-footer d-flex justify-content-between align-items-center">
+                        <h5 class="m-0">
+                        Totale: &euro; {{ getTotalCartPrice.toFixed(2) }}
+                        </h5>
+                        <router-link :to="{ name: 'checkout' }">
+                            <button class="btn btn-info">Checkout</button>
+                        </router-link>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
     </div>
     </div>
@@ -79,7 +79,9 @@
 
     computed: {
     availableDishes() {
+        console.log(this.dishes);
         return this.dishes.filter((dish) => dish.availability);
+
     },
 
     ...mapGetters([
@@ -92,6 +94,7 @@
     async created() {
     const dishes = (await axios.get("/api/dishes/" + this.$route.params.id))
         .data.data;
+        console.log(dishes)
     const restaurant = (
         await axios.get("/api/restaurant/" + this.$route.params.id)
     ).data;

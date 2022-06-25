@@ -1,6 +1,6 @@
     <template>
     <div class="card">
-        <img :src= "item.img" class="card-img-top" alt=""/>
+        <img :src="item.img_url" class="img-fluid" alt="" />
         <div class="card-body">
             <h5 class="card-title">{{ item.name }}</h5>
             <p class="card-text">{{ item.description }}</p>
@@ -21,6 +21,7 @@
             <button class="btn btn-info w-25" @click="plus()">+</button>
             </div>
         </div>
+
     </div>
     </template>
 

@@ -9,6 +9,7 @@ class Dish extends Model
     protected $fillable = [
         "name",
         "description",
+        "img_url",
         "ingredients",
         "price",
         "availability"
@@ -17,7 +18,7 @@ class Dish extends Model
     public function user()
     {
         return $this->belongsTo("App\User");
-    } 
+    }
 
     public function order()
     {
