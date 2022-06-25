@@ -10251,9 +10251,21 @@ body img#user-img-home {
   width: 10rem;
   height: 10rem;
 }
+body ul.dropdown-menu {
+  min-width: 5.5rem;
+}
+body .navbar-nav .dropdown-menu {
+  position: absolute;
+}
+body .navbar-nav .dropdown-menu i {
+  font-size: 1rem;
+}
 
-div#header-guest nav {
-  border-bottom: 1px solid black;
+div#header-guest {
+  background-image: url("https://www.revendex.com/static/www/res/images/page-header.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 div#header-guest a.logo span {
   font-size: 2rem;
@@ -10261,10 +10273,18 @@ div#header-guest a.logo span {
   font-family: "Abril Fatface", cursive;
 }
 div#header-guest a.logo span:hover {
+  background-image: url("https://cdn.dribbble.com/users/1770290/screenshots/6238146/bg_87.gif");
+  background-position: center;
+  background-size: contain;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
 }
 
 .abril-fatface-font {
   font-family: "Abril Fatface", cursive;
+}
+
+.bg-bone {
+  background-color: hsl(39deg, 39%, 85%);
 }

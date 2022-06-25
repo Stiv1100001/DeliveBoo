@@ -59,6 +59,18 @@ body {
         height: 10rem;
     }
 
+    ul.dropdown-menu{
+        min-width: 5.5rem;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+
+    .navbar-nav .dropdown-menu i{
+        font-size: 1rem;
+    }
+
     // div#background-home-admin{
     //     background-size: cover;
     //     background-repeat: no-repeat;
@@ -69,9 +81,12 @@ body {
 
 
 div#header-guest {
-    nav {
-        border-bottom: 1px solid black;
-    }
+     
+    background-image: url('https://www.revendex.com/static/www/res/images/page-header.png');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
     a.logo {
         span {
             font-size: 2rem;
@@ -79,6 +94,10 @@ div#header-guest {
             font-family: $font-family-headings;
 
             &:hover {
+                background-image: url('https://cdn.dribbble.com/users/1770290/screenshots/6238146/bg_87.gif');
+                background-position: center;
+                background-size: contain;
+                -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 -webkit-text-stroke-width: 1px;
             }
@@ -88,4 +107,8 @@ div#header-guest {
 
 .abril-fatface-font{
     font-family: $font-family-headings;
+}
+
+.bg-bone{
+    background-color: $bone;
 }

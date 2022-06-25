@@ -26,23 +26,17 @@
     </head>
 
     <body>
-        <div class="container">
-            <div id="header-guest">
-                <nav class="navbar navbar-expand-md">
+        <div id="header-guest" class="container-fluid px-0 shadow">
+            <div class="container">
+                <nav class="d-flex justify-content-between align-items-center">
                     <a href="/" class="logo text-decoration-none">
                         <span>DeliveBoo</span>
                     </a>
-                    <button class="navbar-toggler border border-1 border-dark" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <i class="fas fa-bars p-1"></i>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        
+
+                    <div class="navbar" id="navbarNav">
                         
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto">
+                        <div class="navbar-nav d-flex">
                             <!-- Authentication Links -->
                             @guest
                             <li class="nav-item d-flex align-items-center">
@@ -54,17 +48,53 @@
                             </li>
                             @endif
                             @else
-                            <li class="nav-item d-flex align-items-center">
+                            {{-- <li class="nav-item d-flex align-items-center">
                                 <img src="{{asset('storage/' . Auth::user()->image_url) }}"
                                 alt="{{Auth::user()->name_resturant}}" class="rounded-circle  border border-2 border-dark" id="user-img-nav">
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-black abril-fatface-font fs-5" href="#" role="button"
+                            </li> --}}
+                            <div class="nav-item dropdown d-flex align-items-center">
+                                <img src="{{asset('storage/' . Auth::user()->image_url) }}"
+                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle  border border-2 border-dark me-3" id="user-img-nav">
+
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-dark rounded abril-fatface-font fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ Auth::user()->name_restaurant }}
+                                        <i class="fas fa-bars p-1"></i>
+                                    </button>
+                                    <ul class="dropdown-menu bg-bone border border-1 border-dark" aria-labelledby="dropdownMenuLink">
+                                        
+                                        <li class="dropdown-item text-center p-0">
+                                            <a class="text-decoration-none text-black abril-fatface-font"  href="{{ route('home') }}" role=“button">
+                                                <i class="fas fa-house me-1"></i>
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="dropdown-item text-center p-0">
+                                            <a class="text-decoration-none text-black abril-fatface-font" href="{{ route('admin.dishes.index') }}" role=“button">
+                                                <i class="fas fa-utensils me-1"></i>
+                                                Menu
+                                            </a>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="dropdown-item text-center p-0">
+                                            <a class="text-decoration-none text-black abril-fatface-font" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="fas fa-right-from-bracket me-1"></i>
+                                                {{ __('Logout') }}
+                                            </a>
+            
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle text-black abril-fatface-font fs-5 me-2" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name_restaurant }}
                                 </a>
     
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right me-2" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -73,25 +103,24 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
-                            <li class="nav-item d-flex align-items-center">
-                                <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('home') }}" role=“button">
+                                </div> --}}
+
+
+
+                                {{-- <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('home') }}" role=“button">
                                     Home
                                 </a>
-                            </li>
-                            <li class="nav-item d-flex align-items-center">
                                 <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('admin.dishes.index') }}" role=“button">
                                     Menu
-                                </a>
-                            </li>
+                                </a> --}}
+                            </div>
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.orders.index') }}" role=“button">
                                     Lista ordini
                                 </a>
                             </li> --}}
                             @endguest
-                        </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
