@@ -2709,6 +2709,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuItem",
   data: function data() {
@@ -3285,6 +3286,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -31424,7 +31426,7 @@ var render = function () {
                 attrs: { color: "success" },
                 on: { click: slotProps.submit },
               },
-              [_vm._v("\n      Aggiungi carta\n    ")]
+              [_vm._v("\n        Aggiungi carta\n    ")]
             ),
           ]
         },
@@ -31577,6 +31579,11 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
+    _c("img", {
+      staticClass: "card-img-top",
+      attrs: { src: _vm.item.img, alt: "" },
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.item.name))]),
       _vm._v(" "),
@@ -31610,7 +31617,7 @@ var render = function () {
                 },
               },
             },
-            [_vm._v("\n        -\n      ")]
+            [_vm._v("\n            -\n        ")]
           ),
           _vm._v(" "),
           _c("span", {}, [_vm._v(_vm._s(_vm.quantity))]),
@@ -31770,7 +31777,7 @@ var render = function () {
                             staticClass:
                               "btn btn-primary rounded-pill text-uppercase",
                           },
-                          [_vm._v("\n            menu\n          ")]
+                          [_vm._v("\n            menu\n            ")]
                         ),
                       ]
                     ),
@@ -31837,7 +31844,7 @@ var render = function () {
                   _vm._v(
                     "\n        " +
                       _vm._s(_vm.restaurant.name_restaurant) +
-                      "\n      "
+                      "\n    "
                   ),
                 ])
               : _vm._e(),
@@ -31915,7 +31922,7 @@ var render = function () {
                 [
                   _c("h5", { staticClass: "m-0" }, [
                     _vm._v(
-                      "\n              Totale: € " +
+                      "\n            Totale: € " +
                         _vm._s(_vm.getTotalCartPrice.toFixed(2)) +
                         "\n            "
                     ),
@@ -32261,6 +32268,13 @@ var staticRenderFns = [
         staticClass: "img-fluid w-50 text-center",
         attrs: {
           src: "https://www.fulcrongrv.it/api/foto/metamorfosi/photos/2019-10-27%2014.03.55%20096.jpg",
+          alt: "",
+        },
+      }),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src: "https://cdn.discordapp.com/attachments/985828242319618108/990175973251092500/vittorio.jpg",
           alt: "",
         },
       }),

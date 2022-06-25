@@ -14,6 +14,9 @@ class DishesSeederTable extends Seeder
      */
     public function run(Faker $faker)
     {
+
+            /* $faker->addProvider(new \FakerUser\Provider\it_IT\User($faker));  */
+
             $users_id = User::pluck('id')->toArray();
             $DishOne = new Dish();
             $DishOne -> user_id = 2;
@@ -42,15 +45,16 @@ class DishesSeederTable extends Seeder
             $DishThree->price= 5.00;
             $DishThree-> save();
 
-            /* $newDish = new Dish();
-            $newDish->img = "https://cdn.discordapp.com/attachments/985828242319618108/989898311211319367/unknown.png" ;
-            $newDish->name = "Pizza Boscaiola" ;
-            $newDish->description= "La pizza alla boscaiola bianca è un soffice e goloso lievitato. E’ uno dei nostri gusti preferiti di pizza, per cui dovevamo assolutamente condividerla con voi. La preparazione è molto semplice e l’assenza del pomodoro rende la pietanza più delicata " ;
-            $newDish->ingredients= "Acqua, farina,funghi,mozzarella,pomodoro,olio,sale" ;
-            $newDish->price= 7.00;
-            $newDish-> save();
+            $newDishFour = new Dish();
+            $newDishFour -> user_id = 3;
+            $newDishFour->img = "https://cdn.discordapp.com/attachments/985828242319618108/989898311211319367/unknown.png" ;
+            $newDishFour->name = "Pizza Boscaiola" ;
+            $newDishFour->description= "La pizza alla boscaiola bianca è un soffice e goloso lievitato. E’ uno dei nostri gusti preferiti di pizza, per cui dovevamo assolutamente condividerla con voi. La preparazione è molto semplice e l’assenza del pomodoro rende la pietanza più delicata " ;
+            $newDishFour->ingredients= "Acqua, farina,funghi,mozzarella,pomodoro,olio,sale" ;
+            $newDishFour->price= 7.00;
+            $newDishFour-> save();
 
-            $newDish = new Dish();
+           /*  $newDish = new Dish();
             $newDish->img = "https://cdn.discordapp.com/attachments/985828242319618108/989898981242990592/unknown.png" ;
             $newDish->name = "Pizza fritta" ;
             $newDish->description= "Tra le prelibatezze dello street food partenopeo, insieme alle sfogliatelle, regna sovrana la pizza fritta: una versione più grande e più ricca delle tipiche pizzelle fritte " ;

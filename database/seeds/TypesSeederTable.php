@@ -28,10 +28,10 @@ class TypesSeederTable extends Seeder
             "Hambuegeria",
             "Pub"
         ];
-        
+
         foreach($types as $type){
             $newType = new Type();
-            $newType->name_type = $type; 
+            $newType->name_type = $type;
             $newType-> save();
         };
 
