@@ -24,13 +24,19 @@
         >
       </h6>
 
+      <transition name="fade">
+        <div class="alert alert-danger" v-if="showError" role="alert">
+          È possibile acquistare piatti da un solo ristorante!
+        </div></transition
+      >
+
       <h5>Menu</h5>
 
       <div class="d-flex">
         <div
           class="menu-container row row-cols-2 row-cols-lg-3 align-items-stretch g-3 w-75">
           <div class="col" v-for="dish in availableDishes" :key="dish.id">
-            <MenuItem :item="dish" />
+            <MenuItem :item="dish" @insertError="showInsertError" />
           </div>
         </div>
         <div class="cart w-25">
@@ -75,6 +81,7 @@ export default {
     restaurant: null,
     dishes: [],
     loading: true,
+    showError: false,
   }),
 
   computed: {
@@ -87,6 +94,17 @@ export default {
       "getTotalCartPrice",
       "getCart",
     ]),
+  },
+
+  methods: {
+    showInsertError() {
+      this.showError = true;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      setTimeout(() => {
+        this.showError = false;
+      }, 5000);
+    },
   },
 
   async created() {

@@ -16,6 +16,10 @@ export const store = new vuex.Store({
       return state.restaurants;
     },
 
+    getRestaurantOrderId(state) {
+      return state.restaurantOrderId;
+    },
+
     getTotalCartPrice(state) {
       let total = 0;
 

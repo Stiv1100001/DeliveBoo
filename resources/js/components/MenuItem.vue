@@ -7,13 +7,11 @@
       <p class="card-text">prezzo: {{ item.price }} &euro;</p>
 
       <div
-        class="q-holder w-100 d-flex justify-content-between align-items-center"
-      >
+        class="q-holder w-100 d-flex justify-content-between align-items-center">
         <button
           class="btn btn-info w-25"
           @click="minus()"
-          :disabled="quantity.length == 0"
-        >
+          :disabled="quantity.length == 0">
           -
         </button>
         <span class="">{{ quantity }}</span>
@@ -24,6 +22,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "MenuItem",
   data: () => ({
@@ -35,6 +34,10 @@ export default {
       type: Object,
       required: true,
     },
+  },
+
+  computed: {
+    ...mapGetters(["getRestaurantOrderId"]),
   },
 
   created() {
@@ -49,6 +52,11 @@ export default {
 
   methods: {
     plus() {
+      if (this.getRestaurantOrderId !== this.item.id) {
+        this.$emit("insertError");
+        return;
+      }
+
       this.quantity++;
       this.addToCart();
     },
