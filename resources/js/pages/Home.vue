@@ -1,9 +1,12 @@
 <template>
   <div id="wrapper" class="container">
+    <div class="position-absolute loader h-100 w-100" :class="{ 'd-none': !loading }">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <Header />
     <div class="row justify-content-center mt-3">
-      <div class="col-8"></div>
-      <div class="col-12" v-if="loading">Loading...</div>
       <SearchBar @restaurant="setSearchedData" />
       <h1 class="mt-3">Ristoranti</h1>
 
@@ -34,7 +37,7 @@
     },
     data() {
       return {
-        loading: "",
+        loading: true,
         restaurants: [],
         searchedRestaurant: [],
       };
@@ -71,15 +74,17 @@
 
 <style lang="scss" scoped>
   @import "../../sass/app.scss";
-  .loading {
-    position: absolute;
+
+  .loader {
+    background-color: white;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   div#wrapper {
     h1 {
       color: $rich-black-fogra-29;

@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-evenly">
     <img src="/img/friends_delivery.jpeg" class="position-relative img-fluid" alt="Image of friends eating" />
 
     <div>
