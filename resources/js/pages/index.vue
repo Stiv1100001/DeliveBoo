@@ -1,35 +1,38 @@
 <template>
-  <div id="wrapper" class="container">
+  <div>
     <Header />
-    <div class="row justify-content-center mt-3">
-      <div class="col-8"></div>
-      <div class="col-12" v-if="loading">
-        {{ loading }}
-      </div>
-      <SearchBar @restaurant="setSearchedData" />
-      <h1 class="mt-3">Ristoranti</h1>
+      <div id="wrapper" class="container">
+      <div class="row justify-content-center mt-3">
+        <div class="col-8"></div>
+        <div class="col-12" v-if="loading">
+          {{ loading }}
+        </div>
+        <SearchBar @restaurant="setSearchedData" />
+        <h1 class="mt-3">Ristoranti</h1>
 
-      <div
-        class="col-4 mt-3"
-        v-for="restaurant in restaurantToShow"
-        :key="restaurant.id"
-      >
-        <div class="card p-3">
-          <img
-            :src="restaurant.image_url"
-            :alt="'image of ' + restaurant.name_restaurant"
-          />
-          <p class="card-text">{{ restaurant.name_restaurant }}</p>
-          <p class="card-text">{{ restaurant.address }}</p>
-          <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
-            <button class="btn btn-primary rounded-pill text-uppercase">
-              menu
-            </button>
-          </router-link>
+        <div
+          class="col-4 mt-3"
+          v-for="restaurant in restaurantToShow"
+          :key="restaurant.id"
+        >
+          <div class="card p-3">
+            <img
+              :src="restaurant.image_url"
+              :alt="'image of ' + restaurant.name_restaurant"
+            />
+            <p class="card-text">{{ restaurant.name_restaurant }}</p>
+            <p class="card-text">{{ restaurant.address }}</p>
+            <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
+              <button class="btn btn-primary rounded-pill text-uppercase">
+                menu
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>

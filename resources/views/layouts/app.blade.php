@@ -26,7 +26,7 @@
     </head>
 
     <body>
-        <div id="header-guest" class="container-fluid px-0 shadow">
+        <div id="header-guest" class="w.100 px-0 shadow">
             <div class="container">
                 <nav class="d-flex justify-content-between align-items-center">
                     <a href="/" class="logo text-decoration-none">
@@ -36,32 +36,30 @@
                     <div class="navbar" id="navbarNav">
                         
                         <!-- Right Side Of Navbar -->
-                        <div class="navbar-nav d-flex">
+                        <div class="navbar-nav d-flex align-items-center">
                             <!-- Authentication Links -->
-                            @guest
+                            <ul class="d-flex m-0">
+                                @guest
                             <li class="nav-item d-flex align-items-center">
                                 <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item d-flex align-items-center">
-                                <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="btn btn-outline-dark rounded-pill" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
+                            </ul>
                             @else
-                            {{-- <li class="nav-item d-flex align-items-center">
-                                <img src="{{asset('storage/' . Auth::user()->image_url) }}"
-                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle  border border-2 border-dark" id="user-img-nav">
-                            </li> --}}
                             <div class="nav-item dropdown d-flex align-items-center">
                                 <img src="{{asset('storage/' . Auth::user()->image_url) }}"
-                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle  border border-2 border-dark me-3" id="user-img-nav">
+                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle border border-3 border-dark me-3" id="user-img-nav">
 
                                 <div class="dropdown">
-                                    <button class="btn btn-outline-dark rounded abril-fatface-font fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-outline-dark border border-2 border-dark rounded abril-fatface-font fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ Auth::user()->name_restaurant }}
                                         <i class="fas fa-bars p-1"></i>
                                     </button>
-                                    <ul class="dropdown-menu bg-bone border border-1 border-dark" aria-labelledby="dropdownMenuLink">
+                                    <ul class="dropdown-menu bg-dropdown border border-2 border-dark" aria-labelledby="dropdownMenuLink">
                                         
                                         <li class="dropdown-item text-center p-0">
                                             <a class="text-decoration-none text-black abril-fatface-font"  href="{{ route('home') }}" role=“button">
@@ -89,30 +87,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle text-black abril-fatface-font fs-5 me-2" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name_restaurant }}
-                                </a>
-    
-                                <div class="dropdown-menu dropdown-menu-right me-2" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-    
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div> --}}
-
-
-
-                                {{-- <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('home') }}" role=“button">
-                                    Home
-                                </a>
-                                <a class="btn btn-outline-dark rounded-pill me-2" href="{{ route('admin.dishes.index') }}" role=“button">
-                                    Menu
-                                </a> --}}
                             </div>
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.orders.index') }}" role=“button">
@@ -126,7 +100,7 @@
             </div>
         </div>
         
-            <main class="py-4">
+            <main>
                 @yield('content')
             </main>
 

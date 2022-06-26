@@ -10260,16 +10260,23 @@ body .navbar-nav .dropdown-menu {
 body .navbar-nav .dropdown-menu i {
   font-size: 1rem;
 }
+body div#background-home-admin {
+  height: calc(100vh - 64px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
+}
 
 div#header-guest {
-  background-image: url("https://www.revendex.com/static/www/res/images/page-header.png");
-  background-position: bottom;
+  background-image: url("https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 div#header-guest a.logo span {
-  font-size: 2rem;
-  color: hsl(207deg, 43%, 9%);
+  font-size: 2.5rem;
+  color: white;
   font-family: "Abril Fatface", cursive;
 }
 div#header-guest a.logo span:hover {
@@ -10278,13 +10285,32 @@ div#header-guest a.logo span:hover {
   background-size: contain;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
 }
 
 .abril-fatface-font {
   font-family: "Abril Fatface", cursive;
 }
 
-.bg-bone {
-  background-color: hsl(39deg, 39%, 85%);
+.bg-dropdown {
+  background-image: url("https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: transparent;
+}
+
+div h1.welcome, div .welcome.h1 {
+  font-size: 7rem;
+}
+
+.my-opacity {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bright-yellow-crayola {
+  color: hsl(38deg, 100%, 58%);
 }

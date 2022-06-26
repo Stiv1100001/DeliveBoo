@@ -71,26 +71,26 @@ body {
         font-size: 1rem;
     }
 
-    // div#background-home-admin{
-    //     background-size: cover;
-    //     background-repeat: no-repeat;
-    //     background-position:bottom;
-    //     background-image: url('https://static.vecteezy.com/ti/foto-gratuito/p2/2076692-tavolo-con-sfocato-ristorante-sfondo-gratuito-foto.jpg');
-    // }
+    div#background-home-admin{
+        height: calc(100vh - 64px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:center;
+        background-image: url('https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg');
+    }
 }
 
 
 div#header-guest {
-     
-    background-image: url('https://www.revendex.com/static/www/res/images/page-header.png');
-    background-position: bottom;
+    background-image: url('https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     
     a.logo {
         span {
-            font-size: 2rem;
-            color: $rich-black-fogra-29;
+            font-size: 2.5rem;
+            color: white;
             font-family: $font-family-headings;
 
             &:hover {
@@ -99,7 +99,7 @@ div#header-guest {
                 background-size: contain;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                -webkit-text-stroke-width: 1px;
+                
             }
         }
     }
@@ -109,6 +109,26 @@ div#header-guest {
     font-family: $font-family-headings;
 }
 
-.bg-bone{
-    background-color: $bone;
+.bg-dropdown{
+    background-image: url('https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: transparent;
+}
+
+div h1.welcome{
+    font-size: 7rem;
+}
+
+.my-opacity{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bright-yellow-crayola{
+    color: $bright-yellow-crayola;
+} 
