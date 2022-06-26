@@ -4,16 +4,16 @@ import vuex from "vuex";
 Vue.use(vuex);
 
 export const store = new vuex.Store({
-state: {
+  state: {
     cart: [],
     restaurantOrderId: null,
     restaurants: [],
     order: {},
-},
+  },
 
-getters: {
+  getters: {
     getRestaurants(state) {
-    return state.restaurants;
+      return state.restaurants;
     },
 
     getRestaurantOrderId(state) {
@@ -21,124 +21,125 @@ getters: {
     },
 
     getTotalCartPrice(state) {
-    let total = 0;
+      let total = 0;
 
-    function reduceFn(accumulator, next) {
+      function reduceFn(accumulator, next) {
         return accumulator + next.dish.price * next.quantity;
-    }
+      }
 
-    total = state.cart.reduce(reduceFn, 0);
+      total = state.cart.reduce(reduceFn, 0);
 
-    return total;
+      return total;
     },
 
     getTotalNumberOfItemInCart(state) {
-    let number = 0;
+      let number = 0;
 
-    state.cart.forEach((p) => {
+      state.cart.forEach((p) => {
         number += p.quantity;
-    });
+      });
 
-    return number;
+      return number;
     },
 
     getCart(state) {
-    return state.cart;
+      return state.cart;
     },
-},
+  },
 
-mutations: {
+  mutations: {
     updateRestaurant(state, restaurants) {
-    state.restaurants = restaurants;
+      state.restaurants = restaurants;
     },
 
     addProductToCart(state, { dish, quantity = 1 }) {
-    if (state.cart.length) {
+      if (state.cart.length) {
         if (dish.user_id != state.restaurantOrderId) {
-        return;
+          return;
         }
 
         let toPush = true;
 
         state.cart.forEach((p) => {
-        if (p.dish.id == dish.id) {
+          if (p.dish.id == dish.id) {
             p.quantity += parseFloat(quantity);
             toPush = false;
-        }
+          }
         });
 
         if (toPush) state.cart.push({ dish, quantity });
-    } else {
+      } else {
         state.restaurantOrderId = dish.user_id;
         state.cart.push({ dish, quantity });
-    }
+      }
 
-    // Salvo nel local storage
-    localStorage.setItem("cart", JSON.stringify(state.cart));
-    return true;
+      // Salvo nel local storage
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+      return true;
     },
 
     removeProductFromCart(state, { dish, quantity = 1 }) {
-    const newCart = [];
+      const newCart = [];
 
-    state.cart.forEach((p) => {
+      state.cart.forEach((p) => {
         if (p.dish.id == dish.id) {
-        p.quantity -= quantity;
-        if (p.quantity > 0) newCart.push(p);
+          p.quantity -= quantity;
+          if (p.quantity > 0) newCart.push(p);
         } else {
-        newCart.push(p);
+          newCart.push(p);
         }
-    });
+      });
 
-    if (!newCart.length) {
+      if (!newCart.length) {
         state.restaurantOrderId = null;
-    }
+      }
 
-    state.cart = newCart;
+      state.cart = newCart;
 
-    localStorage.setItem("cart", JSON.stringify(state.cart));
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
 
     fillCart(state, cart) {
-    state.cart = cart;
-    if (cart.length > 0) state.restaurantOrderId = state.cart[0].dish.user_id;
+      state.cart = cart;
+      if (cart.length > 0) state.restaurantOrderId = state.cart[0].dish.user_id;
 
-    localStorage.setItem("cart", JSON.stringify(state.cart));
-    if (cart.length) {
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+      if (cart.length) {
         state.restaurantOrderId = cart[0].dish.user_id;
-    }
+      }
     },
 
     updateOrder(state, order) {
-    state.order = order;
+      state.order = order;
     },
-},
+  },
 
-actions: {
+  actions: {
     async syncRestaurants({ commit }) {
-    try {
+      try {
         let restaurants = (await axios.get("/api/restaurant")).data;
         commit("updateRestaurant", restaurants);
-    } catch (e) {
+      } catch (e) {
         console.error(e);
-    }
+      }
     },
 
     initCart({ commit }) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (cart) {
+      let cart = JSON.parse(localStorage.getItem("cart"));
+
+      if (cart) {
         commit("fillCart", cart);
-    } else {
+      } else {
         localStorage.setItem("cart", JSON.stringify([]));
-    }
+      }
     },
 
     clearCart({ commit }) {
-    commit("fillCart", []);
+      commit("fillCart", []);
     },
-    // QUESTA FUNZIONE DOV'ERA? FLEX FLEX-------FIRMA DELLA FUNZIONE-----SALUTI DA SIMONE E CARMINE---KISS KISS
+
     removeItem({ commit }, dish) {
-    commit("removeProductFromCart", { dish });
+      commit("removeProductFromCart", { dish });
     },
-},
+  },
 });
