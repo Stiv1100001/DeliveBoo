@@ -38,43 +38,4 @@ class DishController extends Controller
     //         'dish' => $dish
     //     ]);
     // }
-
-    public function generate(Request $request, Gateway $gateway)
-    {
-        $token = $gateway->clientToken()->generate();  //genera un token di autenticazione per il client
-        $data =[
-            'success' => true,
-            'token' => $token,
-        ];
-        return response()->json($data, 200);
-    }
-
-    public function payments(OrderRequest $request, Gateway $gateway)
-    {
-        $dish = Dish::findOrFail($request->dish);       //recupero il singolo id del prodotto
-        $result = $gateway->transaction()->sale([
-            'amount' =>  $dish->price,        //prezzo del piatto
-            'paymentMethodNonce' => $request->token /* $request->payment_method_nonce */,
-            'options' => [
-                'submitForSettlement' => true           // preso dalla documentazione di Braintree
-            ],
-            'customer' => [
-                'firstName' => $dish->name,
-            ],
-        ]);
-        if ($result->success) {
-            $data =[
-                'success' => true,
-                'message' => 'Transazione eseguita',
-                /* 'transaction' => $result->transaction, */
-            ];
-            return response()->json($data, 200);
-        } else {
-            $data =[
-                'success' => false,
-                'message' => 'Transazione fallita',
-            ];
-            return response()->json($data, 401);
-        }
-    }
 }

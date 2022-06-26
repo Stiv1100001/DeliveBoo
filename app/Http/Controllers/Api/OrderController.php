@@ -5,17 +5,25 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Model\Order;
 use Illuminate\Http\Request;
+use Braintree\Gateway;
+use App\Model\Dish;
 
 class OrderController extends Controller
 {
+    public function generateToken(Request $request, Gateway $gateway)
+    {
+        $token = $gateway->clientToken()->generate();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+        $data = [
+            "success" => true,
+            "token" => $token,
+        ];
+
+        return response()->json($data, 200);
+    }
+
+
+    public function makeOrderPayment(Request $request, Gateway $gateway)
     {
         $data = $request->all();
 
@@ -24,40 +32,67 @@ class OrderController extends Controller
                 "name_customer" => 'required|string',
                 "address_customer" => 'required|string',
                 "phone_number_customer" => 'required',
-                "total_price" => 'required|numeric',
-                "data" => 'required|date'
+                "email" => 'required|email',
+                "nonce" => 'required',
+                "order" => 'array',
             ],
             [
                 "required" => 'Il campo è obbligatorio',
                 "string" => "il campo deve contenere testo",
                 "numeric" => 'Il campo deve essere numerico',
-                "date" => 'IL campo deve essere una data'
             ]
         );
 
-        // ! Payment
 
-        $newOrder = new Order();
+        $amount = 0;
 
-        $newOrder->fill($data);
+        foreach ($data['order'] as $item) {
+            $dish = Dish::find($item['id']);
 
-        $newOrder->save();
+            $amount += $dish->price * $item['quantity'];
+        }
 
-        $newOrder->dish()->attach($data['dishes']);
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $request->nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
 
-        // ! Mail
+        $response = [
+            "success" => null,
+            "messsage" => null,
+        ];
 
-        return redirect()->route('api.order.show');
+        if ($result->success) {
+            $newOrder = new Order();
+
+            $newOrder->fill($data);
+            $newOrder->total_price = $amount;
+
+            $newOrder->save();
+
+            foreach ($data['order'] as $item) {
+                $newOrder->dish()->attach($item['id'], ['quantity' => $item['quantity']]);
+            }
+
+            $response['success'] = true;
+            $response['messsage'] = "Transazione eseguita correttamente";
+            $response['orderID'] = $newOrder->id;
+            return response()->json($response, 200);
+        } else {
+            $response['success'] = false;
+            $response['messsage'] = $result;
+
+            return response()->json($response, 401);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(int $id)
     {
-        // TODO Pagina di conferma
+        $order = Order::with('dishes')->findOrFail($id);
+
+        return response()->json($order);
     }
 }

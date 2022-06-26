@@ -10261,7 +10261,7 @@ body .navbar-nav .dropdown-menu i {
   font-size: 1rem;
 }
 body div#background-home-admin {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 72px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -10273,18 +10273,6 @@ div#header-guest {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-div#header-guest a.logo span {
-  font-size: 2.5rem;
-  color: white;
-  font-family: "Abril Fatface", cursive;
-}
-div#header-guest a.logo span:hover {
-  background-image: url("https://cdn.dribbble.com/users/1770290/screenshots/6238146/bg_87.gif");
-  background-position: center;
-  background-size: contain;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .abril-fatface-font {
@@ -10313,4 +10301,8 @@ div h1.welcome, div .welcome.h1 {
 
 .bright-yellow-crayola {
   color: hsl(38deg, 100%, 58%);
+}
+
+div#header-guest a.logo img {
+  width: 220px;
 }
