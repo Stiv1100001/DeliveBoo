@@ -38,13 +38,10 @@ export default {
       axios
         .get("/api/types")
         .then((response) => {
-          console.log(response.data);
           this.typesList = response.data;
           this.typesList.forEach((types) => {
             this.options.push(types);
           });
-          console.log(this.options);
-          console.log(this.value);
         })
         .catch((error) => {
           console.warn(error);

@@ -16,6 +16,10 @@ getters: {
     return state.restaurants;
     },
 
+    getRestaurantOrderId(state) {
+      return state.restaurantOrderId;
+    },
+
     getTotalCartPrice(state) {
     let total = 0;
 
