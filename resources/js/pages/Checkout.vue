@@ -84,6 +84,7 @@ import { mapActions, mapGetters } from "vuex";
 import Header from "../components/Header.vue";
 import CreditCard from "../components/CreditCard.vue";
 import axios from "axios";
+// import Swal from 'sweetalert2';
 
 export default {
 name: "cart",
@@ -111,6 +112,8 @@ setNonce(nonce) {
 },
 
 pay() {
+    
+    const Swal = require('sweetalert2');
     this.form.order = this.$store.getters.getCart.map((item) => {
     return { id: item.dish.id, quantity: item.quantity };
     });
@@ -118,7 +121,14 @@ pay() {
     axios.post("/api/order/make", this.form).then((res) => {
     console.log(res);
     if (res.data.success) {
-        this.$router.push("/thanks");
+        // this.$router.push("/thanks");
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pagamento avvenuto con successo. Grazie per aver aquistato su DELIVEBOO.',
+            showConfirmButton: true,
+            timer: 5000
+})
     } else {
         alert("Errore nella creazione dell'ordine");
     }

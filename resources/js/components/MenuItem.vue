@@ -65,6 +65,17 @@ export default {
 
   methods: {
     plus() {
+      const Swal = require('sweetalert2');
+      const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 3500,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
       if (
         this.getRestaurantOrderId &&
         this.getRestaurantOrderId !== this.item.user_id
@@ -74,13 +85,33 @@ export default {
       }
 
       this.quantity++;
-      this.addToCart();
+      this.addToCart(); 
+      Toast.fire({
+        icon: 'success',
+        title: 'Piatto aggiunto al Carrello'
+})
     },
 
-    minus() {
+    minus() { 
+      const Swal = require('sweetalert2');
+      const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 3500,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+      
       if (this.quantity === 0) return;
       this.quantity--;
-      this.removeFromCart();
+      this.removeFromCart(); 
+      Toast.fire({
+        icon: 'error',
+        title: 'Piatto eliminato dal carrello'
+});
     },
 
     addToCart() {
