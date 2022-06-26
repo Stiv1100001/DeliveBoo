@@ -24,10 +24,10 @@
 
                     <!-- Login/Register -->
                     <div class="login-control">
-                        <a href="/login" class="btn btn-outline-dark rounded-pill me-2">
+                        <a href="/login" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold">
                             Login
                         </a>
-                        <a href="/register" class="btn btn-outline-dark rounded-pill">
+                        <a href="/register" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold">
                             Register
                         </a>
                     </div>

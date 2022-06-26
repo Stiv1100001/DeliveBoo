@@ -6612,7 +6612,8 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "btn btn-outline-dark rounded-pill me-2",
+          staticClass:
+            "btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold",
           attrs: { href: "/login" },
         },
         [_vm._v("\n                        Login\n                    ")]
@@ -6621,7 +6622,8 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "btn btn-outline-dark rounded-pill",
+          staticClass:
+            "btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold",
           attrs: { href: "/register" },
         },
         [_vm._v("\n                        Register\n                    ")]
