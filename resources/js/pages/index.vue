@@ -7,11 +7,11 @@
         <div class="col-12" v-if="loading">
           {{ loading }}
         </div>
-        <div
-          id="full-width-div"
-          class="mb-5 p-5"
-        >
-          <SearchBar @restaurant="setSearchedData" />
+        <div id="full-width-div" class="mb-5">
+          <Jumbo />
+          <div id="searchbar" class="position-absolute">
+            <SearchBar @restaurant="setSearchedData" />
+          </div>
         </div>
         <div id="main" class="row">
           <h1>Ristoranti</h1>
@@ -60,6 +60,7 @@
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
+import Jumbo from "../components/Jumbo.vue";
 
 export default {
   name: "index",
@@ -68,6 +69,7 @@ export default {
     Header,
     SearchBar,
     Footer,
+    Jumbo,
   },
   data() {
     return {
@@ -110,21 +112,33 @@ export default {
 @import "../../sass/app.scss";
 div#full-width-div {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   left: 0;
-  padding: 3rem 0;
-  border-radius: 60px;
+  padding: 50px 0;
+  //   border-radius: 60px;
   background-color: $cambridge-blue;
+
+  div#searchbar {
+    top: 40%;
+    left: 30%;
+    background-color: hsla(39, 39%, 85%, 1);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 7.3px 5.4px 6.4px rgba(0, 0, 0, 0.06),
+      27.3px 20px 21.4px rgba(0, 0, 0, 0.022),
+      82px 60px 96px rgba(0, 0, 0, 0.007);
+  }
 }
 div#main {
   img {
     border-radius: 20px;
   }
-  margin-top: 56rem;
+  margin-top: 45rem;
   h1 {
     color: $rich-black-fogra-29;
     font-family: $font-family-headings;
   }
+
   div#restaurants {
     //   background-color: $cambridge-blue;
     h4 {
