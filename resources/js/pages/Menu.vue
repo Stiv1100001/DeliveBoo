@@ -24,6 +24,8 @@
         >
       </h6>
 
+      <h5>Menu</h5>
+
       <transition name="fade">
         <div class="alert alert-danger" v-if="showError" role="alert">
           È possibile acquistare piatti da un solo ristorante!
@@ -86,6 +88,7 @@ export default {
 
   computed: {
     availableDishes() {
+      console.log(this.dishes);
       return this.dishes.filter((dish) => dish.availability);
     },
 
@@ -110,6 +113,7 @@ export default {
   async created() {
     const dishes = (await axios.get("/api/dishes/" + this.$route.params.id))
       .data.data;
+    console.log(dishes);
     const restaurant = (
       await axios.get("/api/restaurant/" + this.$route.params.id)
     ).data;

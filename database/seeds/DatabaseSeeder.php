@@ -14,11 +14,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                UsersSeederTable::class,
+                TotalSeederTable::class,
+                /* UsersSeederTable::class,
                 TypesSeederTable::class,
                 UserTypeTable::class,
                 DishesSeederTable::class,
-                DishUserTable::class,
+                DishUserTable::class, */
                 // OrdersSeederTable::class,
                 // OrderDishSeederTable::class,
             ]

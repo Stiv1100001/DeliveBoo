@@ -24,5 +24,8 @@
     "vue-router": "^3.5.4",
     "vue-template-compiler": "^2.6.10",
     "vuex": "^3.5.1"
+  },
+  "dependencies": {
+    "mosha-vue-toastify": "^1.0.23"
   }
 }

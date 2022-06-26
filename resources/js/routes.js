@@ -1,6 +1,7 @@
 import Home from "./pages/Home.vue";
 import Menu from "./pages/Menu.vue";
 import Checkout from "./pages/checkout.vue";
+import Thanks from "./pages/thanks.vue";
 
 export default [
   {
@@ -17,5 +18,10 @@ export default [
     path: "/checkout",
     name: "checkout",
     component: Checkout,
+  },
+  {
+    path: "/thanks",
+    name: "thanks",
+    component: Thanks,
   },
 ];

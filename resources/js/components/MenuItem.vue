@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <img :src="item.img_url" class="img-fluid" alt="" />
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
       <p class="card-text">{{ item.description }}</p>
@@ -17,6 +18,18 @@
         <span class="">{{ quantity }}</span>
         <button class="btn btn-info w-25" @click="plus()">+</button>
       </div>
+    </div>
+
+    <div
+      class="q-holder w-100 d-flex justify-content-between align-items-center">
+      <button
+        class="btn btn-info w-25"
+        @click="minus()"
+        :disabled="quantity.length == 0">
+        -
+      </button>
+      <span class="">{{ quantity }}</span>
+      <button class="btn btn-info w-25" @click="plus()">+</button>
     </div>
   </div>
 </template>

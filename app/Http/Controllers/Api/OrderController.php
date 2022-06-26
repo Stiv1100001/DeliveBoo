@@ -58,10 +58,7 @@ class OrderController extends Controller
      * @param  int  $id
     //  * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        // TODO Pagina di conferma
-    }
+
 
     public function generateToken(Request $request, Gateway $gateway)
     {

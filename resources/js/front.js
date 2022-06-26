@@ -12,6 +12,13 @@ import { store } from "./store";
 import vueBraintree from "vue-braintree";
 Vue.use(vueBraintree);
 
+/* import Vue, { defineComponent } from 'vue'
+Vue.use(defineComponent)
+
+import { createToast } from 'mosha-vue-toastify';
+Vue.use(createToast)
+ */
+
 const router = new VueRouter({
   mode: "history",
   routes: require("./routes.js").default,
