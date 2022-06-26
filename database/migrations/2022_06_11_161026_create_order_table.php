@@ -19,7 +19,7 @@ class CreateOrderTable extends Migration
             $table->string("address_customer");
             $table->string("phone_number_customer");
             $table->float("total_price", 5, 2);
-            $table->date("data");
+            // $table->timestamp("data");
             $table->timestamps();
         });
     }
