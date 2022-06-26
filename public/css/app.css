@@ -10375,14 +10375,12 @@ div#my-form .form-horizontal .form-control:focus {
   border-bottom-color: #EC5F20;
 }
 div#my-form .form-horizontal .form-control::-moz-placeholder {
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
+  color: #c9c4c4;
+  font-size: 13px;
 }
 div#my-form .form-horizontal .form-control::placeholder {
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
+  color: #c9c4c4;
+  font-size: 13px;
 }
 div#my-form .form-horizontal .forgot {
   font-size: 13px;
