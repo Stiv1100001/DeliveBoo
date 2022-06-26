@@ -93,7 +93,7 @@ class DishesSeederTable extends Seeder
         $newDishNine->img_url  = "https://images.fidhouse.com/fidelitynews/wp-content/uploads/sites/6/2017/02/1487583797_ba19374375abc0d4ed0c015012a29b699d64444f-351429806.jpg?w=580";
         $newDishNine->name = 'Riso rosso al mango cocco con verdure saltate al peperoncino e lime';
         $newDishNine->description = $faker->realText(50);
-        ;
+
         $newDishNine->ingredients = 'Riso rosso, mango, cocco, verdure saltate, peperoncino, lime';
         $newDishNine->price = 20.90;
         $newDishNine-> save();
@@ -103,7 +103,7 @@ class DishesSeederTable extends Seeder
         $newDishTen->img_url  = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsBj0XDvY4rXFdYv4rWzopKtcgrA-ICJOIag&usqp=CAU";
         $newDishTen->name = 'Hamburger di Chianina';
         $newDishTen->description = $faker->realText(50);
-        ;
+
         $newDishTen->ingredients = 'hamburger di carne preparati con polpa di manzo, mollica di pane e pochi altri ingredienti, per un secondo piatto cotto in padella sano e veloce.';
         $newDishTen->price = 11.00;
         $newDishTen-> save();
