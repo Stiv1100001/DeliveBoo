@@ -52,7 +52,7 @@
                             @else
                             <div class="nav-item dropdown d-flex align-items-center">
                                 <img src="{{asset('storage/' . Auth::user()->image_url) }}"
-                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle border border-3 border-dark me-3" id="user-img-nav">
+                                alt="{{Auth::user()->name_resturant}}" class="rounded-circle border border-3 border-dark me-3 d-sm-inline d-none" id="user-img-nav">
 
                                 <div class="dropdown">
                                     <button class="btn btn-outline-dark border border-2 border-dark rounded abril-fatface-font fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
