@@ -5,9 +5,8 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
+    <Header></Header>
     <div class="container">
-      <Header></Header>
       <div class="d-flex justify-content-between align-items-center mt-3">
         <h1 class="" v-if="restaurant">
           {{ restaurant.name_restaurant }}

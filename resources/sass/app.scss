@@ -72,7 +72,7 @@ body {
     }
 
     div#background-home-admin{
-        height: calc(100vh - 64px);
+        height: calc(100vh - 72px);
         background-size: cover;
         background-repeat: no-repeat;
         background-position:center;
@@ -86,23 +86,6 @@ div#header-guest {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    
-    a.logo {
-        span {
-            font-size: 2.5rem;
-            color: white;
-            font-family: $font-family-headings;
-
-            &:hover {
-                background-image: url('https://cdn.dribbble.com/users/1770290/screenshots/6238146/bg_87.gif');
-                background-position: center;
-                background-size: contain;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                
-            }
-        }
-    }
 }
 
 .abril-fatface-font{
@@ -131,6 +114,14 @@ div h1.welcome{
 
 .bright-yellow-crayola{
     color: $bright-yellow-crayola;
-} 
+}
+
+div#header-guest {
+    a.logo {
+        img {
+            width: 220px;
+        }
+    }
+}
 
 
