@@ -10307,6 +10307,11 @@ div#header-guest a.logo img {
   width: 220px;
 }
 
+form.my-form-register {
+  height: 50vh;
+  overflow-y: auto;
+}
+
 div#my-form {
   height: calc(100vh - 72px);
 }

@@ -12,10 +12,11 @@
                         <div class="form-icon">
                             <i class="fa fa-user-circle"></i>
                         </div>
+
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-user"></i></span>
                             <div>
-                                <input placeholder="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                <input placeholder="E-Mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -25,10 +26,11 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-lock"></i></span>
                             <div>
-                                <input placeholder="password" id="password" type="password"
+                                <input placeholder="Password" id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="current-password" autofocus>
 
@@ -39,6 +41,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <div class="form-check d-flex justify-content-between align-items-center">
                                 <div>

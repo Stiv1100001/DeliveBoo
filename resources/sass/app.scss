@@ -124,17 +124,14 @@ div#header-guest {
     }
 }
 
-
-
-
-
-
-
-
-
+form.my-form-register{
+    height: 50vh;
+    overflow-y: auto;
+}
 
 div#my-form{
     height: calc(100vh - 72px);
+
     .form-container{
         background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
         font-family: 'Raleway', sans-serif;
@@ -229,3 +226,5 @@ div#my-form{
         box-shadow: 0 0 10px rgba(0,0,0,0.3) inset;
     }
 }
+
+
