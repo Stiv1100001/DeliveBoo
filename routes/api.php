@@ -34,3 +34,4 @@ Route::get('/dishes/{user_id}', 'Api\DishController@index')->name('api.dish');
 // % Api orders
 Route::get('/order/token', 'Api\OrderController@generateToken')->name('api.order.token');
 Route::post('/order/make', 'Api\OrderController@makeOrderPayment')->name('api.order.make');
+Route::get('/order/{id}', 'Api\OrderController@show')->name('api.order.show');

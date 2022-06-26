@@ -20,7 +20,7 @@ export default [
     component: Checkout,
   },
   {
-    path: "/thanks",
+    path: "/thanks/:id",
     name: "thanks",
     component: Thanks,
   },
