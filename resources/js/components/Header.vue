@@ -33,9 +33,13 @@
         </div>
 
         <!-- Login/Register -->
-        <div class="login-control">
-          <a href="/login" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Login </a>
-          <a href="/register" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Register </a>
+        <div class="login-control d-flex">
+          <div  class="d-flex align-items-center">
+            <a href="/login" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Login </a>
+            </div>
+          <div class="d-flex align-items-center d-none d-sm-inline">
+            <a href="/register" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Register </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -44,7 +44,7 @@
                                 <a class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center d-none d-sm-inline">
                                 <a class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif

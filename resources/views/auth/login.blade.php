@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-5">
                 <div class="form-container rounded">
-                    <h3 class="title">My Account</h3>
+                    <h1 class="fw-bold mb-5 text-white">My Account</h1>
                     <form method="POST" action="{{ route('login') }}" class="form-horizontal">
                         @csrf
                         <div class="form-icon">
@@ -41,7 +41,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="form-check d-flex justify-content-between align-items-center">
                                 <div>

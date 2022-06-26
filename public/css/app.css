@@ -10304,7 +10304,8 @@ div h1.welcome, div .welcome.h1 {
 }
 
 div#header-guest a.logo img {
-  width: 220px;
+  width: 200px;
+  margin-bottom: 0.7rem;
 }
 
 form.my-form-register {
