@@ -67,10 +67,10 @@ export default {
 div#header-guest {
   nav {
     // border-bottom: 1px solid black;
-  }
-  a.logo {
-    img {
-      width: 220px;
+    a.logo {
+      img {
+        width: 180px;
+      }
     }
     // span {
     //   font-size: 2rem;

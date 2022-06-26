@@ -7,7 +7,10 @@
         <div class="col-12" v-if="loading">
           {{ loading }}
         </div>
-        <div id="full-width-div" class="mb-5 p-5 d-flex">
+        <div
+          id="full-width-div"
+          class="mb-5 p-5"
+        >
           <SearchBar @restaurant="setSearchedData" />
         </div>
         <div id="main" class="row">
@@ -16,7 +19,7 @@
             id="restaurants"
             v-for="restaurant in randomRestaurants"
             :key="restaurant.id"
-            class="col-md-4 mb-5"
+            class="col-md-4 mt-3 mb-5"
           >
             <!-- <div class="restaurant-wrapper"> -->
             <img
@@ -112,17 +115,12 @@ div#full-width-div {
   padding: 3rem 0;
   border-radius: 60px;
   background-color: $cambridge-blue;
-
+}
+div#main {
   img {
     border-radius: 20px;
   }
-
-  div.searchbar {
-    z-index: 1;
-  }
-}
-div#main {
-  margin-top: 800px;
+  margin-top: 56rem;
   h1 {
     color: $rich-black-fogra-29;
     font-family: $font-family-headings;

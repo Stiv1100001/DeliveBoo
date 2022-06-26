@@ -1,12 +1,15 @@
 <template>
-  <div id="footer" class="container d-flex py-4 my-5 justify-content-between">
+  <div
+    id="footer"
+    class="container d-flex py-4 px-0 my-5 justify-content-between"
+  >
     <div id="logo-app" class="col-4 d-flex flex-column">
       <a href="/" class="logo text-decoration-none">
         <!-- <span>DeliveBoo</span> -->
         <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />
       </a>
 
-      <div class="social w-25 d-flex justify-content-between my-5">
+      <div class="social w-25 d-flex justify-content-between my-4">
         <a href="#" class="fb">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -97,24 +100,29 @@
       </div>
     </div>
 
-    <div class="links col-6 d-flex justify-content-around">
-      <div class="learn-more d-flex flex-column">
-        <h6 class="text-uppercase">learn more</h6>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
+    <div class="links col-6 d-flex">
+      <div class="learn-more d-flex flex-column me-4">
+        <h6 class="text-uppercase">chi siamo</h6>
+        <a href="#" class="reset link">Blog</a>
+        <a href="#" class="reset link">Diventa nostro partner</a>
+        <a href="#" class="">Diventa un rider su DeliveBoo</a>
+        <a href="#" class="">Lavora con noi</a>
+        <a href="#" class="">Media & Press</a>
+        <a href="#" class="">Contatti</a>
       </div>
-      <div class="legal d-flex flex-column">
-        <h6 class="text-uppercase">legal</h6>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
+      <div class="legal d-flex flex-column me-4">
+        <h6 class="text-uppercase">note legali</h6>
+        <a href="#" class="">Informativa sulla Privacy</a>
+        <a href="#" class="">Cookies</a>
+        <a href="#" class="">Termini e Condizioni</a>
+        <a href="#" class="">Codice Etico</a>
+        <a href="#" class="">Informazioni legali</a>
       </div>
       <div class="help d-flex flex-column">
-        <h6 class="text-uppercase">help</h6>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
-        <a href="#" class="text-decoration-none">ciao</a>
+        <h6 class="text-uppercase">feedback</h6>
+        <a href="#" class="">Aiutaci a migliorare il nostro sito</a>
+        <a href="#" class="">Invia feedback</a>
+        <a href="#" class="">FAQ</a>
       </div>
     </div>
   </div>
@@ -132,7 +140,7 @@ export default {};
   div#logo-app {
     a {
       img {
-        width: 160px;
+        width: 150px;
       }
     }
     // a {
@@ -153,6 +161,16 @@ export default {};
       img {
         width: 134px;
         margin-left: 1rem;
+      }
+    }
+  }
+  .links {
+    a {
+      text-decoration: none;
+      color: $rich-black-fogra-29;
+      font-size: 0.8rem;
+      &:hover {
+        color: $indian-red;
       }
     }
   }

@@ -1,16 +1,28 @@
 <template>
-  <div class="d-flex align-items-center">
-    <img
-      src="/img/friends_delivery.jpeg"
-      class="position-relative img-fluid"
-      alt="Image of friends eating"
-    />
+  <div class="wrapper position-relative d-flex flex-column">
+    <div class="jumbo d-flex justify-content-between">
+      <div class="img-left d-flex w-100">
+        <img
+          src="/img/friends_delivery.jpeg"
+          class="img-fluid w-75 shadow rounded"
+          alt="Image of friends eating"
+        />
+      </div>
+      <div
+        class="img-right w-100 d-flex justify-content-end align-items-center"
+      >
+        <img
+          src="/img/delivery.jpeg"
+          class="img-fluid w-75 shadow rounded"
+          alt="Delivery image"
+        />
+      </div>
+    </div>
 
-    <div>
+    <div id="searchbar" class="shadow p-3 rounded-3 text-center m-0">
       <h2>Ordina online dai tuoi ristoranti preferiti</h2>
       <multiselect
         v-model="value"
-        id="searchbar"
         :options="options"
         :multiple="true"
         :close-on-select="false"
@@ -110,14 +122,14 @@ export default {
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css">
-img {
-  border-radius: 20px;
-  width: 200px;
-}
 div#searchbar {
-  top: 50px;
-  left: 200px;
+  position: absolute;
+  top: 10px;
+  left: 250px;
+  z-index: 1;
   width: 100%;
-  box-shadow: 0 5px 15px rgba(226, 226, 226, 0.685);
+  background-color: hsla(111, 17%, 77%, 1);
+  /* -webkit-filter: blur(5px);
+  filter: blur(5px); */
 }
 </style>
