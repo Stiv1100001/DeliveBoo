@@ -10211,6 +10211,10 @@ textarea.form-control-lg {
 body {
   background-color: hsl(39deg, 39%, 85%);
 }
+body div#header-guest a.logo img {
+  width: 180px;
+  margin-bottom: 0.7rem;
+}
 body .track-line {
   height: 2px !important;
   background-color: #4dafff;
@@ -10256,8 +10260,8 @@ body .card-stepper {
   border-radius: 10px;
 }
 body img#user-img-nav {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 body img#user-img-home {
   width: 10rem;
@@ -10279,6 +10283,12 @@ body div#background-home-admin {
   background-position: center;
   background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
 }
+body div#background-home-admin a.menu {
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+body div#background-home-admin h1.welcome, body div#background-home-admin .welcome.h1 {
+  font-size: 3rem;
+}
 
 .abril-fatface-font {
   font-family: "Abril Fatface", cursive;
@@ -10293,21 +10303,12 @@ body div#background-home-admin {
   background-color: transparent;
 }
 
-div h1.welcome, div .welcome.h1 {
-  font-size: 7vw;
-}
-
 .my-opacity {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 .bright-yellow-crayola {
   color: hsl(38deg, 100%, 58%);
-}
-
-div#header-guest a.logo img {
-  width: 200px;
-  margin-bottom: 0.7rem;
 }
 
 form.my-form {
@@ -10426,13 +10427,21 @@ div#my-form .form-horizontal .signin:focus {
   background-color: hsl(111deg, 17%, 77%);
 }
 
-.bg-rich-black-fogra-29 {
-  background-color: hsl(207deg, 43%, 9%);
-}
-
 div#background-menu-admin {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
+}
+
+.bg-cambridge-blue {
+  background-color: hsl(111deg, 17%, 77%);
+}
+
+div#my-card-menu {
+  background-color: hsl(39deg, 39%, 85%);
+  border-radius: 30% 0 0 0;
+}
+div#my-card-menu a:hover {
+  color: hsl(38deg, 100%, 58%);
 }

@@ -264,10 +264,6 @@ div#my-form {
     background-color: $cambridge-blue;
 }
 
-.bg-rich-black-fogra-29{
-    background-color: $rich-black-fogra-29;
-}
-
 div#background-menu-admin {
     background-size: cover;
     background-repeat: no-repeat;
@@ -276,4 +272,13 @@ div#background-menu-admin {
 }
 .bg-cambridge-blue {
   background-color: $cambridge-blue;
+}
+
+div#my-card-menu{
+    background-color: $bone;
+    border-radius: 30% 0 0 0;
+    a:hover{
+        color: $bright-yellow-crayola;
+    }
+
 }
