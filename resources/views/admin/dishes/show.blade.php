@@ -2,15 +2,24 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-4 py-2 bg-dark text-white">
-                <h1 class="card-title fw-bold text-center mb-3">{{$dish->name}}</h1>
-                <div class="card-body">
-                    <p class="card-text">Descrizione: {{$dish->description}}</p>
-                    <p class="card-text">ingredienti: {{$dish->ingredients}}</p>
-                    <p class="card-text">Prezzo: {{$dish->price}}</p>
-                    <p class="card-text">Creato il: {{$dish->created_at}}</p>
+<div class="w-100" id="background-home-admin"> 
+    <div class="w-100 h-100 my-opacity d-flex justify-content-center align-items-center">
+            <div class="card col-10 col-sm-10 col-md-10 col-lg-8 my-bg-gradient border-0 rounded abril-fatface-font">
+                <div class="row g-0">
+                    <div class="col-6 d-none d-lg-inline p-3 shadow">
+                        <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                            <img src="{{$dish->img_url}}" alt="{{$dish->name}}" class="w-75 h-75 rounded">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6 d-flex justify-content-center align-items-center p-4">
+                        <div class="card-body bg-white rounded shadow h-75 overflow-auto">
+                            <h3 class="card-text text-center fw-bold">{{$dish->name}}</h3>
+                            <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Descrizione:</span> {{$dish->description}}</p>
+                            <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">ingredienti:</span> {{$dish->ingredients}}</p>
+                            <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Prezzo:</span>: {{$dish->price}}</p>
+                            <em class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Creato il:</span> {{$dish->created_at}}</em>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

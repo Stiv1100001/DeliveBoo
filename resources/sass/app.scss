@@ -72,7 +72,7 @@ body {
     }
 
     div#background-home-admin{
-        height: calc(100vh - 72px);
+        height: calc(100vh - 80px);
         background-size: cover;
         background-repeat: no-repeat;
         background-position:center;
@@ -224,3 +224,6 @@ div#my-form{
 }
 
 
+.my-bg-gradient{
+    background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
+}

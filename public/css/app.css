@@ -10261,7 +10261,7 @@ body .navbar-nav .dropdown-menu i {
   font-size: 1rem;
 }
 body div#background-home-admin {
-  height: calc(100vh - 72px);
+  height: calc(100vh - 80px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -10409,4 +10409,8 @@ div#my-form .form-horizontal .signin:focus {
   font-weight: 600;
   letter-spacing: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+}
+
+.my-bg-gradient {
+  background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
 }
