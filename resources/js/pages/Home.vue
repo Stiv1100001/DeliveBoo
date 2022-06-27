@@ -2,7 +2,7 @@
   <div id="wrapper" class="mb-5">
     <Header />
     <div class="container">
-      <div id="jumbo" class="row">
+      <div id="jumbo" class="row my-3">
         <!-- <div class="col-8"></div> -->
         <div class="col-12" v-if="loading">
           {{ loading }}
