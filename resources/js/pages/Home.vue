@@ -17,7 +17,7 @@
         <div class="card rounded-3">
           <img :src="restaurant.image_url" :alt="'image of ' + restaurant.name_restaurant" class="card-img-top" />
           <div class="card-body">
-            <h4 class="">{{ restaurant.name_restaurant }}</h4>
+            <h4>{{ restaurant.name_restaurant }}</h4>
             <h5 class="fst-italic">{{ restaurant.address }}</h5>
             <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
               <button class="btn btn-primary rounded-pill text-uppercase">menu</button>

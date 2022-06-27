@@ -86,7 +86,6 @@
 
       pay() {
         this.form.order = this.$store.getters.getCart.map((item) => {
-          console.log(res.data);
           return { id: item.dish.id, quantity: item.quantity };
         });
 

@@ -74,7 +74,7 @@ class OrderController extends Controller
             $newOrder->save();
 
             foreach ($data['order'] as $item) {
-                $newOrder->dish()->attach($item['id'], ['quantity' => $item['quantity']]);
+                $newOrder->dishes()->attach($item['id'], ['quantity' => $item['quantity']]);
             }
 
             $response['success'] = true;
