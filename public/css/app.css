@@ -10244,15 +10244,15 @@ body .card-stepper {
   border-radius: 10px;
 }
 body img#user-img-nav {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 body img#user-img-home {
   width: 10rem;
   height: 10rem;
 }
 body ul.dropdown-menu {
-  min-width: 5.5rem;
+  min-width: 5.8rem;
 }
 body .navbar-nav .dropdown-menu {
   position: absolute;
