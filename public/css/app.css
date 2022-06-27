@@ -10211,6 +10211,9 @@ textarea.form-control-lg {
 body {
   background-color: hsl(39deg, 39%, 85%);
 }
+body div#header-guest {
+  height: 12vh;
+}
 body div#header-guest a.logo img {
   width: 180px;
   margin-bottom: 0.7rem;
@@ -10277,11 +10280,11 @@ body .navbar-nav .dropdown-menu i {
   font-size: 1rem;
 }
 body div#background-home-admin {
-  height: calc(100vh - 80px);
+  height: 88vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
+  background-image: url("/img/table.jpg");
 }
 body div#background-home-admin a.menu {
   font-family: "Arial", "Helvetica", sans-serif;
@@ -10317,7 +10320,7 @@ form.my-form {
 }
 
 div#my-form {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 84px);
 }
 div#my-form .form-container {
   background-color: hsl(111deg, 17%, 77%);
