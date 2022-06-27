@@ -18,12 +18,12 @@
     "resolve-url-loader": "^2.3.1",
     "sass": "^1.52.3",
     "sass-loader": "^8.0.2",
+    "sweetalert2": "^11.4.19",
     "vue": "^2.5.17",
     "vue-braintree": "^2.1.0",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.5.4",
     "vue-template-compiler": "^2.6.10",
-    "vuex": "^3.5.1",
-    "sweetalert2": "^11.4.18"
+    "vuex": "^3.5.1"
   }
 }

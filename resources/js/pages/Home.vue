@@ -5,7 +5,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <Header />
+    <!-- <Header /> -->
     <div id="wrapper" class="container">
       <div class="row justify-content-start mt-3">
         <SearchBar @restaurant="setSearchedData" />
