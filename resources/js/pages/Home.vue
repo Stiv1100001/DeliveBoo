@@ -11,19 +11,20 @@
         <SearchBar @restaurant="setSearchedData" />
         <h1 class="mt-3">Ristoranti</h1>
 
-        <div
-          class="col-6 col-md-4 col-lg-3 mt-3 align-self-stretch"
-          v-for="restaurant in restaurantToShow"
-          :key="restaurant.id">
-          <div class="card rounded-3">
-            <img :src="restaurant.image_url" :alt="'image of ' + restaurant.name_restaurant" class="card-img-top" />
-            <div class="card-body">
-              <h4 class="">{{ restaurant.name_restaurant }}</h4>
-              <h5 class="fst-italic">{{ restaurant.address }}</h5>
-              <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
-                <button class="btn btn-primary rounded-pill text-uppercase">menu</button>
-              </router-link>
-            </div>
+
+      <div
+        class="col-6 col-md-4 col-lg-3 mt-3 align-self-stretch"
+        v-for="restaurant in restaurantToShow"
+        :key="restaurant.id">
+        <div class="card rounded-3">
+          <img :src="restaurant.image_url" :alt="'image of ' + restaurant.name_restaurant" class="card-img-top" />
+          <div class="card-body">
+            <h4>{{ restaurant.name_restaurant }}</h4>
+            <h5 class="fst-italic">{{ restaurant.address }}</h5>
+            <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
+              <button class="btn btn-primary rounded-pill text-uppercase">menu</button>
+            </router-link>
+
           </div>
         </div>
       </div>
