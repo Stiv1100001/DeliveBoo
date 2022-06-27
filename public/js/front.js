@@ -2802,6 +2802,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header"
 });
@@ -2817,6 +2821,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -36152,68 +36157,52 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "w-100 p-0", attrs: { id: "header-guest" } },
+      { staticClass: "container", attrs: { id: "header-guest" } },
       [
-        _c("div", { staticClass: "container" }, [
-          _c("nav", { staticClass: "navbar d-flex mb-3" }, [
-            _c(
-              "a",
-              {
-                staticClass: "logo text-decoration-none",
-                attrs: { href: "/" },
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/img/Deliveboo_Logo.png",
-                    alt: "DeliveBoo logo",
+        _c("nav", { staticClass: "navbar d-flex" }, [
+          _c(
+            "a",
+            { staticClass: "logo text-decoration-none", attrs: { href: "/" } },
+            [
+              _c("img", {
+                attrs: {
+                  src: "/img/Deliveboo_Logo.png",
+                  alt: "DeliveBoo logo",
+                },
+              }),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "right-side d-flex align-items-center justify-content-between",
+            },
+            [
+              _c("div", { staticClass: "login-control" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "btn btn-outline-dark text-uppercase rounded-pill me-2",
+                    attrs: { href: "/login" },
                   },
-                }),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "right-side d-flex align-items-center justify-content-between",
-              },
-              [
-                _c("div", { staticClass: "login-control d-flex" }, [
-                  _c("div", { staticClass: "d-flex align-items-center" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold",
-                        attrs: { href: "/login" },
-                      },
-                      [_vm._v(" Login ")]
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex align-items-center d-none d-sm-inline",
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass:
-                            "btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold",
-                          attrs: { href: "/register" },
-                        },
-                        [_vm._v(" Register ")]
-                      ),
-                    ]
-                  ),
-                ]),
-              ]
-            ),
-          ]),
+                  [_vm._v("\n          Login\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "btn btn-outline-dark text-uppercase rounded-pill",
+                    attrs: { href: "/register" },
+                  },
+                  [_vm._v("\n          Register\n        ")]
+                ),
+              ]),
+            ]
+          ),
         ]),
       ]
     )
