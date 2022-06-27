@@ -10310,16 +10310,16 @@ div#header-guest a.logo img {
   margin-bottom: 0.7rem;
 }
 
-form.my-form-register {
+form.my-form {
   height: 50vh;
   overflow-y: auto;
 }
 
 div#my-form {
-  height: calc(100vh - 72px);
+  height: calc(100vh - 80px);
 }
 div#my-form .form-container {
-  background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #ff4f00 67%);
+  background-color: hsl(111deg, 17%, 77%);
   font-family: "Raleway", sans-serif;
   text-align: center;
   padding: 30px 20px 50px;
@@ -10339,7 +10339,7 @@ div#my-form .form-container .form-horizontal {
 }
 div#my-form .form-horizontal .form-icon {
   color: #fff;
-  background-color: #ff4f00;
+  background-color: hsl(38deg, 100%, 58%);
   font-size: 75px;
   line-height: 92px;
   height: 90px;
@@ -10361,6 +10361,11 @@ div#my-form .form-horizontal .form-group .input-icon {
   left: 0;
   top: 10px;
 }
+div#my-form .form-horizontal .form-group .input-icon img {
+  width: 30px;
+  position: absolute;
+  left: 0;
+}
 div#my-form .form-horizontal .form-control {
   color: #000;
   font-size: 16px;
@@ -10375,7 +10380,7 @@ div#my-form .form-horizontal .form-control {
 }
 div#my-form .form-horizontal .form-control:focus {
   box-shadow: none;
-  border-bottom-color: #ec5f20;
+  border-bottom-color: hsl(38deg, 100%, 58%);
 }
 div#my-form .form-horizontal .form-control::-moz-placeholder {
   color: #c9c4c4;
@@ -10401,7 +10406,7 @@ div#my-form .form-horizontal .forgot a:hover {
 }
 div#my-form .form-horizontal .signin {
   color: #fff;
-  background-color: #ec5f20;
+  background-color: hsl(38deg, 100%, 58%);
   font-size: 17px;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -10415,8 +10420,4 @@ div#my-form .form-horizontal .signin:focus {
   font-weight: 600;
   letter-spacing: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
-}
-
-.my-bg-gradient {
-  background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
 }

@@ -8,7 +8,7 @@
                 <div class="form-container rounded">
                     <h1 class="fw-bold text-white mb-4">Register</h1>
 
-                    <form method="POST" action="{{ route('register') }}" class="form-horizontal my-form-register" enctype="multipart/form-data" id="form">
+                    <form method="POST" action="{{ route('register') }}" class="form-horizontal my-form" enctype="multipart/form-data" id="form">
                         @csrf
 
                         <div class="alert alert-danger d-none" id="error">

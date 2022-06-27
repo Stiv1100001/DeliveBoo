@@ -131,16 +131,16 @@ div#header-guest {
     }
 }
 
-form.my-form-register {
+form.my-form {
     height: 50vh;
     overflow-y: auto;
 }
 
 div#my-form {
-    height: calc(100vh - 72px);
+    height: calc(100vh - 80px);
 
     .form-container {
-        background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #ff4f00 67%);
+        background-color: $cambridge-blue;
         font-family: "Raleway", sans-serif;
         text-align: center;
         padding: 30px 20px 50px;
@@ -163,7 +163,7 @@ div#my-form {
 
     .form-horizontal .form-icon {
         color: #fff;
-        background-color: #ff4f00;
+        background-color: $bright-yellow-crayola;
         font-size: 75px;
         line-height: 92px;
         height: 90px;
@@ -189,6 +189,12 @@ div#my-form {
         top: 10px;
     }
 
+    .form-horizontal .form-group .input-icon img{
+        width: 30px;
+        position: absolute;
+        left: 0;
+    }
+
     .form-horizontal .form-control {
         color: #000;
         font-size: 16px;
@@ -204,7 +210,7 @@ div#my-form {
 
     .form-horizontal .form-control:focus {
         box-shadow: none;
-        border-bottom-color: #ec5f20;
+        border-bottom-color: $bright-yellow-crayola;
     }
 
     .form-horizontal .form-control::placeholder {
@@ -231,7 +237,7 @@ div#my-form {
 
     .form-horizontal .signin {
         color: #fff;
-        background-color: #ec5f20;
+        background-color: $bright-yellow-crayola;
         font-size: 17px;
         text-transform: capitalize;
         letter-spacing: 2px;
@@ -248,9 +254,3 @@ div#my-form {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
     }
 }
-
-
-.my-bg-gradient {
-    background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
-}
-
