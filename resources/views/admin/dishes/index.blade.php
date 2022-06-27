@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
+<div class="container align-items-center justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-12 py-2 edit-messsage">
             @if(session('message'))
             <div class="alert alert-success">
@@ -11,11 +11,11 @@
             @endif
         </div>
 
-        <div class="col-12 card text-center p-0 mb-5">
+        <div class="col-8 card text-center p-0 mb-5">
             <div class="card-header text-uppercase align-items-center d-flex justify-content-between">
                 <h6 class="m-0">Menu</h6>
                 <a href="{{route('admin.dishes.create')}}">
-                    <button class="btn btn-warning fw-bold">Aggiungi piatto</button>
+                    <button class="btn btn-warning">Aggiungi piatto</button>
                 </a>
             </div>
             <div class="card shadow-sm border-0">
@@ -51,8 +51,8 @@
                             </div>
                         </div>
                         @empty
-                        <div class="col">
-                            <div class="card-body">
+                        <div class="col w-100">
+                            <div class="card-body d-flex justify-content-center align-items-center">
                                 <p>Non ci sono piatti da mostrare.</p>
                             </div>
                         </div>
