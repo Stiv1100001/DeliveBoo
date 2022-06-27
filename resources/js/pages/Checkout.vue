@@ -26,7 +26,12 @@
         </div>
         <div class="mb-1">
           <label for="name_customer" class="form-label">Nome & Cognome</label>
-          <input type="text" class="form-control" id="name_customer" name="name_customer" v-model="form.name_customer" />
+          <input
+            type="text"
+            class="form-control"
+            id="name_customer"
+            name="name_customer"
+            v-model="form.name_customer" />
         </div>
         <div class="mb-1">
           <label for="address_customer" class="form-label">Indirizzo</label>
@@ -55,12 +60,10 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import Header from "../components/Header.vue";
-import CreditCard from "../components/CreditCard.vue";
-import axios from "axios";
-// import Swal from 'sweetalert2';
-
+  import { mapActions, mapGetters } from "vuex";
+  import Header from "../components/Header.vue";
+  import CreditCard from "../components/CreditCard.vue";
+  import Swal from "sweetalert2";
 
   export default {
     name: "cart",
@@ -69,50 +72,77 @@ import axios from "axios";
       CreditCard,
     },
 
-};
-},
-methods: {
-...mapActions(["clearCart", "removeItem"]),
-setNonce(nonce) {
-    this.form.nonce = nonce;
-},
+    data: () => ({
+      token: "",
+      form: {
+        nonce: "",
+        email: "",
+        name_customer: "",
+        address_customer: "",
+        phone_number_customer: "",
+        order: [],
+      },
+    }),
 
-pay() {
-    
-    const Swal = require('sweetalert2');
-    this.form.order = this.$store.getters.getCart.map((item) => {
-    return { id: item.dish.id, quantity: item.quantity };
-    });
+    methods: {
+      ...mapActions(["clearCart", "removeItem"]),
 
-    axios.post("/api/order/make", this.form).then((res) => {
-    console.log(res);
-    if (res.data.success) {
-        // this.$router.push("/thanks");
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Pagamento avvenuto con successo. Grazie per aver aquistato su DELIVEBOO.',
-            showConfirmButton: true,
-            timer: 5000
-})
-    } else {
-        alert("Errore nella creazione dell'ordine");
-    }
-
+      setNonce(nonce) {
+        this.form.nonce = nonce;
+      },
 
       pay() {
+        if (this.$store.getters.getTotalNumberOfItemInCart === 0) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Non puoi acquistare 0 piatti!",
+            showConfirmButton: true,
+            timer: 5000,
+          });
+
+          return;
+        }
+
         this.form.order = this.$store.getters.getCart.map((item) => {
           return { id: item.dish.id, quantity: item.quantity };
         });
 
-        axios.post("/api/order/make", this.form).then((res) => {
-          console.log(res);
-          if (res.data.success) {
-            this.$router.push({ name: "thanks", params: { id: res.data.orderID } });
-          } else {
-            alert("Errore nella creazione dell'ordine");
-          }
-        });
+        axios
+          .post("/api/order/make", this.form)
+          .then((res) => {
+            if (res.data.success) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Pagamento avvenuto con successo. Grazie per aver aquistato su DELIVEBOO.",
+                showConfirmButton: true,
+                timer: 2000,
+                didOpen: (_toast) => {
+                  setTimeout(() => {
+                    this.$router.push({ name: "thanks", params: { id: res.data.orderID } });
+                  }, 2000);
+                },
+              });
+            } else {
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Il pagamento non è andato a buon fine, riprova più tardi",
+                showConfirmButton: true,
+                timer: 5000,
+              });
+            }
+          })
+          .catch(() => {
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "Il pagamento non è andato a buon fine, riprova più tardi",
+              showConfirmButton: true,
+              timer: 5000,
+            });
+          });
       },
     },
 
