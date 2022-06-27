@@ -10280,19 +10280,12 @@ body div#background-home-admin {
   background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
 }
 
-div#header-guest {
-  background-image: url("https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .abril-fatface-font {
   font-family: "Abril Fatface", cursive;
 }
 
 .bg-dropdown {
-  background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #fb611c 67%);
+  background-color: hsl(39deg, 39%, 85%);
 }
 
 .dropdown-item:hover,

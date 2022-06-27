@@ -1,5 +1,5 @@
 <template>
-  <div id="header-guest" class="w-100 p-0 shadow">
+  <div id="header-guest" class="w-100 p-0">
     <div class="container">
       <nav class="navbar d-flex mb-3">
       <!-- Logo -->

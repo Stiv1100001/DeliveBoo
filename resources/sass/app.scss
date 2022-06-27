@@ -96,19 +96,13 @@ body {
     }
 }
 
-div#header-guest {
-    background-image: url("https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
 .abril-fatface-font {
     font-family: $font-family-headings;
 }
 
 .bg-dropdown {
-    background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #fb611c 67%);
+    background-color: $bone;
 }
 
 .dropdown-item:hover,
@@ -259,3 +253,4 @@ div#my-form {
 .my-bg-gradient {
     background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
 }
+

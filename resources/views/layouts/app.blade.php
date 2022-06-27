@@ -26,7 +26,7 @@
     </head>
 
     <body>
-        <div id="header-guest" class="w.100 px-0 shadow">
+        <div id="header-guest" class="w.100 px-0">
             <div class="container">
                 <nav class="d-flex justify-content-between align-items-center py-1">
                     <a href="/" class="logo text-decoration-none">

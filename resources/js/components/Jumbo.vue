@@ -1,21 +1,17 @@
 <template>
   <div id="jumbo" class="d-flex justify-content-around">
-    <!-- <div class="img-left"> -->
     <img
       src="/img/delivery.jpeg"
       class="align-self-center"
       id="delivery"
       alt="Image of friends eating"
     />
-    <!-- </div> -->
-    <!-- <div class="img-right"> -->
     <img
       src="/img/friends_delivery.jpeg"
       id="friends"
       class=""
       alt="Delivery image"
     />
-    <!-- </div> -->
   </div>
 </template>
 
