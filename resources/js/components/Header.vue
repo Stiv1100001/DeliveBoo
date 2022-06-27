@@ -45,16 +45,6 @@ div#header-guest {
         width: 180px;
       }
     }
-    // span {
-    //   font-size: 2rem;
-    //   color: $rich-black-fogra-29;
-    //   font-family: $font-family-headings;
-
-    //   &:hover {
-    //     -webkit-text-fill-color: transparent;
-    //     -webkit-text-stroke-width: 1px;
-    //   }
-    // }
   }
 }
 </style>
