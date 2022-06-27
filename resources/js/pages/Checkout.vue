@@ -1,12 +1,13 @@
 <template>
 
 
-<div class="container pb-4 mt-3">
+<div class="container pb-4 mt-3" id="box">
+
     <div class="row">
         <!--  carrello -->
-        <div class="col-6">
+        <div class="col-12 col-md-6  col-xl-6">
             <div class="wrapperCarrello">
-                <ul class="list-group mb-2 rounded-pill">
+                <ul class="list-group mb-2">
                 <li
                     v-for="product in getCart"
                     :key="product.dish.id"
@@ -29,13 +30,12 @@
         </div>
         </div>
         <!-- form -->
-        <div class="col-6">
+        <div class="col-12 col-md-6 col-xl-6">
                     <form class="form-horizontal">
                         <div class="mb-1">
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="form-label">Indirizzo mail</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" v-model="form.email" />
-                                <div id="emailHelp" class="form-text">Non condivideremo la password con nessuno</div>
                             </div>
                         </div>
                         <div class="mb-1">
@@ -184,7 +184,8 @@ created() {
 </script>
 
 <style lang="scss" scoped>
-.demo{ background: linear-gradient(to bottom,#f83600,#fe8c00); }
+
+
 .form-horizontal{
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -235,6 +236,7 @@ created() {
     margin: 0;
     list-style: none;
 }
+
 
 
 </style>
