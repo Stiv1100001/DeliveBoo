@@ -62,19 +62,23 @@
                     @enderror
                 </div>
 
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="radio" name="availability" id="availability" value="1"
-                        {{$dish->availability == 1 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="exampleRadios1">
-                        Piatto disponibile
-                    </label>
-                </div>
+                {{-- <div>
+                    <input id="img_url" type="file" class="form-control p-1 border border-2 rounded h-auto"
+                        @error('img_url') is-invalid @enderror" name="img_url" value="{{ old('img_url') }}" required
+                        autofocus>
+
+                    @error('img_url')
+                    <span class=" invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div> --}}
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="radio" name="availability" id="availability" value="0"
-                        {{$dish->availability == 0 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="availability">
-                        Piatto non disponibile
+                    <input class="form-check-input" type="checkbox" name="availability" id="availability" value="1" {{
+                        $dish->availability ? 'checked' : ''}}>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Disponibile
                     </label>
                 </div>
 

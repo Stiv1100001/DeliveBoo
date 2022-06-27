@@ -1,6 +1,6 @@
 <template>
   <div class="card rounded-3">
-    <img :src="item.img_url" class="img-fluid" alt="" />
+    <img :src="getUrlImage(item.img_url)" class="img-fluid" alt="" />
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
       <p class="card-text">{{ item.description }}</p>
@@ -115,6 +115,13 @@
         };
 
         this.$store.commit("removeProductFromCart", payload);
+      },
+
+      getUrlImage(img) {
+        if (img) {
+          if (img.startsWith("http")) return img;
+          else return "/storage/" + img;
+        }
       },
     },
   };

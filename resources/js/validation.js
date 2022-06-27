@@ -38,18 +38,14 @@ if (btnSubmitRegister) {
     }
 
     if (!checkLength(inputs.password.value.trim(), 8)) {
-      errors.push(
-        "La password è obbligatorio e deve essere almeno 8 caratteri"
-      );
+      errors.push("La password è obbligatorio e deve essere almeno 8 caratteri");
     }
 
     if (!checkLength(inputs.password_confirmation.value.trim(), 8)) {
       errors.push("La password va confermata");
     }
 
-    if (
-      inputs.password.value.trim() !== inputs.password_confirmation.value.trim()
-    ) {
+    if (inputs.password.value.trim() !== inputs.password_confirmation.value.trim()) {
       errors.push("Le password devono corrispondere");
     }
 
@@ -91,7 +87,7 @@ if (btnSubmitDishCreate) {
   btnSubmitDishCreate.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const form = document.getElementById("form");
+    const form = document.getElementById("create-dish");
 
     const errorDiv = document.getElementById("error");
     const errorMessage = document.getElementById("error-message");
@@ -106,13 +102,7 @@ if (btnSubmitDishCreate) {
       errors.push("Il nome è obbligatorio");
     }
 
-
-
-    if (
-      !inputs.price.value ||
-      isNaN(inputs.price.value) ||
-      parseFloat(inputs.price.value) < 0
-    ) {
+    if (!inputs.price.value || isNaN(inputs.price.value) || parseFloat(inputs.price.value) < 0) {
       errors.push("Il prezzo è obbligatorio e deve esere positivo");
     }
 
@@ -151,13 +141,7 @@ if (btnSubmitDishEdit) {
       errors.push("Il nome è obbligatorio");
     }
 
-
-    if (
-      !inputs.price.value ||
-      isNaN(inputs.price.value) ||
-      parseFloat(inputs.price.value) < 0
-    ) {
-
+    if (!inputs.price.value || isNaN(inputs.price.value) || parseFloat(inputs.price.value) < 0) {
       errors.push("Il prezzo è obbligatorio");
     }
 

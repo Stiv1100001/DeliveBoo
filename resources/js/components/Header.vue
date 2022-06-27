@@ -1,6 +1,6 @@
 <template>
-  <div id="header-guest" class="container">
-    <nav class="navbar d-flex">
+  <div id="header-guest" class="">
+    <nav class="navbar d-flex px-2">
       <!-- Logo -->
       <a href="/" class="logo text-decoration-none">
         <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />

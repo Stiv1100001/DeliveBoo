@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Dish;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 
 class DishesController extends Controller
 {
@@ -44,19 +44,27 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO check 'availability' control
+            'img_url' => 'required|file'
         ], [
             'required' => 'Il campo è obbligatorio',
             'price' => 'Il campo deve essere un numero',
-            'string' => 'Il campo deve contenere del testo'
+            'string' => 'Il campo deve contenere del testo',
+            'file' => 'Il piatto necessita di una immagine'
         ]);
 
         $data = $request->all();
+
+        if (!isset($data['availability'])) {
+            $data['availability'] = false;
+        } else {
+            $data['availability'] = true;
+        }
 
         $newDish = new Dish();
 
         $newDish->fill($data);
         $newDish->user_id = Auth::user()->id;
+        $newDish->img_url = Storage::put('uploads', $data['img_url']);
 
         $newDish->save();
 
@@ -113,15 +121,21 @@ class DishesController extends Controller
             'price' => 'numeric|min:0',
             'description' => 'string',
             'ingredients' => 'string',
-            // TODO 'availability' => 'boolean'
+            'img_url' => 'file'
         ], [
             'required' => 'Il campo è obbligatorio',
             'numeric' => 'Il campo deve essere un numero',
-            'string' => 'Il campo deve contenere del testo'
+            'string' => 'Il campo deve contenere del testo',
+            'file' => 'Il piatto necessita di una immagine'
         ]);
 
         $data = $request->all();
 
+        if (!isset($data['availability'])) {
+            $data['availability'] = false;
+        } else {
+            $data['availability'] = true;
+        }
 
 
         $dish->fill($data);
