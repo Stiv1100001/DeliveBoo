@@ -55,29 +55,29 @@
                                 alt="{{Auth::user()->name_resturant}}" class="rounded-circle border border-3 border-dark me-3 d-sm-inline d-none" id="user-img-nav">
 
                                 <div class="dropdown">
-                                    <button class="btn btn-outline-dark border border-2 border-dark rounded abril-fatface-font fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-outline-dark border border-3 border-dark rounded fw-bold fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ Auth::user()->name_restaurant }}
                                         <i class="fas fa-bars p-1"></i>
                                     </button>
                                     <ul class="dropdown-menu bg-dropdown border border-2 border-dark" aria-labelledby="dropdownMenuLink">
                                         
                                         <li class="dropdown-item text-center p-0">
-                                            <a class="text-decoration-none text-black abril-fatface-font"  href="{{ route('home') }}" role=“button">
+                                            <a class="text-decoration-none text-black fw-bold"  href="{{ route('home') }}" role=“button">
                                                 <i class="fas fa-house me-1"></i>
                                                 Home
                                             </a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li class="dropdown-item text-center p-0">
-                                            <a class="text-decoration-none text-black abril-fatface-font" href="{{ route('admin.dishes.index') }}" role=“button">
+                                            <a class="text-decoration-none text-black fw-bold" href="{{ route('admin.dishes.index') }}" role=“button">
                                                 <i class="fas fa-utensils me-1"></i>
                                                 Menu
                                             </a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li class="dropdown-item text-center p-0">
-                                            <a class="text-decoration-none text-black abril-fatface-font" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                <i class="fas fa-right-from-bracket me-1"></i>
+                                            <a class="text-decoration-none text-black fw-bold" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="fas fa-right-from-bracket"></i>
                                                 {{ __('Logout') }}
                                             </a>
             
