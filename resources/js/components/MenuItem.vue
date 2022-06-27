@@ -1,6 +1,6 @@
 <template>
   <div class="card rounded-3">
-    <!-- <img :src="item.img_url" class="img-fluid" alt="" /> -->
+    <img :src="getUrlImage(item.img_url)" class="img-fluid" alt="" />
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
       <p class="card-text">{{ item.description }}</p>
@@ -18,6 +18,7 @@
 
 <script>
   import { mapGetters } from "vuex";
+  import Swal from "sweetalert2";
   export default {
     name: "MenuItem",
     data: () => ({
@@ -47,6 +48,17 @@
 
     methods: {
       plus() {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top",
+          showConfirmButton: false,
+          timer: 3500,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
         if (this.getRestaurantOrderId && this.getRestaurantOrderId !== this.item.user_id) {
           this.$emit("insertError");
           return;
@@ -54,12 +66,32 @@
 
         this.quantity++;
         this.addToCart();
+        const name = this.item.name;
+        Toast.fire({
+          icon: "success",
+          title: `${name} aggiunto al Carrello`,
+        });
       },
 
       minus() {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top",
+          showConfirmButton: false,
+          timer: 3500,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
         if (this.quantity === 0) return;
         this.quantity--;
         this.removeFromCart();
+        Toast.fire({
+          icon: "error",
+          title: "Piatto eliminato dal carrello",
+        });
       },
 
       addToCart() {
@@ -83,6 +115,13 @@
         };
 
         this.$store.commit("removeProductFromCart", payload);
+      },
+
+      getUrlImage(img) {
+        if (img) {
+          if (img.startsWith("http")) return img;
+          else return "/storage/" + img;
+        }
       },
     },
   };

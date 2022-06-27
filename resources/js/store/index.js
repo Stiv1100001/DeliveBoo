@@ -102,6 +102,7 @@ export const store = new vuex.Store({
     fillCart(state, cart) {
       state.cart = cart;
       if (cart.length > 0) state.restaurantOrderId = state.cart[0].dish.user_id;
+      else state.restaurantOrderId = null;
 
       localStorage.setItem("cart", JSON.stringify(state.cart));
       if (cart.length) {

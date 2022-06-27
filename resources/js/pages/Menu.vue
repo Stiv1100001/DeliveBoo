@@ -16,12 +16,6 @@
         <span class="badge bg-primary me-2" v-for="type in restaurant.types" :key="type.id">{{ type.name_type }}</span>
       </h6>
 
-      <transition name="fade">
-        <div class="alert alert-danger" v-if="showError" role="alert">
-          È possibile acquistare piatti da un solo ristorante!
-        </div></transition
-      >
-
       <h5>Menu</h5>
 
       <div class="d-flex">
@@ -58,6 +52,7 @@
   import { mapGetters } from "vuex";
   import MenuItem from "../components/MenuItem.vue";
   import Header from "../components/Header.vue";
+  import Swal from "sweetalert2";
   export default {
     components: { MenuItem, Header },
     name: "Menu",
@@ -80,18 +75,19 @@
 
     methods: {
       showInsertError() {
-        this.showError = true;
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
-        setTimeout(() => {
-          this.showError = false;
-        }, 5000);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Non puoi acquistare piatti da ristoranti diversi!",
+          showConfirmButton: true,
+          timer: 2000,
+        });
       },
     },
 
     async created() {
       const dishes = (await axios.get("/api/dishes/" + this.$route.params.id)).data.data;
-      console.log(dishes);
+
       const restaurant = (await axios.get("/api/restaurant/" + this.$route.params.id)).data;
 
       this.dishes = dishes;

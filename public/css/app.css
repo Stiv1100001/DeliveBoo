@@ -10244,6 +10244,18 @@ body .card-stepper {
   border-radius: 10px;
 }
 body img#user-img-nav {
+  width: 2rem;
+  height: 2rem;
+}
+body img#user-img-home {
+  width: 10rem;
+  height: 10rem;
+}
+body .card-stepper {
+  z-index: 0;
+  border-radius: 10px;
+}
+body img#user-img-nav {
   width: 3.5rem;
   height: 3.5rem;
 }
@@ -10280,10 +10292,11 @@ div#header-guest {
 }
 
 .bg-dropdown {
-  background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FB611C 67%);
+  background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #fb611c 67%);
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
   background-color: transparent;
 }
 
@@ -10313,7 +10326,7 @@ div#my-form {
   height: calc(100vh - 72px);
 }
 div#my-form .form-container {
-  background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FF4F00 67%);
+  background: linear-gradient(150deg, #fc992f 33%, #fd9840 34%, #fb611c 66%, #ff4f00 67%);
   font-family: "Raleway", sans-serif;
   text-align: center;
   padding: 30px 20px 50px;
@@ -10333,7 +10346,7 @@ div#my-form .form-container .form-horizontal {
 }
 div#my-form .form-horizontal .form-icon {
   color: #fff;
-  background-color: #FF4F00;
+  background-color: #ff4f00;
   font-size: 75px;
   line-height: 92px;
   height: 90px;
@@ -10369,7 +10382,7 @@ div#my-form .form-horizontal .form-control {
 }
 div#my-form .form-horizontal .form-control:focus {
   box-shadow: none;
-  border-bottom-color: #EC5F20;
+  border-bottom-color: #ec5f20;
 }
 div#my-form .form-horizontal .form-control::-moz-placeholder {
   color: #c9c4c4;
@@ -10395,7 +10408,7 @@ div#my-form .form-horizontal .forgot a:hover {
 }
 div#my-form .form-horizontal .signin {
   color: #fff;
-  background-color: #EC5F20;
+  background-color: #ec5f20;
   font-size: 17px;
   text-transform: capitalize;
   letter-spacing: 2px;
