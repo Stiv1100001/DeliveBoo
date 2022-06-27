@@ -18,11 +18,8 @@
                     <h1 class="text-center fw-bold text-dark mb-5">Aggiungi un piatto</h1>
 
                     <div class="mb-3 group">
-                        <input type="text" name="name" id="name" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label for="name">Inserisci nome piatto</label>
-
+                        <label for="name" class="form-label">Inserisci nome piatto</label>
+                        <input type="text" name="name" id="name" class="form-control">
                         @error('name')
                         <div class="alert mt-2 alert-danger">
                             {{ $message }}

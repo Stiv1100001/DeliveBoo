@@ -110,12 +110,13 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/app.scss";
+
 div#full-width-div {
   position: absolute;
   width: 100vw;
   left: 0;
   padding: 50px 0;
-    border-radius: 60px;
+  border-radius: 60px;
   background-color: $cambridge-blue;
 
   div#searchbar {
@@ -131,6 +132,7 @@ div#full-width-div {
 }
 div#main {
   img {
+    // border-radius: 20px 20px 0px 0px;
     border-radius: 20px;
   }
   margin-top: 40rem;
@@ -148,14 +150,14 @@ div#main {
     }
     div.txt {
       width: 100%;
-      border-bottom: 1px solid $rich-black-fogra-29;
+      //   border-bottom: 1px solid $rich-black-fogra-29;
       div#address {
         width: 60%;
         p {
           font-family: $font-family-txt;
           font-size: 0.9rem;
           color: $rich-black-fogra-29;
-          border-right: 1px solid $rich-black-fogra-29;
+          //   border-right: 1px solid $rich-black-fogra-29;
         }
       }
       div.menu-btn {
