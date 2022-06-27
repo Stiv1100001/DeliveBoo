@@ -10,7 +10,10 @@ import App from "./views/App";
 import { store } from "./store";
 
 import vueBraintree from "vue-braintree";
-Vue.use(vueBraintree);
+Vue.use(vueBraintree);  
+
+import Swal from "sweetalert2";
+// Vue.use(Swal);
 
 /* import Vue, { defineComponent } from 'vue'
 Vue.use(defineComponent)

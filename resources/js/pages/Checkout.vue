@@ -55,10 +55,12 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from "vuex";
-  import Header from "../components/Header.vue";
-  import CreditCard from "../components/CreditCard.vue";
-  import axios from "axios";
+import { mapActions, mapGetters } from "vuex";
+import Header from "../components/Header.vue";
+import CreditCard from "../components/CreditCard.vue";
+import axios from "axios";
+// import Swal from 'sweetalert2';
+
 
   export default {
     name: "cart",
@@ -66,24 +68,37 @@
       Header,
       CreditCard,
     },
-    data: function () {
-      return {
-        token: "",
-        form: {
-          nonce: "",
-          email: "",
-          name_customer: "",
-          address_customer: "",
-          phone_number_customer: "",
-          order: [],
-        },
-      };
-    },
-    methods: {
-      ...mapActions(["clearCart", "removeItem"]),
-      setNonce(nonce) {
-        this.form.nonce = nonce;
-      },
+
+};
+},
+methods: {
+...mapActions(["clearCart", "removeItem"]),
+setNonce(nonce) {
+    this.form.nonce = nonce;
+},
+
+pay() {
+    
+    const Swal = require('sweetalert2');
+    this.form.order = this.$store.getters.getCart.map((item) => {
+    return { id: item.dish.id, quantity: item.quantity };
+    });
+
+    axios.post("/api/order/make", this.form).then((res) => {
+    console.log(res);
+    if (res.data.success) {
+        // this.$router.push("/thanks");
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pagamento avvenuto con successo. Grazie per aver aquistato su DELIVEBOO.',
+            showConfirmButton: true,
+            timer: 5000
+})
+    } else {
+        alert("Errore nella creazione dell'ordine");
+    }
+
 
       pay() {
         this.form.order = this.$store.getters.getCart.map((item) => {

@@ -17,22 +17,84 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
-  export default {
-    name: "MenuItem",
-    data: () => ({
-      quantity: 0,
-    }),
+import { mapGetters } from "vuex";
+export default {
+  name: "MenuItem",
+  data: () => ({
+    quantity: 0,
+  }),
 
-    props: {
-      item: {
-        type: Object,
-        required: true,
-      },
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  computed: {
+    ...mapGetters(["getRestaurantOrderId"]),
+  },
+
+  created() {
+    const cart = this.$store.getters.getCart;
+
+    const dish = cart.find((el) => el.dish.id == this.item.id);
+
+    if (dish) {
+      this.quantity = dish.quantity;
+    }
+  },
+
+  methods: {
+    plus() {
+      const Swal = require('sweetalert2');
+      const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 3500,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+      if (
+        this.getRestaurantOrderId &&
+        this.getRestaurantOrderId !== this.item.user_id
+      ) {
+        this.$emit("insertError");
+        return;
+      }
+
+      this.quantity++;
+      this.addToCart(); 
+      Toast.fire({
+        icon: 'success',
+        title: 'Piatto aggiunto al Carrello'
+})
     },
 
-    computed: {
-      ...mapGetters(["getRestaurantOrderId"]),
+    minus() { 
+      const Swal = require('sweetalert2');
+      const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 3500,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+      
+      if (this.quantity === 0) return;
+      this.quantity--;
+      this.removeFromCart(); 
+      Toast.fire({
+        icon: 'error',
+        title: 'Piatto eliminato dal carrello'
+});
+
     },
 
     created() {
