@@ -1,6 +1,5 @@
 <template>
   <div id="jumbo" class="d-flex justify-content-around">
-
     <img
       src="/img/delivery.jpeg"
       class="align-self-center"
