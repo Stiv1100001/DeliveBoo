@@ -22,7 +22,7 @@ body {
   }
   // END HEADER
 
-  // Card ordine
+  // ORDER CARD
   .track-line {
     height: 2px !important;
     background-color: #4dafff;
@@ -60,6 +60,12 @@ body {
     border-radius: 10px;
   }
 
+  /////////////
+  .card-stepper {
+    z-index: 0;
+    border-radius: 10px;
+  }
+
   img#user-img-nav {
     width: 2rem;
     height: 2rem;
@@ -68,12 +74,6 @@ body {
   img#user-img-home {
     width: 10rem;
     height: 10rem;
-  }
-
-  /////////////
-  .card-stepper {
-    z-index: 0;
-    border-radius: 10px;
   }
 
   img#user-img-nav {
@@ -262,26 +262,24 @@ div#my-form {
   }
 }
 
-
-.bg-cambridge-blue{
-    background-color: $cambridge-blue;
+.bg-cambridge-blue {
+  background-color: $cambridge-blue;
 }
 
 div#background-menu-admin {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-image: url('https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
 }
 .bg-cambridge-blue {
   background-color: $cambridge-blue;
 }
 
-div#my-card-menu{
-    background-color: $bone;
-    border-radius: 30% 0 0 0;
-    a:hover{
-        color: $bright-yellow-crayola;
-    }
-
+div#my-card-menu {
+  background-color: $bone;
+  border-radius: 30% 0 0 0;
+  a:hover {
+    color: $bright-yellow-crayola;
+  }
 }
