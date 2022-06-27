@@ -12,6 +12,7 @@ body {
 
   // HEADER
   div#header-guest {
+    height: 12vh;
     a.logo {
       img {
         width: 180px;
@@ -98,11 +99,13 @@ body {
   }
 
   div#background-home-admin {
-    height: calc(100vh - 80px);
+    height: 88vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
+    background-image: url("/img/table.jpg");
+
+    // background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
 
     a.menu {
       font-family: $font-family-txt;

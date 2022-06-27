@@ -27,7 +27,7 @@
 
     <body>
         <div id="header-guest" class="w-100 px-0 py-1">
-            <div class="container">
+            <div class="container align-items">
                 <nav class="d-flex justify-content-between align-items-center py-1">
                     <a href="/" class="logo text-decoration-none">
                         <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />
@@ -55,7 +55,7 @@
                                 alt="{{Auth::user()->name_resturant}}" class="rounded-circle border border-dark me-3 d-sm-inline d-none" id="user-img-nav">
 
                                 <div class="dropdown">
-                                    <button class="btn btn-outline-dark rounded-pill p-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-outline-dark rounded-pill px-3 p-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ Auth::user()->name_restaurant }}
                                         <i class="fas fa-bars p-1"></i>
                                     </button>
