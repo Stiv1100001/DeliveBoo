@@ -20,14 +20,12 @@
           id="restaurants"
           v-for="restaurant in randomRestaurants"
           :key="restaurant.id"
-          class="col-md-6 col-lg-4 mt-3 mb-5"
-        >
+          class="col-md-6 col-lg-4 mt-3 mb-5">
           <img
             :src="restaurant.image_url"
             class="mb-3 w-100"
-            :alt="'image of ' + restaurant.name_restaurant"
-          />
-          <h4>{{ restaurant.name_restaurant }}</h4>
+            :alt="'image of ' + restaurant.name_restaurant" />
+          <h4 class="px-3">{{ restaurant.name_restaurant }}</h4>
           <div class="txt p-3 mt-3 d-flex">
             <div id="address">
               <p class="card-text pb-2 pe-2">{{ restaurant.address }}</p>
@@ -37,11 +35,9 @@
                 :to="{
                   name: 'menu',
                   params: { id: restaurant.id },
-                }"
-              >
+                }">
                 <button
-                  class="btn btn-outline-dark text-uppercase rounded-pill"
-                >
+                  class="btn btn-outline-dark text-uppercase rounded-pill">
                   menu
                 </button>
               </router-link>
