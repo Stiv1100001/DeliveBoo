@@ -1,14 +1,16 @@
 <template>
-  <div id="wrapper" class="container">
+  <div>
     <div class="position-absolute loader h-100 w-100" :class="{ 'd-none': !loading }">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <Header />
-    <div class="row justify-content-start mt-3">
-      <SearchBar @restaurant="setSearchedData" />
-      <h1 class="mt-3">Ristoranti</h1>
+    <Header/>
+    <div id="wrapper" class="container">
+      <div class="row justify-content-start mt-3">
+        <SearchBar @restaurant="setSearchedData" />
+        <h1 class="mt-3">Ristoranti</h1>
+
 
       <div
         class="col-6 col-md-4 col-lg-3 mt-3 align-self-stretch"
@@ -22,10 +24,12 @@
             <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
               <button class="btn btn-primary rounded-pill text-uppercase">menu</button>
             </router-link>
+
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 

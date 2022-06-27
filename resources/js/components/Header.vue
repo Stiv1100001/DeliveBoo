@@ -1,6 +1,7 @@
 <template>
-  <div id="header-guest" class="container">
-    <nav class="navbar d-flex mb-3">
+  <div id="header-guest" class="w-100 p-0 shadow">
+    <div class="container">
+      <nav class="navbar d-flex mb-3">
       <!-- Logo -->
       <a href="/" class="logo text-decoration-none">
         <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />
@@ -32,12 +33,17 @@
         </div>
 
         <!-- Login/Register -->
-        <div class="login-control">
-          <a href="/login" class="btn btn-outline-dark text-uppercase rounded-pill me-2"> Login </a>
-          <a href="/register" class="btn btn-outline-dark text-uppercase rounded-pill"> Register </a>
+        <div class="login-control d-flex">
+          <div  class="d-flex align-items-center">
+            <a href="/login" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Login </a>
+            </div>
+          <div class="d-flex align-items-center d-none d-sm-inline">
+            <a href="/register" class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold"> Register </a>
+          </div>
         </div>
       </div>
     </nav>
+    </div>
   </div>
 </template>
 
@@ -47,14 +53,8 @@
   };
 </script>
 
+
 <style lang="scss" scoped>
   @import "../../sass/app.scss";
 
-  div#header-guest {
-    a.logo {
-      img {
-        width: 220px;
-      }
-    }
-  }
 </style>
