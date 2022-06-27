@@ -15,7 +15,10 @@
         v-for="restaurant in restaurantToShow"
         :key="restaurant.id">
         <div class="card rounded-3">
-          <img :src="restaurant.image_url" :alt="'image of ' + restaurant.name_restaurant" class="card-img-top" />
+          <img
+            :src="getUrlImage(restaurant.image_url)"
+            :alt="'image of ' + restaurant.name_restaurant"
+            class="card-img-top" />
           <div class="card-body">
             <h4>{{ restaurant.name_restaurant }}</h4>
             <h5 class="fst-italic">{{ restaurant.address }}</h5>
@@ -50,6 +53,11 @@
     methods: {
       setSearchedData(restaurant) {
         this.searchedRestaurant = restaurant;
+      },
+
+      getUrlImage(image) {
+        if (image.startsWith("http")) return image;
+        else return "/storage/" + image;
       },
     },
     created() {
