@@ -10425,3 +10425,14 @@ div#my-form .form-horizontal .signin:focus {
 .bg-cambridge-blue {
   background-color: hsl(111deg, 17%, 77%);
 }
+
+.bg-rich-black-fogra-29 {
+  background-color: hsl(207deg, 43%, 9%);
+}
+
+div#background-menu-admin {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url("https://www.sierraoaksredding.com/wp-content/uploads/2017/12/gourmet-food-bg.jpg");
+}

@@ -15,7 +15,7 @@
                             <p id="error-message"></p>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-1">
                             <span class="input-icon"><img src="/img/icons8-meal-50.png" alt=""></span>
                             <div>
                                 <input placeholder="Nome del piatto" type="text" name="name" id="name" class="form-control">

@@ -11,29 +11,31 @@
             @endif
         </div>
 
-        <div class="col-8 card text-center p-0 mb-5">
-            <div class="card-header text-uppercase align-items-center d-flex justify-content-between">
-                <h6 class="m-0">Menu</h6>
-                <a href="{{route('admin.dishes.create')}}">
-                    <button class="btn btn-warning">Aggiungi piatto</button>
-                </a>
+        <div class="col-12 card text-center p-0 mb-5 rounded">
+            <div class="card-header  p-0" id="background-menu-admin">
+                <div class="w-100 h-100 my-opacity text-uppercase align-items-center d-flex justify-content-between p-3">
+                    <h4 class="m-0 abril-fatface-font fw-bold text-white">Menu</h4>
+                    <a href="{{route('admin.dishes.create')}}">
+                        <button class="btn btn-warning">Aggiungi piatto</button>
+                    </a>
+                </div>
             </div>
             <div class="card shadow-sm border-0">
-                <div class="card-body">
+                <div class="card-body bg-cambridge-blue rounded-bottom">
                     <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
                         @forelse ($dishes as $dish)
                         <div class="col">
-                            <div class="card">
+                            <div class="card shadow">
 
-                                <div class="card-body text-start">
-                                    <a href="{{route('admin.dishes.show', $dish)}}"
-                                        class="card-title">{{$dish->name}}</a>
-                                    <p class="card-text">{{Str::limit($dish->description, 20, '...')}}</p>
-                                    <p class="card-text">{{$dish->price}} €</p>
-                                    <p class="card-text">Disponibile: {{$dish->availability ? 'Sì' : 'No'}}</p>
-                                    <p class="card-text"><small class="text-muted">{{$dish->created_at}}</small>
+                                <div class="card-body">
+                                    <a class="fw-bold text-decoration-none fs-1 text-center card-title abril-fatface-font text-black" href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
+                                    <p class="card-text text-start mt-4">{{Str::limit($dish->description, 20, '...')}}</p>
+                                    <p class="card-text  text-start">{{Str::limit($dish->ingredients, 20, '...')}}</p>
+                                    <p class="card-text  text-start">{{$dish->price}} €</p>
+                                    {{-- <p class="card-text">Disponibile: {{$dish->availability ? 'Sì' : 'No'}}</p> --}}
+                                    <p class="card-text  text-start"><small class="text-muted">{{$dish->created_at}}</small>
                                     </p>
-                                    <div class="buttons d-flex justify-content-center">
+                                    <div class="buttons d-flex justify-content-start  text-start">
                                         <a class="me-3" href="{{route('admin.dishes.edit', $dish)}}">
                                             <button class="btn btn-primary">Modifica</button>
                                         </a>
