@@ -10280,11 +10280,7 @@ div#header-guest {
 }
 
 .bg-dropdown {
-  background-image: url("https://media-exp1.licdn.com/dms/image/C561BAQH48GYeO3o6Rw/company-background_10000/0/1519800644121?e=2147483647&v=beta&t=6JYJLz1iywggPuz1KSq2VozDmYX3qB8RXzk-ENOPiwo");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: linear-gradient(150deg, #FC992F 33%, #FD9840 34%, #FB611C 66%, #FB611C 67%);
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
