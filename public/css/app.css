@@ -10421,3 +10421,7 @@ div#my-form .form-horizontal .signin:focus {
   letter-spacing: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
 }
+
+.bg-cambridge-blue {
+  background-color: hsl(111deg, 17%, 77%);
+}

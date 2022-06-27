@@ -4,7 +4,7 @@
 
 <div class="w-100" id="background-home-admin"> 
     <div class="w-100 h-100 my-opacity d-flex justify-content-center align-items-center">
-            <div class="card col-10 col-sm-10 col-md-10 col-lg-8 my-bg-gradient border-0 rounded abril-fatface-font">
+            <div class="card col-10 col-sm-10 col-md-10 col-lg-8 my-bg-gradient border-0 rounded abril-fatface-font bg-cambridge-blue">
                 <div class="row g-0">
                     <div class="col-6 d-none d-lg-inline p-3 shadow">
                         <div class="h-100 w-100 d-flex justify-content-center align-items-center">
