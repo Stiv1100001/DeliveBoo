@@ -8,7 +8,16 @@ Vue.use(VueRouter);
 
 import App from "./views/App";
 import { store } from "./store";
-import Vue from "vue";
+
+import vueBraintree from "vue-braintree";
+Vue.use(vueBraintree);
+
+/* import Vue, { defineComponent } from 'vue'
+Vue.use(defineComponent)
+
+import { createToast } from 'mosha-vue-toastify';
+Vue.use(createToast)
+ */
 
 const router = new VueRouter({
   mode: "history",

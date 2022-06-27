@@ -1,12 +1,13 @@
 <template>
-  <div id="wrapper" class="mb-5">
+  <div>
     <Header />
-    <div class="container">
-      <div class="row my-3">
-        <!-- <div class="col-8"></div> -->
+      <div id="wrapper" class="container">
+      <div class="row justify-content-center mt-3">
+        <div class="col-8"></div>
         <div class="col-12" v-if="loading">
           {{ loading }}
         </div>
+<<<<<<< HEAD
         <div id="full-width-div" class="mb-5">
           <Jumbo />
           <div id="searchbar" class="position-absolute">
@@ -22,45 +23,44 @@
             class="col-md-6 col-lg-4 mt-3 mb-5"
           >
             <!-- <div class="restaurant-wrapper"> -->
+=======
+        <SearchBar @restaurant="setSearchedData" />
+        <h1 class="mt-3">Ristoranti</h1>
+
+        <div
+          class="col-4 mt-3"
+          v-for="restaurant in restaurantToShow"
+          :key="restaurant.id"
+        >
+          <div class="card p-3">
+>>>>>>> main
             <img
               :src="restaurant.image_url"
-              class="mb-2"
               :alt="'image of ' + restaurant.name_restaurant"
             />
-            <h4>{{ restaurant.name_restaurant }}</h4>
-            <div class="txt mt-3 d-flex">
-              <!-- <div class="wrapper d-flex"> -->
-              <div id="address">
-                <p class="card-text pb-2 pe-2">{{ restaurant.address }}</p>
-              </div>
-              <div
-                class="menu-btn d-flex px-2 justify-content-center align-items-center"
-              >
-                <router-link
-                  :to="{
-                    name: 'menu',
-                    params: { id: restaurant.id },
-                  }"
-                >
-                  <button class="btn rounded-pill text-uppercase">menu</button>
-                </router-link>
-              </div>
-              <!-- </div> -->
-            </div>
-            <!-- </div> -->
+            <p class="card-text">{{ restaurant.name_restaurant }}</p>
+            <p class="card-text">{{ restaurant.address }}</p>
+            <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
+              <button class="btn btn-primary rounded-pill text-uppercase">
+                menu
+              </button>
+            </router-link>
           </div>
         </div>
       </div>
     </div>
-    <Footer />
   </div>
+
 </template>
 
 <script>
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
+<<<<<<< HEAD
 import Footer from "../components/Footer";
 import Jumbo from "../components/Jumbo.vue";
+=======
+>>>>>>> main
 
 export default {
   name: "index",
@@ -68,8 +68,11 @@ export default {
   components: {
     Header,
     SearchBar,
+<<<<<<< HEAD
     Footer,
     Jumbo,
+=======
+>>>>>>> main
   },
   data() {
     return {
@@ -110,6 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/app.scss";
+// <<<<<<< HEAD
 
 div#full-width-div {
   position: absolute;
@@ -136,6 +140,10 @@ div#main {
     border-radius: 20px;
   }
   margin-top: 40rem;
+// =======
+
+// div#wrapper {
+// >>>>>>> main
   h1 {
     color: $rich-black-fogra-29;
     font-family: $font-family-headings;
@@ -178,5 +186,6 @@ div#main {
       }
     }
   }
+
 }
 </style>

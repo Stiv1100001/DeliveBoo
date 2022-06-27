@@ -32,7 +32,6 @@ Route::get('/types', 'Api\TypeController@index')->name('api.types');
 Route::get('/dishes/{user_id}', 'Api\DishController@index')->name('api.dish');
 
 // % Api orders
-Route::post('/order', 'Api\OrderController@store')->name('api.order.store');
+Route::get('/order/token', 'Api\OrderController@generateToken')->name('api.order.token');
+Route::post('/order/make', 'Api\OrderController@makeOrderPayment')->name('api.order.make');
 Route::get('/order/{id}', 'Api\OrderController@show')->name('api.order.show');
-Route::get('/orders/generate', 'Api\OrderController@generate');
-Route::post('/orders/payments', 'Api\OrderController@payments');
