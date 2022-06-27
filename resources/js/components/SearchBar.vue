@@ -11,6 +11,7 @@
       label="name_type"
       track-by="name_type"
       :searchable="false"
+      class="col-md-10"
       :taggable="true"
       @tag="addTag"
       @select="search"

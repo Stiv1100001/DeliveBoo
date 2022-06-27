@@ -1,4 +1,4 @@
-import index from "./pages/index.vue";
+import Home from "./pages/Home.vue";
 import Menu from "./pages/Menu.vue";
 import cart from "./pages/checkout/cart.vue";
 
@@ -6,7 +6,7 @@ export default [
   {
     path: "/",
     name: "home",
-    component: index,
+    component: Home,
   },
   {
     path: "/restaurant/:id/menu",
