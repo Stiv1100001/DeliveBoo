@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-100" id="background-home-admin">
-    <div class="w-100 h-100 my-opacity d-flex justify-content-center align-items-center">
+<div class="w-100 h-100" id="background-home-admin">
+    <div class="h-100 my-opacity d-flex justify-content-center align-items-center">
         <div class="container abril-fatface-font">
             <div class="row">
                 <div class="col-12 text-center">
