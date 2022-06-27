@@ -1,103 +1,111 @@
-    <template>
+<template>
+  <div>
+    <div class="position-absolute loader h-100 w-100" :class="{ 'd-none': !loading }">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <Header />
     <div id="wrapper" class="container">
-        <Header />
-        <div class="row justify-content-center mt-3">
-        <div class="col-8"></div>
-        <div class="col-12" v-if="loading">
-            <img class="loading" src="https://www.fulcrongrv.it/api/foto/metamorfosi/photos/2019-10-27%2014.03.55%20096.jpg" alt="">
-        </div>
+      <div class="row justify-content-start mt-3">
         <SearchBar @restaurant="setSearchedData" />
         <h1 class="mt-3">Ristoranti</h1>
 
         <div
-            class="col-4 mt-3"
-            v-for="restaurant in restaurantToShow"
-            :key="restaurant.id"
-        >
-            <div class="card p-3">
+          class="col-6 col-md-4 col-lg-3 mt-3 align-self-stretch"
+          v-for="restaurant in restaurantToShow"
+          :key="restaurant.id">
+          <div class="card rounded-3">
             <img
-                :src="restaurant.image_url"
-                :alt="'image of ' + restaurant.name_restaurant"
-            />
-            <p class="card-text">{{ restaurant.name_restaurant }}</p>
-            <p class="card-text">{{ restaurant.address }}</p>
-            <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
-                <button class="btn btn-primary rounded-pill text-uppercase">
-                menu
-                </button>
-            </router-link>
+              :src="getUrlImage(restaurant.image_url)"
+              :alt="'image of ' + restaurant.name_restaurant"
+              class="card-img-top" />
+            <div class="card-body">
+              <h4>{{ restaurant.name_restaurant }}</h4>
+              <h5 class="fst-italic">{{ restaurant.address }}</h5>
+              <router-link :to="{ name: 'menu', params: { id: restaurant.id } }">
+                <button class="btn btn-primary rounded-pill text-uppercase">menu</button>
+              </router-link>
             </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    </template>
+  </div>
+</template>
 
-    <script>
-    import Header from "../components/Header";
-    import SearchBar from "../components/SearchBar";
+<script>
+  import Header from "../components/Header";
+  import SearchBar from "../components/SearchBar";
 
-    export default {
+  export default {
     name: "Home",
 
     components: {
-        Header,
-        SearchBar,
+      Header,
+      SearchBar,
     },
     data() {
-        return {
-        loading: '',
+      return {
+        loading: true,
         restaurants: [],
         searchedRestaurant: [],
-        };
+      };
     },
     methods: {
-        setSearchedData(restaurant) {
+      setSearchedData(restaurant) {
         this.searchedRestaurant = restaurant;
-        },
+      },
+
+      getUrlImage(image) {
+        if (image.startsWith("http")) return image;
+        else return "/storage/" + image;
+      },
     },
     created() {
-        this.loading = true;
-        axios.get("/api/restaurant").then((response) => {
+      this.loading = true;
+      axios.get("/api/restaurant").then((response) => {
         this.restaurants = response.data;
         setTimeout(() => {
-            this.loading = false;
+          this.loading = false;
         }, 2000);
-        });
+      });
     },
     computed: {
-        randomRestaurants() {
-        return this.restaurants
-            .sort(() => Math.random() - Math.random())
-            .slice(0, 10);
-        },
+      randomRestaurants() {
+        return this.restaurants.sort(() => Math.random() - Math.random()).slice(0, 10);
+      },
 
-        restaurantToShow() {
+      restaurantToShow() {
         if (this.searchedRestaurant.length == 0) {
-            return this.randomRestaurants;
+          return this.randomRestaurants;
         } else {
-            return this.searchedRestaurant;
+          return this.searchedRestaurant;
         }
-        },
+      },
     },
-    };
-    </script>
+  };
+</script>
 
-    <style lang="scss" scoped>
-    @import "../../sass/app.scss";
-    .loading{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 1;
-    }
-    div#wrapper {
+<style lang="scss" scoped>
+  @import "../../sass/app.scss";
+
+  .loader {
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  div#wrapper {
     h1 {
-        color: $rich-black-fogra-29;
-        font-family: $font-family-headings;
+      color: $rich-black-fogra-29;
+      font-family: $font-family-headings;
     }
-
-    }
-    </style>
+  }
+</style>

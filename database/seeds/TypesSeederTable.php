@@ -11,29 +11,27 @@ class TypesSeederTable extends Seeder
      * @return void
      */
     public function run()
-
-
     {
         $types = [
-            "Italiano",
-            "Cinese",
-            "Sushi",
-            "Messicano",
-            "Ristorante",
-            "Pizzeria",
-            "Giapponese",
-            "Tailandese",
-            "Vegano",
-            "Steakhouse",
-            "Hambuegeria",
-            "Pub"
-        ];
+                "Italiano",
+                "Cinese",
+                "Sushi",
+                "Messicano",
+                "Ristorante",
+                "Agriturismo",
+                "Pizzeria",
+                "Giapponese",
+                "Tailandese",
+                "Vegano",
+                "Steakhouse",
+                "Hamburgeria",
+                "Pub"
+            ];
 
-        foreach($types as $type){
+        foreach ($types as $type) {
             $newType = new Type();
             $newType->name_type = $type;
             $newType-> save();
-        };
-
         }
     }
+}

@@ -4,5 +4,8 @@
   "tabWidth": 2,
   "useTabs": false,
   "arrowParens": "always",
-  "bracketSameLine": true
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "vueIndentScriptAndStyle": true,
+  "printWidth": 120
 }

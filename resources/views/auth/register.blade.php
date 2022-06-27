@@ -1,31 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<div class="form-bg d-flex align-items-center"  id="my-form">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+                <div class="form-container rounded">
+                    <h1 class="fw-bold text-white mb-4">Register</h1>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="form">
+                    <form method="POST" action="{{ route('register') }}" class="form-horizontal my-form-register" enctype="multipart/form-data" id="form">
                         @csrf
 
                         <div class="alert alert-danger d-none" id="error">
                             <p id="error-message"></p>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="name_restaurant" class="col-md-4 col-form-label text-md-right">{{ __('Nome
-                                Ristorante*')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name_restaurant" type="text"
+                        <div class="form-group mb-1">
+                            <span class="input-icon"><i class="fa fa-user"></i></span>
+                            <div>
+                                <input placeholder="Nome Ristorante*" id="name_restaurant" type="text"
                                     class="form-control @error('name_restaurant') is-invalid @enderror"
                                     name="name_restaurant" value="{{ old('name_restaurant') }}" required
                                     autocomplete="name_restaurant" autofocus>
-
                                 @error('name_restaurant')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -34,12 +30,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail*')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <div>
+                                <input placeholder="E-Mail*" id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -50,12 +44,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa fa-lock"></i></span>
+                            <div>
+                                <input placeholder="Password*" id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="new-password">
 
@@ -67,24 +59,19 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma
-                                Password*') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa fa-lock"></i></span>
+                            <div>
+                                <input placeholder="Conferma Password*" id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
-
                         {{-- Custom field --}}
-                        <div class="form-group row mb-2">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo*')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text"
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <input placeholder="Indirizzo*" id="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror" name="address"
                                     value="{{ old('address') }}" required autocomplete="address" autofocus>
 
@@ -96,12 +83,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva*')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="vat_number" type="text"
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <div>
+                                <input placeholder="Partita Iva*" id="vat_number" type="text"
                                     class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
                                     value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus
                                     minlength="11" maxlength="11">
@@ -114,14 +99,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <label for="image_url" class="col-md-4 col-form-label text-md-right">{{ __('Immagine
-                                profilo*')
-                                }}</label>
-
-                            <div class="col-md-6">
+                        <div class="form-group">
+                            <div>
                                 <input id="image_url" type="file"
-                                    class="form-control @error('image_url') is-invalid @enderror" name="image_url"
+                                    class="form-control p-1 border border-2 rounded h-auto" @error('image_url') is-invalid @enderror" name="image_url"
                                     value="{{ old('image_url') }}" required autofocus>
 
                                 @error('image_url')
@@ -132,17 +113,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <span class="col-md-5 col-form-label text-md-right">Categorie*</span>
+                        <div class="form-group my-4">
+                            <span class="col-12 col-form-label text-md-right fw-bold">Seleziona Categorie*</span>
                             @error('types')
                             <span class="invalid-feedback" role="alert">
                                 <strong>ALemno una categoria deve essere selezionata</strong>
                             </span>
                             @enderror
-                            <div class="categorie col-md-6 ml-2 d-flex flex-wrap ">
+                            <div class="categorie col-12  ml-2 d-flex flex-wrap mt-4">
 
                                 @foreach ($types as $type)
-                                <div class="col-6">
+                                <div class="col-6 col-lg-4  text-start">
                                     <input class="custom-control-input @error('types') is-invalid @enderror"
                                         name="types[]" type="checkbox" value="{{$type->id}}" id="type-{{$type->id}}">
                                     <label class="custom-control-label" for="type-{{$type->id}}">
@@ -158,13 +139,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button class="btn btn-primary" id="btn-submit-register">
+                        <div class="form-group">
+                            <div class="col-12">
+                                <button class="btn signin" id="btn-submit-register">
                                     {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

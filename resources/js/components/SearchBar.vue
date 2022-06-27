@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="d-flex justify-content-center flex-column m-0">
+    <h2 class="mb-3">Ordina online dai tuoi ristoranti preferiti</h2>
     <multiselect
       v-model="value"
       :options="options"
@@ -19,81 +20,79 @@
 </template>
 
 <script>
-import Multiselect from "vue-multiselect";
-export default {
-  name: "SearchBar",
-  components: {
-    Multiselect,
-  },
-  props: ["types"],
-  data: function () {
-    return {
-      typesList: [],
-      value: [],
-      options: [],
-    };
-  },
-  methods: {
-    getTypes() {
-      axios
-        .get("/api/types")
-        .then((response) => {
-          this.typesList = response.data;
-          this.typesList.forEach((types) => {
-            this.options.push(types);
-          });
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
+  import Multiselect from "vue-multiselect";
+  export default {
+    name: "SearchBar",
+    components: {
+      Multiselect,
     },
-    addTag(newTag) {
-      const tag = {
-        name: newTag,
-        code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000),
+    props: ["types"],
+    data: function () {
+      return {
+        typesList: [],
+        value: [],
+        options: [],
       };
-      this.options.push(tag);
-      this.value.push(tag);
     },
+    methods: {
+      getTypes() {
+        axios
+          .get("/api/types")
+          .then((response) => {
+            this.typesList = response.data;
+            this.typesList.forEach((types) => {
+              this.options.push(types);
+            });
+          })
+          .catch((error) => {
+            console.warn(error);
+          });
+      },
+      addTag(newTag) {
+        const tag = {
+          name: newTag,
+          code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000),
+        };
+        this.options.push(tag);
+        this.value.push(tag);
+      },
 
-    search(selectedOption, _id) {
-      const toSearch = this.value.map((val) => {
-        return val.id;
-      });
-
-      toSearch.push(selectedOption.id);
-
-      axios
-        .post("api/restaurant/search", {
-          types: toSearch,
-        })
-        .then((res) => {
-          this.$emit("restaurant", res.data);
+      search(selectedOption, _id) {
+        const toSearch = this.value.map((val) => {
+          return val.id;
         });
-    },
 
-    remove(removedOption, _id) {
-      const newValue = this.value.filter((val) => val.id !== removedOption.id);
+        toSearch.push(selectedOption.id);
 
-      const toSearch = newValue.map((val) => {
-        return val.id;
-      });
+        axios
+          .post("api/restaurant/search", {
+            types: toSearch,
+          })
+          .then((res) => {
+            this.$emit("restaurant", res.data);
+          });
+      },
 
-      axios
-        .post("api/restaurant/search", {
-          types: toSearch,
-        })
-        .then((res) => {
-          this.$emit("restaurant", res.data);
+      remove(removedOption, _id) {
+        const newValue = this.value.filter((val) => val.id !== removedOption.id);
+
+        const toSearch = newValue.map((val) => {
+          return val.id;
         });
+
+        axios
+          .post("api/restaurant/search", {
+            types: toSearch,
+          })
+          .then((res) => {
+            this.$emit("restaurant", res.data);
+          });
+      },
     },
-  },
-  created() {
-    this.getTypes();
-  },
-};
+    created() {
+      this.getTypes();
+    },
+  };
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-
-<style></style>

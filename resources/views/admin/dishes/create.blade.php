@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container justify-content-center align-items-center">
     <div class="row justify-content-center">
 
         <div class="col-md-6 card create-box">
-            <form class="rounded p-3" action="{{ route('admin.dishes.store') }}" method="POST"
+            <form id="create-dish" class="rounded-3 p-3" action="{{ route('admin.dishes.store') }}" method="POST"
                 enctype="multipart/form-data" id="form">
                 @csrf
 
@@ -17,8 +17,7 @@
                 <div class="col-12">
                     <h1 class="text-center fw-bold text-dark mb-5">Aggiungi un piatto</h1>
 
-
-                    <div class="mb-3">
+                    <div class="mb-3 group">
                         <label for="name" class="form-label">Inserisci nome piatto</label>
                         <input type="text" name="name" id="name" class="form-control">
                         @error('name')
@@ -71,7 +70,7 @@
                 </div>
             </form>
             <button type="" id="btn-submit-dish-create"
-                class="px-3 btn btn-dark text-white rounded-pill">Aggiungi</button>
+                class="px-3 btn btn-dark text-white rounded-pill mb-3">Aggiungi</button>
         </div>
     </div>
 </div>

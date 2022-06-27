@@ -18,7 +18,7 @@ class Order extends Model
         return $this->belongsTo("App\User");
     }
 
-    public function dish()
+    public function dishes()
     {
         return $this->belongsToMany("App\Model\Dish")->withPivot("quantity");
     }
