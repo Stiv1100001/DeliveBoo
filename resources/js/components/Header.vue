@@ -9,7 +9,7 @@
 
       <div class="right-side d-flex align-items-center justify-content-between">
         <!-- Cart -->
-        <div class="cart align-items-center me-3">
+        <!-- <div class="cart align-items-center me-3">
           <a href="/cart" class="text-decoration-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
               class="badge rounded-circle badge-notification bg-danger"
             ></span>
           </a>
-        </div>
+        </div> -->
 
         <!-- Login/Register -->
         <div class="login-control">

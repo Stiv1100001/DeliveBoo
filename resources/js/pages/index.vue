@@ -19,7 +19,7 @@
             id="restaurants"
             v-for="restaurant in randomRestaurants"
             :key="restaurant.id"
-            class="col-md-4 mt-3 mb-5"
+            class="col-md-6 col-lg-4 mt-3 mb-5"
           >
             <!-- <div class="restaurant-wrapper"> -->
             <img
@@ -115,7 +115,7 @@ div#full-width-div {
   width: 100vw;
   left: 0;
   padding: 50px 0;
-  //   border-radius: 60px;
+    border-radius: 60px;
   background-color: $cambridge-blue;
 
   div#searchbar {
@@ -133,7 +133,7 @@ div#main {
   img {
     border-radius: 20px;
   }
-  margin-top: 45rem;
+  margin-top: 40rem;
   h1 {
     color: $rich-black-fogra-29;
     font-family: $font-family-headings;
