@@ -16,7 +16,7 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        
+
         <!-- Font-Awesome cdn v6 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -34,18 +34,18 @@
                     </a>
 
                     <div class="navbar" id="navbarNav">
-                        
+
                         <!-- Right Side Of Navbar -->
                         <div class="navbar-nav d-flex align-items-center">
                             <!-- Authentication Links -->
                             <ul class="d-flex m-0">
                                 @guest
                             <li class="nav-item d-flex align-items-center">
-                                <a class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="btn btn-outline-dark text-uppercase rounded-pill me-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item d-flex align-items-center d-none d-sm-inline">
-                                <a class="btn btn-outline-dark rounded-pill border border-2 border-dark me-2 fw-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="btn btn-outline-dark text-uppercase rounded-pill" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
                             </ul>
@@ -60,7 +60,7 @@
                                         <i class="fas fa-bars p-1"></i>
                                     </button>
                                     <ul class="dropdown-menu bg-dropdown border border-2 border-dark" aria-labelledby="dropdownMenuLink">
-                                        
+
                                         <li class="dropdown-item text-center p-0">
                                             <a class="text-decoration-none text-black fw-bold"  href="{{ route('home') }}" role=“button">
                                                 <i class="fas fa-house me-1"></i>
@@ -80,7 +80,7 @@
                                                 <i class="fas fa-right-from-bracket"></i>
                                                 {{ __('Logout') }}
                                             </a>
-            
+
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
@@ -99,7 +99,7 @@
                 </nav>
             </div>
         </div>
-        
+
             <main>
                 @yield('content')
             </main>
