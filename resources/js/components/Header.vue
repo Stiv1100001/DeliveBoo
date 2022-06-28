@@ -9,6 +9,7 @@
 
       <div class="right-side d-flex align-items-center justify-content-between">
         <!-- Login/Register -->
+
         <div class="login-control">
           <a
             href="/login"
