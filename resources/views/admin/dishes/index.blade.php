@@ -76,15 +76,17 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault()
 
-                currentForm = form;
-                Swal.fire({
-                    title: 'Eliminazione',
-                    text: 'Sei sicuro di voler continuare? Il piatto verrà eliminato definitivamente',
-                    icon: 'warning',
-                    confirmButtonText: 'Prosegui',
-                    showCancelButton: true,
-                    cancelButtonText: 'Annulla'
-                }).then((result) => {
+
+        currentForm = form;
+        Swal.fire({
+            title: `Eliminare ${form.getAttribute('dish-name')}?`,
+            text: 'Sei sicuro di voler continuare? Il piatto verrà eliminato definitivamente',
+            icon: 'warning',
+            confirmButtonText: 'Prosegui',
+            showCancelButton: true,
+            cancelButtonText: 'Annulla'
+        }).then((result) => {
+
 
                     if (result.isConfirmed) {
                         currentForm.submit()
