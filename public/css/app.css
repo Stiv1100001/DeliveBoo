@@ -10250,6 +10250,10 @@ body .card-stepper {
   z-index: 0;
   border-radius: 10px;
 }
+body .card-stepper {
+  z-index: 0;
+  border-radius: 10px;
+}
 body img#user-img-nav {
   width: 2rem;
   height: 2rem;
@@ -10257,10 +10261,6 @@ body img#user-img-nav {
 body img#user-img-home {
   width: 10rem;
   height: 10rem;
-}
-body .card-stepper {
-  z-index: 0;
-  border-radius: 10px;
 }
 body img#user-img-nav {
   width: 2.5rem;

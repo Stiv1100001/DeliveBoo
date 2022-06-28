@@ -16,7 +16,7 @@
                             <h3 class="card-text text-center fw-bold abril-fatface-font">{{$dish->name}}</h3>
                             <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Descrizione:</span> {{$dish->description}}</p>
                             <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">ingredienti:</span> {{$dish->ingredients}}</p>
-                            <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Prezzo:</span>: {{$dish->price}}</p>
+                            <p class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Prezzo:</span>: {{$dish->price}} €</p>
                             <em class="card-text text-secondary"> <span class="fw-bold fs-5 text-dark">Creato il:</span> {{$dish->created_at}}</em>
                         </div>
                     </div>

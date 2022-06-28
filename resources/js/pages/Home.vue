@@ -23,7 +23,7 @@
           class="col-md-6 col-lg-4 mt-3 mb-5">
           <img
             :src="restaurant.image_url"
-            class="mb-3 w-100"
+            class="mb-3 w-100 h-50"
             :alt="'image of ' + restaurant.name_restaurant" />
           <h4 class="px-3">{{ restaurant.name_restaurant }}</h4>
           <div class="txt p-3 mt-3 d-flex">
