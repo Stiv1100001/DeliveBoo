@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <!-- <Header></Header> -->
     <div class="d-flex justify-content-center align-items-center">
       <div class="text-center" v-if="order">
         <h1 class="">Grazie dell'ordine!</h1>

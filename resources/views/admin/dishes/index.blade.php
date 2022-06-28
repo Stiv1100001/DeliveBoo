@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container align-items-center justify-content-center">
     <div class="row justify-content-center">
         <div class="col-12 py-2 edit-messsage">
             @if(session('message'))
             <div class="alert alert-success">
                 <p>{{session('message')}}</p>
+
             </div>
-            @endif
-        </div>
+
 
         <div class="col-12 card text-center p-0 mb-5 rounded">
             <div class="card-header  p-0" id="background-menu-admin">
@@ -47,9 +48,10 @@
                                             <button type="submit" class="btn btn-outline-dark text-uppercase rounded-pill">Elimina</button>
                                         </form>
 
+                                        </div>
                                     </div>
-
                                 </div>
+
                             </div>
                         </div>
                         @empty
@@ -58,24 +60,23 @@
                                 <p>Non ci sono piatti da mostrare.</p>
                             </div>
                         </div>
-                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('script')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    let currentForm = null;
+    <script>
+        let currentForm = null;
 
-   document.querySelectorAll('.delete').forEach(form => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
+        document.querySelectorAll('.delete').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+
 
         currentForm = form;
         Swal.fire({
@@ -87,17 +88,15 @@
             cancelButtonText: 'Annulla'
         }).then((result) => {
 
-            if (result.isConfirmed) {
-                currentForm.submit()
-            } else if (result.isCancelled) {
-                currentForm = null;
-                console.log(currentForm)
-            }
+
+                    if (result.isConfirmed) {
+                        currentForm.submit()
+                    } else if (result.isCancelled) {
+                        currentForm = null;
+                        console.log(currentForm)
+                    }
+                })
+            })
         })
-   })
-})
-
-
-</script>
-
+    </script>
 @endsection
