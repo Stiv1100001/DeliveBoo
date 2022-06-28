@@ -148,7 +148,7 @@ div#my-form {
 
   .form-container {
     background-color: $cambridge-blue;
-    font-family: "Raleway", sans-serif;
+    font-family: $font-family-txt;
     text-align: center;
     padding: 30px 20px 50px;
   }
@@ -205,7 +205,7 @@ div#my-form {
   .form-horizontal .form-control {
     color: #000;
     font-size: 16px;
-    font-weight: 600;
+    // font-weight: 600;
     height: 50px;
     padding: 10px 10px 10px 40px;
     margin: 0 0 5px;
