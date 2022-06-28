@@ -1,5 +1,5 @@
 <template>
-  <div id="jumbo" class="d-flex justify-content-around">
+  <div id="jumbo" class="d-flex container-fluid justify-content-evenly">
     <img
       src="/img/delivery.jpeg"
       class="align-self-center"
@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/app.scss";
 div#jumbo {
   position: relative;
   img#delivery {
