@@ -3,7 +3,6 @@
     <Header />
     <div class="container">
       <div id="jumbo" class="row mb-3">
-        <!-- <div class="col-8"></div> -->
         <div class="col-12" v-if="loading">
           {{ loading }}
         </div>
@@ -18,10 +17,13 @@
         <h1>Ristoranti</h1>
         <div
           id="restaurants"
-          v-for="restaurant in randomRestaurants"
+          v-for="restaurant in restaurantToShow"
           :key="restaurant.id"
           class="col-md-6 col-lg-4 mt-3 mb-5">
-          <img :src="restaurant.image_url" class="mb-3 w-100 h-50" :alt="'image of ' + restaurant.name_restaurant" />
+          <img
+            :src="getUrlImg(restaurant.image_url)"
+            class="mb-3 w-100 h-50"
+            :alt="'image of ' + restaurant.name_restaurant" />
           <h4 class="px-3">{{ restaurant.name_restaurant }}</h4>
           <div class="txt p-3 mt-3 d-flex">
             <div id="address">
@@ -67,6 +69,11 @@
     methods: {
       setSearchedData(restaurant) {
         this.searchedRestaurant = restaurant;
+      },
+
+      getUrlImg(img) {
+        if (img.startsWith("http")) return img;
+        else return "/storage/" + img;
       },
     },
     created() {

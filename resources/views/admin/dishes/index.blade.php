@@ -13,7 +13,8 @@
 
         <div class="col-12 card text-center p-0 mb-5 rounded">
             <div class="card-header  p-0" id="background-menu-admin">
-                <div class="w-100 h-100 my-opacity text-uppercase align-items-center d-flex justify-content-between p-3">
+                <div
+                    class="w-100 h-100 my-opacity text-uppercase align-items-center d-flex justify-content-between p-3">
                     <h4 class="m-0 abril-fatface-font fw-bold text-white">Menu</h4>
                     <a href="{{route('admin.dishes.create')}}">
                         <button class="btn btn-outline-light text-uppercase rounded-pill">Aggiungi piatto</button>
@@ -28,23 +29,34 @@
                             <div class="card shadow border border-3 border-dark bg-dark">
 
                                 <div class="card-body" id="my-card-menu">
-                                    <a class="fw-bold text-decoration-none fs-1 text-center card-title abril-fatface-font text-black" href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
-                                    <p class="card-text text-center mt-4">{{Str::limit($dish->description, 20, '...')}}</p>
+                                    <a class="fw-bold text-decoration-none fs-1 text-center card-title abril-fatface-font text-black"
+                                        href="{{route('admin.dishes.show', $dish)}}">{{$dish->name}}</a>
+                                    <p class="card-text text-center mt-4">{{Str::limit($dish->description, 20, '...')}}
+                                    </p>
                                     <p class="card-text  text-center">{{Str::limit($dish->ingredients, 20, '...')}}</p>
-                                    <p class="card-text  text-center">{{$dish->price}} €</p>
-                                    {{-- <p class="card-text">Disponibile: {{$dish->availability ? 'Sì' : 'No'}}</p> --}}
-                                    <p class="card-text  text-center"><small class="text-muted">{{$dish->created_at}}</small>
+                                    <p class="card-text  text-center">{{$dish->price}}€</p>
+                                    {{-- <p class="card-text">Disponibile: {{$dish->availability ? 'Sì' : 'No'}}</p>
+                                    --}}
+                                    @if ($dish->availability)
+                                    <span class="badge badge-pill bg-success">Disponibile</span>
+                                    @else
+                                    <span class="badge badge-pill bg-danger">Non disponibile</span>
+                                    @endif
+                                    <p class="card-text  text-center"><small
+                                            class="text-muted">{{$dish->created_at}}</small>
                                     </p>
                                     <div class="buttons d-flex justify-content-center">
                                         <a class="me-3" href="{{route('admin.dishes.edit', $dish)}}">
-                                            <button class="btn btn-outline-dark text-uppercase rounded-pill">Modifica</button>
+                                            <button
+                                                class="btn btn-outline-dark text-uppercase rounded-pill">Modifica</button>
                                         </a>
                                         <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST"
                                             class="delete" dish-model="{{$dish->id}}" dish-name="{{ $dish->name}}">
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit" class="btn btn-outline-dark text-uppercase rounded-pill">Elimina</button>
+                                            <button type="submit"
+                                                class="btn btn-outline-dark text-uppercase rounded-pill">Elimina</button>
                                         </form>
 
                                     </div>

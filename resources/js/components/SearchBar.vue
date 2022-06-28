@@ -70,6 +70,7 @@
             types: toSearch,
           })
           .then((res) => {
+            console.log(res.data);
             this.$emit("restaurant", res.data);
           });
       },
@@ -86,6 +87,7 @@
             types: toSearch,
           })
           .then((res) => {
+            console.log(res.data);
             this.$emit("restaurant", res.data);
           });
       },
