@@ -77,7 +77,7 @@
 
         currentForm = form;
         Swal.fire({
-            title: 'Eliminazione',
+            title: `Eliminare ${form.getAttribute('dish-name')}?`,
             text: 'Sei sicuro di voler continuare? Il piatto verrà eliminato definitivamente',
             icon: 'warning',
             confirmButtonText: 'Prosegui',
