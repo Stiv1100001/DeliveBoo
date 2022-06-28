@@ -5,7 +5,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <Header></Header>
+    <!-- <Header></Header> -->
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mt-3">
         <h1 class="" v-if="restaurant">
