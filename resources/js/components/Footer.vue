@@ -1,7 +1,7 @@
 <template>
   <div id="footer" class="container">
     <div class="row px-0 my-5 justify-content-between">
-      <div id="logo-app" class="col-lg-4 d-flex flex-column mb-4">
+      <div id="logo-app" class="col-lg-4 d-flex flex-column mb-5">
         <a href="/" class="logo text-decoration-none">
           <!-- <span>DeliveBoo</span> -->
           <img src="/img/Deliveboo_Logo.png" alt="DeliveBoo logo" />
