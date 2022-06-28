@@ -36,4 +36,15 @@
 
 <style lang="scss" scoped>
   @import "../../sass/app.scss";
+
+  @include media("<=phone") {
+      div#header-guest {
+        a.logo {
+            width: 70px;
+        }
+        div.login-control {
+
+        }
+      }
+    }
 </style>
