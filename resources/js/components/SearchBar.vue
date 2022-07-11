@@ -11,6 +11,7 @@
       label="name_type"
       track-by="name_type"
       :searchable="false"
+      class="col-md-10"
       :taggable="true"
       @tag="addTag"
       @select="search"
@@ -69,6 +70,7 @@
             types: toSearch,
           })
           .then((res) => {
+            console.log(res.data);
             this.$emit("restaurant", res.data);
           });
       },
@@ -85,6 +87,7 @@
             types: toSearch,
           })
           .then((res) => {
+            console.log(res.data);
             this.$emit("restaurant", res.data);
           });
       },

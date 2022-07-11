@@ -1,17 +1,19 @@
 <template>
-  <div class="card rounded-3">
-    <img :src="getUrlImage(item.img_url)" class="img-fluid" alt="" />
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.description }}</p>
-      <p class="card-text">Ingredienti: {{ item.ingredients }}</p>
-      <p class="card-text">prezzo: {{ item.price }} &euro;</p>
+  <div class="card rounded">
 
-      <div class="q-holder w-100 d-flex justify-content-between align-items-center">
-        <button class="btn btn-info w-25" @click="minus()" :disabled="quantity.length == 0">-</button>
-        <span class="">{{ quantity }}</span>
-        <button class="btn btn-info w-25" @click="plus()">+</button>
+    <div class="card-body overflow-auto p-0 rounded-top">
+      <img :src="getUrlImage(item.img_url)" class="w-100 rounded-top" alt="" />
+      <div class="card-texts p-3">
+        <h5 class="card-title t fw-bold">{{ item.name }}</h5>
+        <p class="card-text">{{ item.description }}</p>
+        <p class="card-text"><span class="fw-bold">Ingredienti:</span> {{ item.ingredients }}</p>
+        <p class="card-text"><span class="fw-bold">prezzo:</span>  {{ item.price }} &euro;</p>
       </div>
+    </div>
+    <div class="q-holder w-100 d-flex justify-content-between align-items-center shadow p-3">
+      <button class="btn w-25 fw-bold text-center" @click="minus()" :disabled="quantity.length == 0">-</button>
+      <span class="fw-bold">{{ quantity }}</span>
+      <button class="btn w-25 fw-bold" text-center @click="plus()">+</button>
     </div>
   </div>
 </template>
@@ -127,4 +129,11 @@
   };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .card{
+    height: 70vh;
+  }
+  button{
+    background-color: hsla(38, 100%, 58%, 1);
+  }
+</style>
