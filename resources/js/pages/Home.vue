@@ -1,7 +1,6 @@
 <template>
-
   <div id="wrapper" class="mb-5">
-    <Header />
+    <!-- <Header /> -->
     <div class="container">
       <div id="jumbo" class="row mb-3">
         <div class="col-12" v-if="loading">
@@ -43,7 +42,7 @@
         </div>
       </div>
     </div>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
